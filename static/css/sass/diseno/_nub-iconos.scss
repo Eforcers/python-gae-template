@@ -1,0 +1,48 @@
+//
+// Glyphicons for nubicon
+//
+// Since icons are fonts, they can be placed anywhere text is placed and are
+// thus automatically sized to match the surrounding child. To use, create an
+// inline element with the appropriate classes, like so:
+//
+// <a href="#"><span class="nubicon nubicon-star"></span> Star</a>
+
+@font-face {
+  font-family: 'nubicon';
+  src: url("../fonts/nubicon/nubicon.eot");
+  src: url("../fonts/nubicon/nubicon.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/nubicon/nubicon.woff") format("woff"),
+  url("../fonts/nubicon/nubicon.ttf") format("truetype"),
+  url("../fonts/nubicon/nubicon.svg#nubicon") format("svg");
+}
+
+// Catchall baseclass
+.nubicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'nubicon';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Individual icons
+.nubicon-cubiertos           { &:before { content: "\2601"; } }
+.nubicon-location            { &:before { content: "\2709"; } }
+.nubicon-facebook            { &:before { content: "\270f"; } }
+.nubicon-gplus               { &:before { content: "\E001"; } }
+.nubicon-linkedin            { &:before { content: "\E002"; } }
+.nubicon-twitter             { &:before { content: "\E003"; } }
+.nubicon-dessert_cir         { &:before { content: "\E005"; } }
+.nubicon-dessert             { &:before { content: "\E006"; } }
+.nubicon-fastfood_cir        { &:before { content: "\E007"; } }
+.nubicon-fastfood            { &:before { content: "\E008"; } }
+.nubicon-coffe_cir           { &:before { content: "\E009"; } }
+.nubicon-coffe               { &:before { content: "\E010"; } }
+.nubicon-lunch_cir           { &:before { content: "\E011"; } }
+.nubicon-lunch               { &:before { content: "\E012"; } }
+.nubicon-winne_cir           { &:before { content: "\E013"; } }
+.nubicon-winne               { &:before { content: "\E014"; } }

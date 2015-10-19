@@ -1,0 +1,1698 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*invertidos*/
+/* line 1, sass/diseno/_default.scss */
+img {
+  max-width: 100%;
+}
+
+/* line 5, sass/diseno/_default.scss */
+input[type="text"],
+textarea,
+select {
+  background-color: #fff;
+  border: 1px solid #b3b3b3;
+}
+
+/* line 12, sass/diseno/_default.scss */
+textarea {
+  resize: both;
+  /* none|horizontal|vertical|both */
+}
+/* line 15, sass/diseno/_default.scss */
+textarea.vert {
+  resize: vertical;
+}
+/* line 16, sass/diseno/_default.scss */
+textarea.noResize {
+  resize: none;
+}
+
+/* line 19, sass/diseno/_default.scss */
+input[type="checkbox"], input[type="radio"] {
+  position: relative;
+  top: -3px;
+}
+
+/* line 23, sass/diseno/_default.scss */
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 29, sass/diseno/_default.scss */
+hr.no-margin {
+  margin: 0 auto;
+}
+
+/* line 32, sass/diseno/_default.scss */
+.text-justify {
+  text-align: justify;
+}
+
+/* line 35, sass/diseno/_default.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 38, sass/diseno/_default.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 41, sass/diseno/_default.scss */
+.text-nowrap {
+  white-space: nowrap;
+}
+
+/*@include keyframes(bgcolor) {
+  0% {
+    background-color: #ffccf2;
+  }
+  50% {
+    background-color: #ccffcc;
+  }
+  100% {
+    background-color: #ccffff;
+  } 
+}*/
+@-webkit-keyframes menuDown {
+  0% {
+    /*
+      @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+    */
+    transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    /*
+      @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+    */
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@-moz-keyframes menuDown {
+  0% {
+    /*
+      @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+    */
+    transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    /*
+      @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+    */
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@-ms-keyframes menuDown {
+  0% {
+    /*
+      @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+    */
+    transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    /*
+      @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+    */
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@-o-keyframes menuDown {
+  0% {
+    /*
+      @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+    */
+    transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    /*
+      @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+    */
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes menuDown {
+  0% {
+    /*
+      @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+    */
+    transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    /*
+      @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+    */
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    opacity: 1;
+  }
+}
+/* line 14, sass/diseno/_estructura.scss */
+html {
+  overflow: auto;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background: #fff;
+  color: #555;
+}
+
+/* line 22, sass/diseno/_estructura.scss */
+body {
+  overflow: visible;
+}
+/* line 25, sass/diseno/_estructura.scss */
+body.ng-scope .no-angular-hide {
+  opacity: 1;
+  height: 400px;
+}
+
+/* line 32, sass/diseno/_estructura.scss */
+.no-angular-hide {
+  -webkit-animation: menuDown 500ms ease-in-out;
+  -o-animation: menuDown 500ms ease-in-out;
+  animation: menuDown 500ms ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+/* line 37, sass/diseno/_estructura.scss */
+.tab-pane.active {
+  -webkit-animation: menuDown 500ms ease-in-out;
+  -o-animation: menuDown 500ms ease-in-out;
+  animation: menuDown 500ms ease-in-out;
+}
+
+/* line 40, sass/diseno/_estructura.scss */
+.lnk-credits {
+  color: #808080;
+}
+/* line 42, sass/diseno/_estructura.scss */
+.lnk-credits a {
+  color: #808080;
+}
+
+/* line 47, sass/diseno/_estructura.scss */
+#loading > legend {
+  border-color: transparent;
+}
+
+/* line 52, sass/diseno/_estructura.scss */
+.modal .alerts {
+  text-align: center;
+  position: fixed;
+  display: inline-block;
+  z-index: 10;
+  left: 3%;
+  right: 3%;
+  width: auto;
+  top: 75px;
+}
+/* line 61, sass/diseno/_estructura.scss */
+.modal .alerts .alert {
+  padding: 4px 8px;
+  max-width: 80%;
+  margin: 5px auto;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px 0;
+}
+
+/* line 69, sass/diseno/_estructura.scss */
+.tl-tip {
+  position: absolute;
+  background: #000;
+  color: white;
+  border-radius: 2px;
+  opacity: 0.75;
+  padding: 4px 6px;
+  font-size: 10px;
+  white-space: nowrap;
+  min-width: 75px;
+  left: 0;
+  margin-left: -34px;
+  display: none;
+  text-align: center;
+}
+/* line 84, sass/diseno/_estructura.scss */
+.tl-tip.tl-bottom {
+  bottom: 100%;
+  margin-bottom: 10px;
+}
+/* line 87, sass/diseno/_estructura.scss */
+.tl-tip.tl-bottom:before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  width: 0;
+  height: 0;
+  display: inline-block;
+  border-style: solid;
+  border-width: 8px 8px 0 8px;
+  border-color: #000 transparent transparent transparent;
+  margin-left: -8px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+}
+
+/*reescritura de variables*/
+/* line 99, sass/diseno/_estructura.scss */
+.nav-tabs > li.active > a, .nav-tabs .nav-tabs > li.active > a:hover, .nav-tabs .nav-tabs > li.active > a:focus {
+  color: #808080;
+}
+/* line 102, sass/diseno/_estructura.scss */
+.nav-tabs > li.active > a:hover {
+  background: white;
+}
+
+/* line 108, sass/diseno/_estructura.scss */
+.modal .nav-tabs > li.active > a, .modal .nav-tabs .nav-tabs > li.active > a:hover, .modal .nav-tabs .nav-tabs > li.active > a:focus {
+  color: #555;
+}
+/* line 111, sass/diseno/_estructura.scss */
+.modal .nav-tabs > li > a {
+  color: #808080;
+}
+
+/* line 116, sass/diseno/_estructura.scss */
+.btn-default {
+  font-weight: bold;
+}
+
+/* line 119, sass/diseno/_estructura.scss */
+.modal-body {
+  padding-bottom: 0;
+}
+
+/* line 122, sass/diseno/_estructura.scss */
+.modal-footer {
+  margin-top: 0;
+  border-top: 0;
+}
+
+/* line 126, sass/diseno/_estructura.scss */
+.nav > li > a {
+  color: #555;
+  padding: 6px 10px 8px;
+  font-weight: bold;
+}
+
+/* line 131, sass/diseno/_estructura.scss */
+.pager li > a, .pager li > span {
+  padding: 2px 8px;
+  color: #555;
+  font-weight: bold;
+  border-radius: 8px;
+}
+/* line 136, sass/diseno/_estructura.scss */
+.pager li > a:hover, .pager li > span:hover {
+  background: none;
+}
+
+/* line 140, sass/diseno/_estructura.scss */
+.modal {
+  overflow: auto;
+  outline: none;
+}
+/* line 143, sass/diseno/_estructura.scss */
+.modal label {
+  font-weight: normal;
+}
+
+/* line 147, sass/diseno/_estructura.scss */
+.modal-backdrop {
+  background-color: white;
+}
+
+/* line 150, sass/diseno/_estructura.scss */
+.modal-header {
+  border-bottom: 0;
+  padding-bottom: 1px;
+}
+/* line 153, sass/diseno/_estructura.scss */
+.modal-header > .row {
+  padding: 20px 20px 0;
+}
+/* line 156, sass/diseno/_estructura.scss */
+.modal-header .img_title {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+/* line 161, sass/diseno/_estructura.scss */
+.modal-header h3 {
+  padding: 0;
+  margin: 0;
+  margin-right: 4px;
+  font-size: 16px;
+  line-height: 1.3em;
+  padding-left: 65px;
+  font-weight: bold;
+}
+/* line 170, sass/diseno/_estructura.scss */
+.modal-header p {
+  margin: 0;
+  padding-top: 6px;
+  text-align: justify;
+  clear: both;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* line 179, sass/diseno/_estructura.scss */
+.tab-content {
+  max-height: 465px;
+  overflow: hidden;
+  overflow-y: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+/*componenetes*/
+/* line 190, sass/diseno/_estructura.scss */
+input.only-line,
+textarea.only-line,
+select.only-line {
+  border-width: 0 0 1px 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+/* line 194, sass/diseno/_estructura.scss */
+input.only-line:focus,
+textarea.only-line:focus,
+select.only-line:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/* line 198, sass/diseno/_estructura.scss */
+input.no-border,
+textarea.no-border,
+select.no-border {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-width: 0 0 1px 0;
+  border-color: transparent;
+  border-radius: 0;
+}
+/* line 203, sass/diseno/_estructura.scss */
+input.no-border:focus,
+textarea.no-border:focus,
+select.no-border:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 208, sass/diseno/_estructura.scss */
+.inline {
+  display: inline-block;
+}
+
+/* line 211, sass/diseno/_estructura.scss */
+.inp-sm {
+  width: 70px;
+}
+
+/* line 214, sass/diseno/_estructura.scss */
+.inp-md {
+  width: 150px;
+}
+
+/* line 217, sass/diseno/_estructura.scss */
+.form-list {
+  margin-bottom: 15px;
+}
+
+/* line 221, sass/diseno/_estructura.scss */
+.cont-years .row-year {
+  clear: both;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  display: block;
+  padding: 0 4px;
+}
+/* line 227, sass/diseno/_estructura.scss */
+.cont-years .row-year:last-child {
+  border-bottom-color: transparent;
+}
+/* line 230, sass/diseno/_estructura.scss */
+.cont-years .row-year input {
+  background: transparent;
+}
+/* line 233, sass/diseno/_estructura.scss */
+.cont-years .row-year:hover {
+  background: #f5f5f5;
+}
+/* line 236, sass/diseno/_estructura.scss */
+.cont-years .row-year:hover input[type="number"] {
+  border-bottom-color: #5897fb;
+  color: #5897fb;
+}
+/* line 240, sass/diseno/_estructura.scss */
+.cont-years .row-year:hover input[readonly] {
+  color: #555;
+  border-color: transparent !important;
+}
+
+/* line 149, sass/diseno/_mixin.scss */
+.lista-iniciativas, .lista-iniciativas ul, .lista-iniciativas li {
+  display: "block";
+  list-style: none;
+  margin: auto;
+  padding: 0;
+}
+/* line 249, sass/diseno/_estructura.scss */
+.lista-iniciativas {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  max-height: 820px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+/* line 257, sass/diseno/_estructura.scss */
+.lista-iniciativas li {
+  -webkit-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -webkit-box-shadow: transparent 0 0 0 0;
+  box-shadow: transparent 0 0 0 0;
+  -webkit-perspective: 650px;
+  -moz-perspective: 650px;
+  perspective: 650px;
+  -webkit-perspective-origin: 50% 100%;
+  -moz-perspective-origin: 50% 100%;
+  perspective-origin: 50% 100%;
+  border-bottom: 1px solid #ddd;
+}
+/* line 263, sass/diseno/_estructura.scss */
+.lista-iniciativas li:last-child {
+  border-bottom-color: transparent;
+}
+/* line 267, sass/diseno/_estructura.scss */
+.lista-iniciativas li:hover:last-child, .lista-iniciativas li:active:last-child {
+  border-bottom-color: #ddd;
+}
+/* line 270, sass/diseno/_estructura.scss */
+.lista-iniciativas li:hover .cont-perspective, .lista-iniciativas li:active .cont-perspective {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0 -4px 8px 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 -4px 8px 0;
+  -moz-transform: rotateX(-8deg);
+  -ms-transform: rotateX(-8deg);
+  -webkit-transform: rotateX(-8deg);
+  transform: rotateX(-8deg);
+  border-left-color: #bcd5fd;
+}
+/* line 274, sass/diseno/_estructura.scss */
+.lista-iniciativas li:hover .cont-perspective:after, .lista-iniciativas li:active .cont-perspective:after {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjEwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4wMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(10%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.01)));
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 10%, rgba(0, 0, 0, 0.01));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 10%, rgba(0, 0, 0, 0.01));
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 10%, rgba(0, 0, 0, 0.01));
+}
+/* line 279, sass/diseno/_estructura.scss */
+.lista-iniciativas li:hover .tools-links, .lista-iniciativas li:active .tools-links {
+  opacity: 1;
+  -moz-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+}
+/* line 287, sass/diseno/_estructura.scss */
+.lista-iniciativas li .cont-perspective {
+  -webkit-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  background: url(../img/icon-idea.png) 10px center no-repeat;
+  padding: 14px 14px 30px 65px;
+  position: relative;
+  border-left: 3px solid transparent;
+  overflow: hidden;
+}
+/* line 294, sass/diseno/_estructura.scss */
+.lista-iniciativas li .cont-perspective:after {
+  -webkit-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0));
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0));
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+/* line 304, sass/diseno/_estructura.scss */
+.lista-iniciativas li .tools-links {
+  -webkit-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -moz-transform: translateX(-30px);
+  -ms-transform: translateX(-30px);
+  -webkit-transform: translateX(-30px);
+  transform: translateX(-30px);
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  padding-left: 64px;
+  opacity: 0;
+}
+/* line 312, sass/diseno/_estructura.scss */
+.lista-iniciativas li .tools-links > a {
+  -webkit-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -webkit-box-shadow: transparent 0 0 0 0;
+  box-shadow: transparent 0 0 0 0;
+  position: relative;
+  float: left;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  padding: 4px 6px 0;
+  background: white;
+  cursor: pointer;
+  z-index: 1;
+  margin-left: 4px;
+  color: #555;
+}
+/* line 326, sass/diseno/_estructura.scss */
+.lista-iniciativas li .tools-links > a:hover {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0 -4px 4px 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 -4px 4px 0;
+  color: #5897fb;
+}
+/* line 329, sass/diseno/_estructura.scss */
+.lista-iniciativas li .tools-links > a:hover > .tl-tip {
+  display: block;
+}
+
+/* line 1, sass/diseno/_objetos.scss */
+[class^="ico-"],
+[class*=" ico-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../imgs/objetos/icons/glyphicons-halflings.png");
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+}
+
+/* line 15, sass/diseno/_objetos.scss */
+.ico-white {
+  background-image: url("../imgs/objetos/icons/glyphicons-halflings-white.png");
+}
+
+/* line 19, sass/diseno/_objetos.scss */
+.ico-glass {
+  background-position: 0      0;
+}
+
+/* line 23, sass/diseno/_objetos.scss */
+.ico-music {
+  background-position: -24px 0;
+}
+
+/* line 27, sass/diseno/_objetos.scss */
+.ico-search {
+  background-position: -48px 0;
+}
+
+/* line 31, sass/diseno/_objetos.scss */
+.ico-envelope {
+  background-position: -72px 0;
+}
+
+/* line 35, sass/diseno/_objetos.scss */
+.ico-heart {
+  background-position: -96px 0;
+}
+
+/* line 39, sass/diseno/_objetos.scss */
+.ico-star {
+  background-position: -120px 0;
+}
+
+/* line 43, sass/diseno/_objetos.scss */
+.ico-star-empty {
+  background-position: -144px 0;
+}
+
+/* line 47, sass/diseno/_objetos.scss */
+.ico-user {
+  background-position: -168px 0;
+}
+
+/* line 51, sass/diseno/_objetos.scss */
+.ico-film {
+  background-position: -192px 0;
+}
+
+/* line 55, sass/diseno/_objetos.scss */
+.ico-th-large {
+  background-position: -216px 0;
+}
+
+/* line 59, sass/diseno/_objetos.scss */
+.ico-th {
+  background-position: -240px 0;
+}
+
+/* line 63, sass/diseno/_objetos.scss */
+.ico-th-list {
+  background-position: -264px 0;
+}
+
+/* line 67, sass/diseno/_objetos.scss */
+.ico-ok {
+  background-position: -288px 0;
+}
+
+/* line 71, sass/diseno/_objetos.scss */
+.ico-remove {
+  background-position: -312px 0;
+}
+
+/* line 75, sass/diseno/_objetos.scss */
+.ico-zoom-in {
+  background-position: -336px 0;
+}
+
+/* line 79, sass/diseno/_objetos.scss */
+.ico-zoom-out {
+  background-position: -360px 0;
+}
+
+/* line 83, sass/diseno/_objetos.scss */
+.ico-off {
+  background-position: -384px 0;
+}
+
+/* line 87, sass/diseno/_objetos.scss */
+.ico-signal {
+  background-position: -408px 0;
+}
+
+/* line 91, sass/diseno/_objetos.scss */
+.ico-cog {
+  background-position: -432px 0;
+}
+
+/* line 95, sass/diseno/_objetos.scss */
+.ico-trash {
+  background-position: -456px 0;
+}
+
+/* line 99, sass/diseno/_objetos.scss */
+.ico-home {
+  background-position: 0 -24px;
+}
+
+/* line 103, sass/diseno/_objetos.scss */
+.ico-file {
+  background-position: -24px -24px;
+}
+
+/* line 107, sass/diseno/_objetos.scss */
+.ico-time {
+  background-position: -48px -24px;
+}
+
+/* line 111, sass/diseno/_objetos.scss */
+.ico-road {
+  background-position: -72px -24px;
+}
+
+/* line 115, sass/diseno/_objetos.scss */
+.ico-download-alt {
+  background-position: -96px -24px;
+}
+
+/* line 119, sass/diseno/_objetos.scss */
+.ico-download {
+  background-position: -120px -24px;
+}
+
+/* line 123, sass/diseno/_objetos.scss */
+.ico-upload {
+  background-position: -144px -24px;
+}
+
+/* line 127, sass/diseno/_objetos.scss */
+.ico-inbox {
+  background-position: -168px -24px;
+}
+
+/* line 131, sass/diseno/_objetos.scss */
+.ico-play-circle {
+  background-position: -192px -24px;
+}
+
+/* line 135, sass/diseno/_objetos.scss */
+.ico-repeat {
+  background-position: -216px -24px;
+}
+
+/* line 139, sass/diseno/_objetos.scss */
+.ico-refresh {
+  background-position: -240px -24px;
+}
+
+/* line 143, sass/diseno/_objetos.scss */
+.ico-list-alt {
+  background-position: -264px -24px;
+}
+
+/* line 147, sass/diseno/_objetos.scss */
+.ico-lock {
+  background-position: -287px -24px;
+}
+
+/* line 151, sass/diseno/_objetos.scss */
+.ico-flag {
+  background-position: -312px -24px;
+}
+
+/* line 155, sass/diseno/_objetos.scss */
+.ico-headphones {
+  background-position: -336px -24px;
+}
+
+/* line 159, sass/diseno/_objetos.scss */
+.ico-volume-off {
+  background-position: -360px -24px;
+}
+
+/* line 163, sass/diseno/_objetos.scss */
+.ico-volume-down {
+  background-position: -384px -24px;
+}
+
+/* line 167, sass/diseno/_objetos.scss */
+.ico-volume-up {
+  background-position: -408px -24px;
+}
+
+/* line 171, sass/diseno/_objetos.scss */
+.ico-qrcode {
+  background-position: -432px -24px;
+}
+
+/* line 175, sass/diseno/_objetos.scss */
+.ico-barcode {
+  background-position: -456px -24px;
+}
+
+/* line 179, sass/diseno/_objetos.scss */
+.ico-tag {
+  background-position: 0 -48px;
+}
+
+/* line 183, sass/diseno/_objetos.scss */
+.ico-tags {
+  background-position: -25px -48px;
+}
+
+/* line 187, sass/diseno/_objetos.scss */
+.ico-book {
+  background-position: -48px -48px;
+}
+
+/* line 191, sass/diseno/_objetos.scss */
+.ico-bookmark {
+  background-position: -72px -48px;
+}
+
+/* line 195, sass/diseno/_objetos.scss */
+.ico-print {
+  background-position: -96px -48px;
+}
+
+/* line 199, sass/diseno/_objetos.scss */
+.ico-camera {
+  background-position: -120px -48px;
+}
+
+/* line 203, sass/diseno/_objetos.scss */
+.ico-font {
+  background-position: -144px -48px;
+}
+
+/* line 207, sass/diseno/_objetos.scss */
+.ico-bold {
+  background-position: -167px -48px;
+}
+
+/* line 211, sass/diseno/_objetos.scss */
+.ico-italic {
+  background-position: -192px -48px;
+}
+
+/* line 215, sass/diseno/_objetos.scss */
+.ico-text-height {
+  background-position: -216px -48px;
+}
+
+/* line 219, sass/diseno/_objetos.scss */
+.ico-text-width {
+  background-position: -240px -48px;
+}
+
+/* line 223, sass/diseno/_objetos.scss */
+.ico-align-left {
+  background-position: -264px -48px;
+}
+
+/* line 227, sass/diseno/_objetos.scss */
+.ico-align-center {
+  background-position: -288px -48px;
+}
+
+/* line 231, sass/diseno/_objetos.scss */
+.ico-align-right {
+  background-position: -312px -48px;
+}
+
+/* line 235, sass/diseno/_objetos.scss */
+.ico-align-justify {
+  background-position: -336px -48px;
+}
+
+/* line 239, sass/diseno/_objetos.scss */
+.ico-list {
+  background-position: -360px -48px;
+}
+
+/* line 243, sass/diseno/_objetos.scss */
+.ico-indent-left {
+  background-position: -384px -48px;
+}
+
+/* line 247, sass/diseno/_objetos.scss */
+.ico-indent-right {
+  background-position: -408px -48px;
+}
+
+/* line 251, sass/diseno/_objetos.scss */
+.ico-facetime-video {
+  background-position: -432px -48px;
+}
+
+/* line 255, sass/diseno/_objetos.scss */
+.ico-picture {
+  background-position: -456px -48px;
+}
+
+/* line 259, sass/diseno/_objetos.scss */
+.ico-pencil {
+  background-position: 0 -72px;
+}
+
+/* line 263, sass/diseno/_objetos.scss */
+.ico-map-marker {
+  background-position: -24px -72px;
+}
+
+/* line 267, sass/diseno/_objetos.scss */
+.ico-adjust {
+  background-position: -48px -72px;
+}
+
+/* line 271, sass/diseno/_objetos.scss */
+.ico-tint {
+  background-position: -72px -72px;
+}
+
+/* line 275, sass/diseno/_objetos.scss */
+.ico-edit {
+  background-position: -96px -72px;
+}
+
+/* line 279, sass/diseno/_objetos.scss */
+.ico-share {
+  background-position: -120px -72px;
+}
+
+/* line 283, sass/diseno/_objetos.scss */
+.ico-check {
+  background-position: -144px -72px;
+}
+
+/* line 287, sass/diseno/_objetos.scss */
+.ico-move {
+  background-position: -168px -72px;
+}
+
+/* line 291, sass/diseno/_objetos.scss */
+.ico-step-backward {
+  background-position: -192px -72px;
+}
+
+/* line 295, sass/diseno/_objetos.scss */
+.ico-fast-backward {
+  background-position: -216px -72px;
+}
+
+/* line 299, sass/diseno/_objetos.scss */
+.ico-backward {
+  background-position: -240px -72px;
+}
+
+/* line 303, sass/diseno/_objetos.scss */
+.ico-play {
+  background-position: -264px -72px;
+}
+
+/* line 307, sass/diseno/_objetos.scss */
+.ico-pause {
+  background-position: -288px -72px;
+}
+
+/* line 311, sass/diseno/_objetos.scss */
+.ico-stop {
+  background-position: -312px -72px;
+}
+
+/* line 315, sass/diseno/_objetos.scss */
+.ico-forward {
+  background-position: -336px -72px;
+}
+
+/* line 319, sass/diseno/_objetos.scss */
+.ico-fast-forward {
+  background-position: -360px -72px;
+}
+
+/* line 323, sass/diseno/_objetos.scss */
+.ico-step-forward {
+  background-position: -384px -72px;
+}
+
+/* line 327, sass/diseno/_objetos.scss */
+.ico-eject {
+  background-position: -408px -72px;
+}
+
+/* line 331, sass/diseno/_objetos.scss */
+.ico-chevron-left {
+  background-position: -432px -72px;
+}
+
+/* line 335, sass/diseno/_objetos.scss */
+.ico-chevron-right {
+  background-position: -456px -72px;
+}
+
+/* line 339, sass/diseno/_objetos.scss */
+.ico-plus-sign {
+  background-position: 0 -96px;
+}
+
+/* line 343, sass/diseno/_objetos.scss */
+.ico-minus-sign {
+  background-position: -24px -96px;
+}
+
+/* line 347, sass/diseno/_objetos.scss */
+.ico-remove-sign {
+  background-position: -48px -96px;
+}
+
+/* line 351, sass/diseno/_objetos.scss */
+.ico-ok-sign {
+  background-position: -72px -96px;
+}
+
+/* line 355, sass/diseno/_objetos.scss */
+.ico-question-sign {
+  background-position: -96px -96px;
+}
+
+/* line 359, sass/diseno/_objetos.scss */
+.ico-info-sign {
+  background-position: -120px -96px;
+}
+
+/* line 363, sass/diseno/_objetos.scss */
+.ico-screenshot {
+  background-position: -144px -96px;
+}
+
+/* line 367, sass/diseno/_objetos.scss */
+.ico-remove-circle {
+  background-position: -168px -96px;
+}
+
+/* line 371, sass/diseno/_objetos.scss */
+.ico-ok-circle {
+  background-position: -192px -96px;
+}
+
+/* line 375, sass/diseno/_objetos.scss */
+.ico-ban-circle {
+  background-position: -216px -96px;
+}
+
+/* line 379, sass/diseno/_objetos.scss */
+.ico-arrow-left {
+  background-position: -240px -96px;
+}
+
+/* line 383, sass/diseno/_objetos.scss */
+.ico-arrow-right {
+  background-position: -264px -96px;
+}
+
+/* line 387, sass/diseno/_objetos.scss */
+.ico-arrow-up {
+  background-position: -289px -96px;
+}
+
+/* line 391, sass/diseno/_objetos.scss */
+.ico-arrow-down {
+  background-position: -312px -96px;
+}
+
+/* line 395, sass/diseno/_objetos.scss */
+.ico-share-alt {
+  background-position: -336px -96px;
+}
+
+/* line 399, sass/diseno/_objetos.scss */
+.ico-resize-full {
+  background-position: -360px -96px;
+}
+
+/* line 403, sass/diseno/_objetos.scss */
+.ico-resize-small {
+  background-position: -384px -96px;
+}
+
+/* line 407, sass/diseno/_objetos.scss */
+.ico-plus {
+  background-position: -408px -96px;
+}
+
+/* line 411, sass/diseno/_objetos.scss */
+.ico-minus {
+  background-position: -433px -96px;
+}
+
+/* line 415, sass/diseno/_objetos.scss */
+.ico-asterisk {
+  background-position: -456px -96px;
+}
+
+/* line 419, sass/diseno/_objetos.scss */
+.ico-exclamation-sign {
+  background-position: 0 -120px;
+}
+
+/* line 423, sass/diseno/_objetos.scss */
+.ico-gift {
+  background-position: -24px -120px;
+}
+
+/* line 427, sass/diseno/_objetos.scss */
+.ico-leaf {
+  background-position: -48px -120px;
+}
+
+/* line 431, sass/diseno/_objetos.scss */
+.ico-fire {
+  background-position: -72px -120px;
+}
+
+/* line 435, sass/diseno/_objetos.scss */
+.ico-eye-open {
+  background-position: -96px -120px;
+}
+
+/* line 439, sass/diseno/_objetos.scss */
+.ico-eye-close {
+  background-position: -120px -120px;
+}
+
+/* line 443, sass/diseno/_objetos.scss */
+.ico-warning-sign {
+  background-position: -144px -120px;
+}
+
+/* line 447, sass/diseno/_objetos.scss */
+.ico-plane {
+  background-position: -168px -120px;
+}
+
+/* line 451, sass/diseno/_objetos.scss */
+.ico-calendar {
+  background-position: -192px -120px;
+}
+
+/* line 455, sass/diseno/_objetos.scss */
+.ico-random {
+  width: 16px;
+  background-position: -216px -120px;
+}
+
+/* line 460, sass/diseno/_objetos.scss */
+.ico-comment {
+  background-position: -240px -120px;
+}
+
+/* line 464, sass/diseno/_objetos.scss */
+.ico-magnet {
+  background-position: -264px -120px;
+}
+
+/* line 468, sass/diseno/_objetos.scss */
+.ico-chevron-up {
+  background-position: -288px -120px;
+}
+
+/* line 472, sass/diseno/_objetos.scss */
+.ico-chevron-down {
+  background-position: -313px -119px;
+}
+
+/* line 476, sass/diseno/_objetos.scss */
+.ico-retweet {
+  background-position: -336px -120px;
+}
+
+/* line 480, sass/diseno/_objetos.scss */
+.ico-shopping-cart {
+  background-position: -360px -120px;
+}
+
+/* line 484, sass/diseno/_objetos.scss */
+.ico-folder-close {
+  width: 16px;
+  background-position: -384px -120px;
+}
+
+/* line 489, sass/diseno/_objetos.scss */
+.ico-folder-open {
+  width: 16px;
+  background-position: -408px -120px;
+}
+
+/* line 494, sass/diseno/_objetos.scss */
+.ico-resize-vertical {
+  background-position: -432px -119px;
+}
+
+/* line 498, sass/diseno/_objetos.scss */
+.ico-resize-horizontal {
+  background-position: -456px -118px;
+}
+
+/* line 502, sass/diseno/_objetos.scss */
+.ico-hdd {
+  background-position: 0 -144px;
+}
+
+/* line 506, sass/diseno/_objetos.scss */
+.ico-bullhorn {
+  background-position: -24px -144px;
+}
+
+/* line 510, sass/diseno/_objetos.scss */
+.ico-bell {
+  background-position: -48px -144px;
+}
+
+/* line 514, sass/diseno/_objetos.scss */
+.ico-certificate {
+  background-position: -72px -144px;
+}
+
+/* line 518, sass/diseno/_objetos.scss */
+.ico-thumbs-up {
+  background-position: -96px -144px;
+}
+
+/* line 522, sass/diseno/_objetos.scss */
+.ico-thumbs-down {
+  background-position: -120px -144px;
+}
+
+/* line 526, sass/diseno/_objetos.scss */
+.ico-hand-right {
+  background-position: -144px -144px;
+}
+
+/* line 530, sass/diseno/_objetos.scss */
+.ico-hand-left {
+  background-position: -168px -144px;
+}
+
+/* line 534, sass/diseno/_objetos.scss */
+.ico-hand-up {
+  background-position: -192px -144px;
+}
+
+/* line 538, sass/diseno/_objetos.scss */
+.ico-hand-down {
+  background-position: -216px -144px;
+}
+
+/* line 542, sass/diseno/_objetos.scss */
+.ico-circle-arrow-right {
+  background-position: -240px -144px;
+}
+
+/* line 546, sass/diseno/_objetos.scss */
+.ico-circle-arrow-left {
+  background-position: -264px -144px;
+}
+
+/* line 550, sass/diseno/_objetos.scss */
+.ico-circle-arrow-up {
+  background-position: -288px -144px;
+}
+
+/* line 554, sass/diseno/_objetos.scss */
+.ico-circle-arrow-down {
+  background-position: -312px -144px;
+}
+
+/* line 558, sass/diseno/_objetos.scss */
+.ico-globe {
+  background-position: -336px -144px;
+}
+
+/* line 562, sass/diseno/_objetos.scss */
+.ico-wrench {
+  background-position: -360px -144px;
+}
+
+/* line 566, sass/diseno/_objetos.scss */
+.ico-tasks {
+  background-position: -384px -144px;
+}
+
+/* line 570, sass/diseno/_objetos.scss */
+.ico-filter {
+  background-position: -408px -144px;
+}
+
+/* line 574, sass/diseno/_objetos.scss */
+.ico-briefcase {
+  background-position: -432px -144px;
+}
+
+/* line 578, sass/diseno/_objetos.scss */
+.ico-fullscreen {
+  background-position: -456px -144px;
+}
+
+/* line 584, sass/diseno/_objetos.scss */
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* line 588, sass/diseno/_objetos.scss */
+.table th,
+.table td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+
+/* line 596, sass/diseno/_objetos.scss */
+.table th {
+  font-weight: bold;
+}
+
+/* line 599, sass/diseno/_objetos.scss */
+.table thead th {
+  vertical-align: bottom;
+}
+
+/* line 602, sass/diseno/_objetos.scss */
+.table caption + thead tr:first-child th,
+.table caption + thead tr:first-child td,
+.table colgroup + thead tr:first-child th,
+.table colgroup + thead tr:first-child td,
+.table thead:first-child tr:first-child th,
+.table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+
+/* line 610, sass/diseno/_objetos.scss */
+.table tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+
+/* line 613, sass/diseno/_objetos.scss */
+.table .table {
+  background-color: #ffffff;
+}
+
+/* line 616, sass/diseno/_objetos.scss */
+.table-condensed th,
+.table-condensed td {
+  padding: 4px 5px;
+}
+
+/* line 620, sass/diseno/_objetos.scss */
+.table-bordered {
+  border: 1px solid #dddddd;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border-left: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 629, sass/diseno/_objetos.scss */
+.table-bordered th,
+.table-bordered td {
+  border-left: 1px solid #dddddd;
+}
+
+/* line 633, sass/diseno/_objetos.scss */
+.table-bordered caption + thead tr:first-child th,
+.table-bordered caption + tbody tr:first-child th,
+.table-bordered caption + tbody tr:first-child td,
+.table-bordered colgroup + thead tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child td,
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+
+/* line 644, sass/diseno/_objetos.scss */
+.table-bordered thead:first-child tr:first-child > th:first-child,
+.table-bordered tbody:first-child tr:first-child > td:first-child,
+.table-bordered tbody:first-child tr:first-child > th:first-child {
+  -webkit-border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  border-top-left-radius: 4px;
+}
+
+/* line 651, sass/diseno/_objetos.scss */
+.table-bordered thead:first-child tr:first-child > th:last-child,
+.table-bordered tbody:first-child tr:first-child > td:last-child,
+.table-bordered tbody:first-child tr:first-child > th:last-child {
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  border-top-right-radius: 4px;
+}
+
+/* line 658, sass/diseno/_objetos.scss */
+.table-bordered thead:last-child tr:last-child > th:first-child,
+.table-bordered tbody:last-child tr:last-child > td:first-child,
+.table-bordered tbody:last-child tr:last-child > th:first-child,
+.table-bordered tfoot:last-child tr:last-child > td:first-child,
+.table-bordered tfoot:last-child tr:last-child > th:first-child {
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/* line 667, sass/diseno/_objetos.scss */
+.table-bordered thead:last-child tr:last-child > th:last-child,
+.table-bordered tbody:last-child tr:last-child > td:last-child,
+.table-bordered tbody:last-child tr:last-child > th:last-child,
+.table-bordered tfoot:last-child tr:last-child > td:last-child,
+.table-bordered tfoot:last-child tr:last-child > th:last-child {
+  -webkit-border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* line 676, sass/diseno/_objetos.scss */
+.table-bordered tfoot + tbody:last-child tr:last-child td:first-child {
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* line 681, sass/diseno/_objetos.scss */
+.table-bordered tfoot + tbody:last-child tr:last-child td:last-child {
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* line 686, sass/diseno/_objetos.scss */
+.table-bordered caption + thead tr:first-child th:first-child,
+.table-bordered caption + tbody tr:first-child td:first-child,
+.table-bordered colgroup + thead tr:first-child th:first-child,
+.table-bordered colgroup + tbody tr:first-child td:first-child {
+  -webkit-border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  border-top-left-radius: 4px;
+}
+
+/* line 694, sass/diseno/_objetos.scss */
+.table-bordered caption + thead tr:first-child th:last-child,
+.table-bordered caption + tbody tr:first-child td:last-child,
+.table-bordered colgroup + thead tr:first-child th:last-child,
+.table-bordered colgroup + tbody tr:first-child td:last-child {
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  border-top-right-radius: 4px;
+}
+
+/* line 702, sass/diseno/_objetos.scss */
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9;
+}
+
+/* line 706, sass/diseno/_objetos.scss */
+.table-hover tbody tr:hover > td,
+.table-hover tbody tr:hover > th {
+  background-color: #f5f5f5;
+}
+
+/* line 710, sass/diseno/_objetos.scss */
+table td[class*="span"],
+table th[class*="span"],
+.row-fluid table td[class*="span"],
+.row-fluid table th[class*="span"] {
+  display: table-cell;
+  float: none;
+  margin-left: 0;
+}
+
+/* line 718, sass/diseno/_objetos.scss */
+.table td.span1,
+.table th.span1 {
+  float: none;
+  width: 44px;
+  margin-left: 0;
+}
+
+/* line 724, sass/diseno/_objetos.scss */
+.table td.span2,
+.table th.span2 {
+  float: none;
+  width: 124px;
+  margin-left: 0;
+}
+
+/* line 730, sass/diseno/_objetos.scss */
+.table td.span3,
+.table th.span3 {
+  float: none;
+  width: 204px;
+  margin-left: 0;
+}
+
+/* line 736, sass/diseno/_objetos.scss */
+.table td.span4,
+.table th.span4 {
+  float: none;
+  width: 284px;
+  margin-left: 0;
+}
+
+/* line 742, sass/diseno/_objetos.scss */
+.table td.span5,
+.table th.span5 {
+  float: none;
+  width: 364px;
+  margin-left: 0;
+}
+
+/* line 748, sass/diseno/_objetos.scss */
+.table td.span6,
+.table th.span6 {
+  float: none;
+  width: 444px;
+  margin-left: 0;
+}
+
+/* line 754, sass/diseno/_objetos.scss */
+.table td.span7,
+.table th.span7 {
+  float: none;
+  width: 524px;
+  margin-left: 0;
+}
+
+/* line 760, sass/diseno/_objetos.scss */
+.table td.span8,
+.table th.span8 {
+  float: none;
+  width: 604px;
+  margin-left: 0;
+}
+
+/* line 766, sass/diseno/_objetos.scss */
+.table td.span9,
+.table th.span9 {
+  float: none;
+  width: 684px;
+  margin-left: 0;
+}
+
+/* line 772, sass/diseno/_objetos.scss */
+.table td.span10,
+.table th.span10 {
+  float: none;
+  width: 764px;
+  margin-left: 0;
+}
+
+/* line 778, sass/diseno/_objetos.scss */
+.table td.span11,
+.table th.span11 {
+  float: none;
+  width: 844px;
+  margin-left: 0;
+}
+
+/* line 784, sass/diseno/_objetos.scss */
+.table td.span12,
+.table th.span12 {
+  float: none;
+  width: 924px;
+  margin-left: 0;
+}
+
+/* line 790, sass/diseno/_objetos.scss */
+.table tbody tr.success > td {
+  background-color: #dff0d8;
+}
+
+/* line 793, sass/diseno/_objetos.scss */
+.table tbody tr.error > td {
+  background-color: #f2dede;
+}
+
+/* line 796, sass/diseno/_objetos.scss */
+.table tbody tr.warning > td {
+  background-color: #fcf8e3;
+}
+
+/* line 799, sass/diseno/_objetos.scss */
+.table tbody tr.info > td {
+  background-color: #d9edf7;
+}
+
+/* line 802, sass/diseno/_objetos.scss */
+.table-hover tbody tr.success:hover > td {
+  background-color: #d0e9c6;
+}
+
+/* line 805, sass/diseno/_objetos.scss */
+.table-hover tbody tr.error:hover > td {
+  background-color: #ebcccc;
+}
+
+/* line 808, sass/diseno/_objetos.scss */
+.table-hover tbody tr.warning:hover > td {
+  background-color: #faf2cc;
+}
+
+/* line 811, sass/diseno/_objetos.scss */
+.table-hover tbody tr.info:hover > td {
+  background-color: #c4e3f3;
+}
+
+.field_error input{
+	border-bottom-color: #FF0039;
+}
+
+
+.field_error select{
+	border-bottom-color: #FF0039;
+}

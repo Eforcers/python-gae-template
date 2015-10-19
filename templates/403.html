@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}No autorizado{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <article class="row">
+        <div class="contains-pan pull-right col-md-12">
+            <div class="row">
+                <div class="col-md-5" id="error_image">
+                    <img src="/static/img/bot-error_3.png" alt="403" width="190" height="178">
+                </div>
+                <div class="col-md-7" id="error_text">
+                    <h1>No autorizado</h1>
+                    <p>No tiene permisos para lo que está buscando.
+                    <p><a href="{{ url_for('index') }}">Ir a un lugar mejor</a></p>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+<div ng-class="{'load-ok':loaded,'load-wait':!loaded}">
+    <div class="container-fluid">
+        <article class="row">
+            <div class="contains-pan pull-right col-md-12">
+                <div class="nonInfoSection" id="error_text">
+                    <i class="img-noElements p-403"></i>
+                    <h3 class="titulo">No autorizado</h3>
+                    <a class="btn btn-dark" href="{{ url_for('index') }}">
+                        Volver al inicio
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+{% endblock %}

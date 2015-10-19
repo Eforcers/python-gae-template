@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}P&aacute;gina no encontrada{% endblock %}
+{% block content %}
+<div ng-class="{'load-ok':loaded,'load-wait':!loaded}">
+    <div class="container-fluid">
+        <article class="row">
+            <div class="contains-pan pull-right col-md-12">
+                <div class="nonInfoSection" id="error_text">
+                    <i class="img-noElements p-404"></i>
+                    <h3 class="titulo">P&aacute;gina no encontrada</h3>
+                    <a class="btn btn-dark" href="{{ url_for('index') }}">
+                        Volver al inicio
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+{% endblock %}

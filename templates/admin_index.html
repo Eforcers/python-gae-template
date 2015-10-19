@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% set apis_to_load = "[{name: \'user\', version: \'v1\'}]" %}
+{% set title = 'Usuarios' %}
+{% set controller = 'webClientCtrl' %}
+
+
+{% block tail_script %}
+<script type="text/javascript"
+        src="/static/js/angular/controllers/web_client_ctrl.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-tablet"></div>
+    <div class="mdl-cell mdl-cell--4-col  mdl-cell--4-col-tablet">
+        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title mdl-card--expand">
+                <h2 class="mdl-card__title-text">Update</h2>
+                <form action="#" name="userForm">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text"
+                               id="name" ng-model="user.first_name" required/>
+                        <label class="mdl-textfield__label" for="name">Nombre</label>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text"
+                               id="last_name" ng-model="user.last_name" required/>
+                        <label class="mdl-textfield__label" for="last_name">Apellido</label>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="email"
+                               id="email" ng-model="user.email" required/>
+                        <label class="mdl-textfield__label" for="email">Correo</label>
+                    </div>
+                </form>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                 <button id="saveBotton" class="mdl-button mdl-js-button
+                         mdl-button--raised mdl-button--colored" ng-click="saveUser(userForm)">
+                     Guardar
+                 </button>
+
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="cleanFormUser()">
+                     Limpiar
+                 </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mdl-grid">
+
+
+    <table id="table1"
+           class="mdl-cell mdl-data-table mdl-js-data-table mdl-cell--12-col">
+        <thead>
+            <tr>
+                <th class="mdl-data-table__cell--non-numeric">Nombre</th>
+                <th class="mdl-data-table__cell--non-numeric">Apellido</th>
+                <th class="mdl-data-table__cell--non-numeric"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td class="mdl-data-table__cell--non-numeric">{[{user.first_name}]}</td>
+                <td class="mdl-data-table__cell--non-numeric">{[{user.last_name}]}</td>
+                <td class="mdl-data-table__cell--non-numeric">
+                    <button id="demo-menu-lower-right-{[{$index}]}"
+                    class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                    for="demo-menu-lower-right-{[{$index}]}">
+                        <li class="mdl-menu__item">Some Action</li>
+                        <li class="mdl-menu__item">Another Action</li>
+                        <li disabled class="mdl-menu__item">Disabled Action</li>
+                        <li class="mdl-menu__item">Yet Another Action</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

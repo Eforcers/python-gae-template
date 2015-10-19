@@ -1,0 +1,179 @@
+@mixin arrow($width: 20px, $height: 20px, $direction: up, $color: red){
+//@include arrow(20px,20px,up,#000);
+  width: 0;
+  height: 0;
+  display: inline-block;
+  border-style: solid;
+  
+  @if $direction == right {
+    border-width: $height 0 $height $width;
+    border-color: transparent transparent transparent $color;
+  }
+
+  @if $direction == left {
+    border-width: $height $width $height 0;
+    border-color: transparent $color transparent transparent;
+  }
+
+  @if $direction == up {
+    border-width: 0 $height $width $height;
+    border-color: transparent transparent $color transparent;
+  }
+
+  @if $direction == down {
+    border-width: $width $height 0 $height;
+    border-color: $color transparent transparent transparent;
+  }
+
+  @if $direction == downLeft{
+    border-width: $width 0 0 $height;
+    border-color: transparent transparent transparent $color;
+  }
+
+  @if $direction == downRight{/***/
+    border-width: 0 0 $height $width;
+    border-color: transparent transparent $color transparent;
+  }
+
+  @if $direction == upRight{
+    border-width: 0 $width $height 0;
+    border-color: transparent $color transparent transparent;
+  }
+
+  @if $direction == upLeft{
+    border-width: $height $width 0 0;
+    border-color: $color transparent transparent transparent;
+  }
+}
+
+@mixin input-placeholder {
+/*input{ 
+  @include input-placeholder{
+    color:red;
+    font-size:2em;
+  }
+}*/
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; } 
+}
+
+@mixin keyframes($name) {
+  /*@include keyframes(bgcolor) {
+    0% {
+      background-color: #ffccf2;
+    }
+    50% {
+      background-color: #ccffcc;
+    }
+    100% {
+      background-color: #ccffff;
+    } 
+  }*/
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+@mixin animation($values){
+  -webkit-animation: $values; 
+  -moz-animation: $values;
+  -ms-animation: $values;
+  -o-animation: $values;
+  animation: $values;
+}
+
+//para los prefijos
+@mixin vendor-prefix($name, $argument) {
+  /*
+    @include vendor-prefix(transform, skew(-50deg) rotate(-70deg) scale(1));
+  */
+  #{$name}: $argument;
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
+}
+
+//para mostrar las pseudoclases
+@mixin beforeAfter($display:block,$position:absolute,$width:100%,$height:100%){
+  content:"";
+  display: $display;
+  width: $width;
+  height: $height;
+  position: $position;
+  @content;
+}
+@mixin text-fill-color($ref:transparent){
+  /*
+  @include text-fill-color(text);
+  */
+  -o-text-fill-color: $ref;
+  -ms-text-fill-color: $ref;
+  -moz-text-fill-color: $ref;
+  -webkit-text-fill-color: $ref;
+  text-fill-color: $ref;
+}
+//reset objetos
+@mixin defaultDisplay($display:'block'){
+  @if $display {
+    $display : $display;
+  }
+  display: $display;
+  @if $display == inline-block{
+    @include inline-block();
+  }
+  list-style: none;
+  margin: auto;
+  padding: 0; 
+
+}
+@mixin ulUnformat($display:'block'){
+  @if $display {
+    $display : $display;
+  }
+  &,ul,li{
+    @include defaultDisplay($display);
+  }
+  @content;
+}
+@mixin scrollbar(){
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  //scroll
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 2px;
+    background-color: $grayLigth;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $gray;
+  }
+
+}
+@mixin no-select(){
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

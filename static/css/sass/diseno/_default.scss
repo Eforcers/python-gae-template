@@ -1,0 +1,43 @@
+img{
+	max-width: 100%;
+}
+
+input[type="text"],
+textarea,
+select{
+	background-color: #fff;
+	border: 1px solid lighten(gray,20);
+}
+
+textarea {
+	resize:both;  /* none|horizontal|vertical|both */
+
+	&.vert { resize:vertical; }
+	&.noResize { resize:none; }
+}
+
+input[type="checkbox"], input[type="radio"]{
+	position: relative;
+	top: -3px;
+}
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+hr.no-margin{
+	margin: 0 auto;
+}
+.text-justify{
+	text-align: justify;
+}
+.text-center{
+	text-align: center;
+}
+.text-right{
+	text-align: right;
+}
+.text-nowrap{
+	white-space: nowrap;
+}
