@@ -10,6 +10,13 @@ from models import User
 import constants
 
 
+@app.url_value_preprocessor
+def pull_lang_code(endpoint, values):
+    if values:
+        g.domain = values.get('domain', None)
+    else:
+        g.domain = ""
+
 @app.route('/')
 def index():
     user = users.get_current_user()

@@ -10,9 +10,10 @@ from settings import get_setting
 from flask import current_app as app, abort
 from decorators import profiles_with_access, login_required
 
+@app.route('/a/<domain>/admin/')
 @app.route('/admin/')
 @login_required
-def admin_index():
+def admin_index(domain=None):
     return render_template('admin_index.html')
 
 @app.route('/admin/clean/cache')

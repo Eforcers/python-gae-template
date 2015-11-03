@@ -13,9 +13,28 @@ import endpoints
 
 from flask import redirect, request, abort
 from models import User
+from google.appengine.api import namespace_manager
 
 IS_TEST = False
 UNAUTHORIZED_USER = 'UNAUTHORIZED_USER'
+
+def multitenat_required():
+    def decorator(func):
+        @wraps(func)
+        def inner_decorator(*args, **kwargs):
+            domain = args[1].get_unrecognized_field_info(
+                'domain'
+            )[0]
+
+            if not domain:
+                if hasattr(args[1],'domain'):
+                    domain = args[1].authenticated_user
+
+            namespace_manager.set_namespace(domain)
+
+            return func(*args, **kwargs)
+        return inner_decorator
+    return decorator
 
 def role_required(role=None, roles=None):
     def decorator(func):

@@ -49,6 +49,9 @@
                 window.api_host = window.location.host;
             }
 
+            {% autoescape false %}
+            window.domain = "{{g.domain}}"
+            {% endautoescape %}
 
             window.loading_apis = false;
             window.google_client_loaded = false;

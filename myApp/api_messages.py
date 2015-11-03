@@ -11,6 +11,8 @@ class TaskMessage(messages.Message):
     id = messages.IntegerField(1)
     description = messages.StringField(2)
     is_complete = messages.BooleanField(3)
+    domain = messages.StringField(4)
 
 class TaskListMessage(messages.Message):
     items = messages.MessageField(TaskMessage, 1, repeated=True)
+    domain = messages.StringField(2)

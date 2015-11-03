@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from api_messages import TASK_CONTAINER, TaskMessage, TaskListMessage
+from decorators import multitenat_required
 from google.appengine.ext import endpoints
 from models import User
 from protorpc import remote
@@ -13,11 +14,13 @@ from protorpc import remote
                title='user',
                description='Backend API for managing AutoBot related entities')
 class UserApi(remote.Service):
+    @multitenat_required()
     @User.method(path='user', http_method='POST', name='insertUser')
     def user_insert(self, user_model):
         user_model.put()
         return user_model
 
+    @multitenat_required()
     @User.query_method(path='users', name='listUser')
     def user_list(self, query):
         return query
@@ -34,6 +37,7 @@ class TaskApi(remote.Service):
     TASK_LIST = [{"description":"TAREA1",'is_complete':True},
                  {"description":"TAREA2",'is_complete':False}]
 
+    @multitenat_required()
     @endpoints.method(TASK_CONTAINER, TaskMessage, path='task', name='getTask',
                       http_method='GET')
     def get_task(self, request):
@@ -42,6 +46,7 @@ class TaskApi(remote.Service):
                                    is_complete=task['is_complete'])
         return task_message
 
+    @multitenat_required()
     @endpoints.method(endpoints.ResourceContainer(), TaskListMessage, path='tasks',
                       name='listTask', http_method='GET')
     def list_task(self, request):

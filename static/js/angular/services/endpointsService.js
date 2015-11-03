@@ -18,6 +18,7 @@ gApp.service('EndpointsService', function ($q, $rootScope, $http, $window, reque
             requestNotificationChannel.requestStarted();
             objectDatesToString(args);
             var deferred = $q.defer();
+            args['domain'] = $window.domain;
             gapi.client[api][method](args).execute(function (resp) {
                 callback(resp);
                 $rootScope.$apply(deferred.resolve(resp));
