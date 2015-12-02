@@ -4,6 +4,7 @@ gApp.service('EndpointsService', function ($q, $rootScope, $http, $window, reque
     service.ENDPOINTS_READY = "ENDPOINTS_READY";
     service.total_apis = 0;
     service.loaded_apis = 0;
+
     /**
      * build service methods from discovery document
      * @param api
@@ -11,8 +12,6 @@ gApp.service('EndpointsService', function ($q, $rootScope, $http, $window, reque
      * @param method
      * @returns {Function}
      */
-
-
     var builder = function (api, method) {
         return function (args, callback) {
             requestNotificationChannel.requestStarted();

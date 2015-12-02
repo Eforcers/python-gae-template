@@ -239,3 +239,59 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
+
+
+.loading{
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    display: block;
+    opacity: 0.6;
+    background-color: #333;
+    z-index: 99;
+    text-align: center;
+}
+
+.success {
+    background: #69A523;
+    color: #fff;
+}
+
+.danger {
+    background: #DE3226;
+    color: #fff;
+}
+
+#globalLoadingWidget {
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  top: 45px;
+  z-index: 901;
+}
+#globalLoadingWidget p {
+  margin: auto;
+  width: 200px;
+  padding: 4px 20px;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background: #fff9c4;
+  -webkit-box-shadow: rgba(0,0,0,0.15) 0 3px 4px 0;
+  -moz-box-shadow: rgba(0,0,0,0.15) 0 3px 4px 0;
+  -ms-box-shadow: rgba(0,0,0,0.15) 0 3px 4px 0;
+  -o-box-shadow: rgba(0,0,0,0.15) 0 3px 4px 0;
+  box-shadow: rgba(0,0,0,0.15) 0 3px 4px 0;
+}
+#globalLoadingWidget[style="display: block;"] {
+  -webkit-animation: cargando_open 250ms ease-in-out 1;
+  -moz-animation: cargando_open 250ms ease-in-out 1;
+  -ms-animation: cargando_open 250ms ease-in-out 1;
+  -o-animation: cargando_open 250ms ease-in-out 1;
+  animation: cargando_open 250ms ease-in-out 1;
+}

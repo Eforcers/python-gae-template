@@ -90,6 +90,16 @@
 
 	</head>
 	<body ng-app="gApp">
+        <div id="loading" class="loading">
+          Loading...
+        </div>
+
+        <div id="globalLoadingWidget"  style="display: none" loading-widget>
+            <div class="loadingContent">
+                <p>Cargando...</p>
+            </div>
+        </div>
+
         <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
             <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
                 <div class="mdl-layout__header-row">

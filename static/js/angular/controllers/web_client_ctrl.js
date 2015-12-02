@@ -16,6 +16,7 @@ gApp.controller('webClientCtrl', ['$scope','$location','EndpointsService',functi
     	endpointsService.listUser({}, function (response) {
             $scope.users = response.items;
             $scope.loaded = true;
+            document.getElementById("loading").style.display = "none";
             setTimeout(function(){ componentHandler.upgradeDom(); }, 300);
 
         });

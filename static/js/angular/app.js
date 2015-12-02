@@ -1,5 +1,22 @@
 var gApp = angular.module('gApp', []);
 
+
+gApp.run(function () {
+    var observer = new MutationObserver(function () {
+      componentHandler.upgradeDom();
+    });
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+    /* support <= IE 10
+    angular.element(document).bind('DOMNodeInserted', function(e) {
+        componentHandler.upgradeDom();
+    });
+    */
+});
+
+
 gApp.factory('requestNotificationChannel', ['$rootScope', function($rootScope){
     // private notification messages
     var _START_REQUEST_ = '_START_REQUEST_';
