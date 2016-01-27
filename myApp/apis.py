@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import constants
 from api_messages import TASK_CONTAINER, TaskMessage, TaskListMessage
 from decorators import multitenat_required
 from google.appengine.ext import endpoints
@@ -12,17 +13,28 @@ from protorpc import remote
 """
 @endpoints.api(name='user', version='v1',
                title='user',
-               description='Backend API for managing AutoBot related entities')
+               description='Backend API for managing AutoBot related entities',
+               allowed_client_ids=[
+                   endpoints.API_EXPLORER_CLIENT_ID,
+                   constants.OAUTH2_CLIENT_ID],
+               audiences=[constants.OAUTH2_CLIENT_ID])
 class UserApi(remote.Service):
     @multitenat_required()
     @User.method(path='user', http_method='POST', name='insertUser')
     def user_insert(self, user_model):
+        current_user = endpoints.get_current_user()
+        if current_user is None:
+          raise endpoints.UnauthorizedException('Invalid token.')
         user_model.put()
         return user_model
 
     @multitenat_required()
     @User.query_method(path='users', name='listUser')
     def user_list(self, query):
+        current_user = endpoints.get_current_user()
+        if current_user is None:
+          raise endpoints.UnauthorizedException('Invalid token.')
+
         return query
 
 """

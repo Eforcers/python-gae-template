@@ -8,7 +8,7 @@ gApp.controller('webClientCtrl', ['$scope','$location','EndpointsService',functi
     $scope.alerts = []; 
 
     $scope.$on(endpointsService.ENDPOINTS_READY, function () {
-        $scope.listUsers();
+        endpointsService.authorize(CLIENT_ID, SCOPES, $scope.listUsers);
     });
 
 

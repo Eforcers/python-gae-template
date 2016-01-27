@@ -15,3 +15,6 @@ MENU_ITEMS = [
         PROFILE_ADMIN
     ]),
 ]
+
+
+OAUTH2_CLIENT_ID = "233923764866.apps.googleusercontent.com"
