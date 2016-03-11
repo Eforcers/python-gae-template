@@ -17,6 +17,8 @@ libraries:
   version: "latest"
 - name: pycrypto
   version: "latest"
+- name: ssl
+  version: latest
 
 inbound_services:
 - warmup

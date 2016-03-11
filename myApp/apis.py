@@ -2,7 +2,7 @@
 import constants
 from api_messages import TASK_CONTAINER, TaskMessage, TaskListMessage
 from decorators import multitenat_required
-from google.appengine.ext import endpoints
+import endpoints
 from models import User
 from protorpc import remote
 
