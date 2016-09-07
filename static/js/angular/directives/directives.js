@@ -1,34 +1,17 @@
-gApp.directive('loadingWidget', ['requestNotificationChannel', function (requestNotificationChannel) {
-    return {
-        restrict: "A",
-        link: function (scope, element) {
-            // hide the element initially
-            element[0].style.display = "none";
-            var startRequestHandler = function() {
-                // got the request start notification, show the element
-                element[0].style.display = "";
-            };
+(function() {
+    "use strict";
 
-            var endRequestHandler = function() {
-                // got the request start notification, show the element
-                element[0].style.display = "none";
-            };
+    gApp.directive('userList', function() {
+        return {
+            restric: 'A',
+            templateUrl: '/static/html/partials/user_list.html'
+        };
+    });
+    gApp.directive('userEmpty', function() {
+        return {
+            restric: 'A',
+            templateUrl: '/static/html/partials/user_empty.html'
+        };
+    });
 
-            requestNotificationChannel.onRequestStarted(scope, startRequestHandler);
-
-            requestNotificationChannel.onRequestEnded(scope, endRequestHandler);
-        }
-    };
-}]);
-
-gApp.directive('whenScrolled', function() {
-    return function(scope, elm, attr) {
-        var raw = elm[0];
-
-        elm.bind('scroll', function() {
-            if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight) {
-                scope.$apply(attr.whenScrolled);
-            }
-        });
-    };
-});
+})();

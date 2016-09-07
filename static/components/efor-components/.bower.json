@@ -1,0 +1,32 @@
+{
+  "name": "efor-components",
+  "authors": [
+    "poxstone <poxstone@gmail.com>"
+  ],
+  "description": "components by eforcers dev",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "components",
+    "mdl",
+    "angular"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/poxstone/efor-components",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "cf7abdb90e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "cf7abdb90ef79f094524b58af81a78febecdb140"
+  },
+  "_source": "https://github.com/poxstone/efor-components.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/poxstone/efor-components.git"
+}

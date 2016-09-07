@@ -1,6 +1,11 @@
 *.pyc
 # don't include third-party dependencies.
-lib/
+lib/*
 !lib/README.md
 !lib/livecount
 .DS_Store
+.idea/
+*.swp
+*.swo
+static/components/*
+!static/components/efor-components

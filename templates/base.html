@@ -1,152 +1,184 @@
 <!DOCTYPE html>
+<html ng-app="gApp" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind="mainTitle"></title>
+    <meta name="description" content="A EFOR front-end.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="EFOR - TEMPLATE">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileImage" content="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/favicon.png">
+    <meta name="msapplication-TileColor" content="#004EBA">
+
+    <link rel="icon" sizes="192x192" href="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/favicon.png">
+    <link rel="shortcut icon" href="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/favicon.png">
+    <title>{{title}}</title>
+        
+    <!-- css -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
 
 
-<html>
-	<head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-        <meta name="msapplication-TileColor" content="#3372DF">
+    <!-- js libraries -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.min.js"></script>
 
-        <link rel="icon" sizes="192x192" href="images/android-desktop.png">
-        <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
-        <link rel="shortcut icon" href="images/favicon.png" />
-        <title>{{title}}</title>
+    <!-- esmg js -->
+    <script src="/static/js/resources/language.js"></script>
+    <script defer src="/static/components/efor-components/dev-tools/dev-utils-scripts.js"></script>
+    <script src="/static/js/resources/constants.js"></script>
+    <script src="/static/js/angular/configures/appConfigure.js"></script>
+    <script src="/static/js/angular/filters/filters.js"></script>
+    <script src="/static/js/angular/utils.js"></script>
+    <script src="/static/components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+    <script src="/static/components/angular-translate/angular-translate.js"></script>
+    <script src="/static/components/efor-components/angular-endpoints-services/endpointsService.js"></script>
+    <script src="/static/js/angular/mainMenu.js"></script>
+    <script src="/static/components/efor-components/angular-efor-modal/efor_modal.js"></script>
+    <script src="/static/components/efor-components/angular-loadAppWidget-services/loadingWidget.js"></script>
+    <script src="/static/js/angular/settings.js"></script>
 
+    <script src="/static/js/angular/app.js"></script>
+    <script src="/static/js/analyticsConfig.js"></script>
 
-		<!-- css-->
-		<link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
-        <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- dependences controller -->
+    {% block tail_script %}{% endblock %}
 
-		<!-- js libraries -->
-        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-		<!-- dasp js -->
-		<script src="/static/js/angular/constants.js"></script>
-		<script src="/static/js/angular/app.js"></script>
-		<script src="/static/js/angular/directives/directives.js"></script>
-		<script src="/static/js/angular/services/endpointsService.js"></script>
-		{% block tail_script %}{% endblock %}
-		 <script type="application/javascript">
-            var host_name_array = window.location.host.split('.');
-            if(window.location.host.indexOf('appspot') != -1 &&
-                    host_name_array.length > 3){
-                window.api_host = host_name_array[0] + '-dot-';
-                for(index = 1; index < host_name_array.length; index++ ){
-                    window.api_host += host_name_array[index];
-                }
-            }else{
-                window.api_host = window.location.host;
+    <script type="application/javascript">
+        var host_name_array = window.location.host.split('.');
+        // In staging instance appengine
+        if (window.location.host.indexOf('appspot') != -1 &&
+                host_name_array.length > 3) {
+            window.api_host = host_name_array[0] + '-dot-';
+            for (index = 1; index < host_name_array.length; index++ ) {
+                window.api_host += host_name_array[index];
             }
+        } else {
+            window.api_host = window.location.host;
+        }
 
+        {% autoescape false %}
+        window.user_email = '{{g.user_email}}';
+        // Domain needs be after users for extract domain from its when g.domain don't exists
+        window.DOMAIN = '{{g.domain}}' || window.findDomain(); // in constants.js
+        {% endautoescape %}
+
+        window.loading_apis = false;
+        window.google_client_loaded = false;
+        function api_init() {
+            console.log('Initializing Endpoints Service');
             {% autoescape false %}
-            window.domain = "{{g.domain}}"
+            window.apis = {{apis_to_load}}
             {% endautoescape %}
 
-            window.loading_apis = false;
-            window.google_client_loaded = false;
-            function api_init() {
-                console.log("Initializing Endpoints Service");
-                {% autoescape false %}
-                window.apis = {{apis_to_load}}
-                {% endautoescape %}
-
-                if (window.api_load && !window.loading_apis) {
-                    for (i in window.apis) {
-                        var api = window.apis[i];
-                        window.api_load(api.name, api.version);
-                    }
-                    window.loading_apis = true;
-                } else {
-                    window.google_client_loaded = true;
+            // ENDPOINT APIS front jinja html template
+            if (window.api_load && !window.loading_apis) {
+                for (i in window.apis) {
+                    var api = window.apis[i];
+                    window.api_load(api.name, api.version);
                 }
+                window.loading_apis = true;
+            } else {
+                window.google_client_loaded = true;
             }
-        </script>
-        <!-- Google endpoint js library -->
-        <script src="https://apis.google.com/js/client.js?onload=api_init"></script>
+        }
+    </script>
+    <!-- Google endpoint js library-->
+    <script src="https://apis.google.com/js/client.js?onload=api_init"></script>
+</head>
 
-        <style>
-            #view-source {
-            position: fixed;
-            display: block;
-            right: 0;
-            bottom: 0;
-            margin-right: 40px;
-            margin-bottom: 40px;
-            z-index: 900;
-            }
-        </style>
-
-
-	</head>
-	<body ng-app="gApp">
-        <div id="loading" class="loading">
-          Loading...
+<body ng-controller="mainController as mn" ng-class="{'tutorials-show' : (signatureGroups.length == 0)}">
+    <div id="globalLoadingWidget" loading-widget class="block" ng-class="loadingClass">
+        <div class="tag-loading">{[{ 'base_loading_message' | translate }]}</div>
+        <div class="tag-block-screen">
+            <img class="loadign-img" src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/ef.svg">
+            <img class="loading-bar" src="/static/img/loading.svg">
+            <p class="message">{[{ 'base_loading_message' | translate }]}</p>
         </div>
+    </div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header id="header" class="efor-header mdl-layout__header mdl-color--white mdl-color-text--blue-grey-500">
+            <div class="efor-layout__header-row mdl-layout__header-row">
+                <span class="efor-layout-title mdl-layout-title">
+                    <img src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/eforcers.svg" class="efor-logo mdl-layout--large-screen-only">
+                </span>
 
-        <div id="globalLoadingWidget"  style="display: none" loading-widget>
-            <div class="loadingContent">
-                <p>Cargando...</p>
-            </div>
-        </div>
+                {% block searchbar %}{# main content area #}{% endblock %}
 
-        <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-            <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
-                <div class="mdl-layout__header-row">
-                    <span class="mdl-layout-title">Home</span>
-                    <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-                            <i class="material-icons">search</i>
-                        </label>
-                        <div class="mdl-textfield__expandable-holder">
-                            <input class="mdl-textfield__input" type="text" id="search" />
-                            <label class="mdl-textfield__label" for="search">Enter your query...</label>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-                <header class="demo-drawer-header">
-                    <img src="/static/img/user.jpg" class="demo-avatar">
-                    <div class="demo-avatar-dropdown">
-                        <span>hello@example.com</span>
-                    </div>
-                </header>
-                <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-                    <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-                    <div class="mdl-layout-spacer"></div>
-                    <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+                <div class="mdl-layout-spacer"></div>
+                <nav id="nav" class="efor-navigation-header mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link">
+                        <span class="efor-text">
+                            {{ g.user_email }}
+                        </span>
+                    </a>
                 </nav>
+                <a class="mdl-button mdl-js-button mdl-button--icon mdl-layout--large-screen-only" hidden="hidden">
+                    <i class="material-icons">power_settings_new</i>
+                </a>
+                <button class="mdl-button mdl-js-button mdl-button--icon mdl-layout--large-screen-only">
+                    <i ng-init="mn.imguser='{{g.user_photo}}'"
+                       ng-if="!mn.imguser"
+                       class="material-icons efor-customer">account_circle</i>
+                    <img class="efor-customer" ng-if="mn.imguser" ng-src="{[{mn.imguser}]}">
+                </button>
             </div>
-
-            <main class="mdl-layout__content mdl-color--grey-100">
-
-                <div ng-controller="{{controller}}">
-                    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
-                        <div class="mdl-shadow--2dp" ng-repeat="alert in alerts">
-                            <div class="mdl-card__actions mdl-card--border"
-                                 ng-class="alert.type">
-                                {[{alert.msg}]}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        {% block content %}{# main content area #}{% endblock %}
+        </header>
+        <div class="efor-drawer mdl-layout__drawer" ng-if="!noShowMenu">
+            <nav class="efor-navigation mdl-navigation" ng-controller="menuController">
+                <div class="efor-logo_client mdl-layout--small-screen-only">
+                    <img src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/eforcers.svg" class="logo">
+                    <div class="efor-user-text">
+                        <i ng-if="!mn.imguser" class="material-icons efor-customer">account_circle</i>
+                        <img class="efor-customer" ng-if="mn.imguser" ng-src="{[{mn.imguser}]}">
+                        {{ g.user_email }}
                     </div>
                 </div>
-            </main>
+                <div  ng-if="hideMenu === undefined" main-menu="menu_items"></div>
+                <div class="mdl-layout--small-screen-only">
+                    <a ng-href="{[{setHref('/admin/quit')}]}"
+                       class="mdl-navigation__link" ng-class="getClass('/admin/quit')" hidden="hidden">
+                        <i class="material-icons">power_settings_new</i>
+                        {[{ 'base_logout' | translate }]}
+                    </a>
+                </div>
+            </nav>
+            <div class="mdl-layout-spacer"></div>
+            <div class="license-expiration" ng-class="{'warning': expirationIsNear}">
+                <b>{[{ 'base_licence_expire' | translate }]}</b>
+                <i>{[{expiredLicenseDate}]}</i>
+            </div>
         </div>
-	</body>
+        <main id="main" class="efor-layout__content mdl-layout__content" ng-controller="{{ngController}}">
+            <!-- conatin -->
+                 {% block content %}{# main content area #}{% endblock %}
+            <!-- conatin -->
+            <footer id="footer" class="efor-layout__footer">
+                <a href="http://www.eforcers.com" target="_blank" class="efor-button--fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--white mdl-color-text--blue">
+                    <img src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/ef.svg" class="efor-logo_ef">
+                </a>
+                <a href="http://www.eforcers.com" target="_blank" class="efor-footer-credits">
+                    <img src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/ef-footer.svg" class="efor-footer">
+                    <span class="powerby">
+                        <span>Powered by</span>
+                        <img src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/eforcers-black_big.png" class="efor-mono">
+                    </span>
+                </a>
+            </footer>
+        </main>
+    </div>
+    <div id="modal" class="efor-modal ani-slide" ng-controller="efModalCtrl">
+        <div class="efor-modal-btn-quit mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect" ng-click="efmodal.close()"><i class="material-icons">close</i></div>
+        <div ng-include="templateUrl"></div>
+    </div>
+</body>
 </html>

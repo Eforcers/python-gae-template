@@ -1,85 +1,69 @@
-var gApp = angular.module('gApp', []);
+(function() {
+    "use strict";
 
+    window.gApp = angular.module('gApp', [
+        'ngAnimate',
+        'ngCookies',
+        'mainMenu',
+        'settings',
+        '$eforModal',
+        'esmg.filters',
+        '$loadAppWidget',
+        'ui-notification',
+        'pascalprecht.translate'
+    ]);
 
-gApp.run(function () {
-    var observer = new MutationObserver(function () {
-      componentHandler.upgradeDom();
-    });
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-    /* support <= IE 10
-    angular.element(document).bind('DOMNodeInserted', function(e) {
-        componentHandler.upgradeDom();
-    });
-    */
-});
+    gApp.service('EndpointsService', ['$log', '$q', '$rootScope', '$http', '$window', 'requestNotificationChannel', EndpointsService]);
+    // From configure.js
+    gApp.config(configure);
+    gApp.config(notificationConfig);
+    gApp.config(translateConfig);
+    gApp.run(runMDLObservator);
 
+    // Main controller for general needs
+    gApp.controller('mainController', ['$log', '$window', '$rootScope', '$scope', '$translate', '$cookieStore', 'EndpointsService', '$filter', 'Notification',
+        function getExpirationDate($log, $window, $rootScope, $scope, $translate, $cookieStore, endpointsService, $filter, notification) {
 
-gApp.factory('requestNotificationChannel', ['$rootScope', function($rootScope){
-    // private notification messages
-    var _START_REQUEST_ = '_START_REQUEST_';
-    var _END_REQUEST_ = '_END_REQUEST_';
+        var translate = $filter('translate');
+        $rootScope.setLanguage = $cookieStore.get('setLanguage') || $window.translateConfig()[0]; // 0 is language navigator
 
-    // publish start request notification
-    var requestStarted = function() {
-        $rootScope.$broadcast(_START_REQUEST_);
-    };
-    // publish end request notification
-    var requestEnded = function() {
-        $rootScope.$broadcast(_END_REQUEST_);
-    };
-    // subscribe to start request notification
-    var onRequestStarted = function($scope, handler){
-        $scope.$on(_START_REQUEST_, function(event){
-            handler();
+        $scope.$on( endpointsService.ENDPOINTS_READY, function(){
+            // Not use authorize method because when is first time load, the signatures not load in load endpoint
+            endpointsService.authorize(CLIENT_ID, SCOPES, getSettings);
         });
-    };
-    // subscribe to end request notification
-    var onRequestEnded = function($scope, handler){
-        $scope.$on(_END_REQUEST_, function(event){
-            handler();
-        });
-    };
 
-    return {
-        requestStarted:  requestStarted,
-        requestEnded: requestEnded,
-        onRequestStarted: onRequestStarted,
-        onRequestEnded: onRequestEnded
-    };
-}]);
+        function getSettings() {
+            notification.info('Settings');
+        }
 
-gApp.config(function($interpolateProvider, $httpProvider, $provide) {
-    $interpolateProvider.startSymbol('{[{');
-    $interpolateProvider.endSymbol('}]}');
-});
+        // Change language
+        $rootScope.changeLanguage = function(langKey) {
+            var langList = $window.translateConfig()[1]; // ['es','en'] from /static/js/resource/language.js
 
-function randomString(length, chars) {
-	if(chars == undefined){
-		chars ='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-	}
-    var result = '';
-    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
-    return result;
-}
+            if (langKey && langList.lastIndexOf(langKey) > -1) {
+                $translate.use(langKey);
+                $cookieStore.put('setLanguage', langKey);
+                $rootScope.setLanguage = langKey;
 
-String.prototype.visualLength = function()
-{
-    //var ruler = document.getElementById("ruler");
-    //ruler.innerHTML = this;
-    //return ruler.offsetWidth;
-    return 100;
-}
+            } else {
+                var lang = $rootScope.setLanguage || window.translateConfig()[0]; // 'en'
+                var langSelected = langList.lastIndexOf(lang); // int
+                var langChange = '';
+                // select next lang from list
+                if (langSelected >= langList.length -1) {
+                    langChange = langList[0];
+                } else {
+                    langChange = langList[langSelected+1];
+                }
 
-function makeid()
-{
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                // Change language and save cookies
+                $translate.use(langChange);
+                $cookieStore.put('setLanguage', langChange);
+                $rootScope.setLanguage = langChange;
 
-    for( var i=0; i < 5; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+        };
 
-    return text;
-}
+    }]);
+
+})();

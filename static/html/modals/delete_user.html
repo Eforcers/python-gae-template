@@ -1,0 +1,20 @@
+<div class="efor-modal-wrapper">
+    <h1 class="text-a-center">{[{ 'user_delete_title' | translate }]}</h1>
+    <div class="efor-slider">
+        <section class="efor-section">
+            <div class="mdl-grid width-lg">
+                <h2 class="efor-desc text-a-center"> {[{ 'user_delete_subtitle' | translate }]}</h2>
+                <div class="cont-liest-details">
+                    <p>{[{ 'user_delete_message' | translate }]}: <b>"{[{scope.userEdit.first_name}]}"</b>
+                    <hr>
+                    <div class="efor-buttons text-a-right">
+                        <button class="efor-btn-primary efor-btn-secundary mdl-button mdl-js-button mdl-js-ripple-effect" id="next_to_users" ng-click="scope.delete(scope.modalUser)">
+                            {[{ 'user_delete_title' | translate }]}
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

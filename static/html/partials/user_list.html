@@ -1,0 +1,27 @@
+<div class="table-overflow">
+    <table class="efor-table-logs mdl-data-table mdl-shadow--2dp">
+        <thead>
+            <tr>
+                <th class="mdl-data-table__cell--non-numeric">Nombre</th>
+                <th class="mdl-data-table__cell--non-numeric">Apellido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td class="text-a-left" data-title="Nombre">{[{user.first_name}]}</td>
+                <td class="text-a-left" data-title="Apellido">
+                    {[{user.last_name}]}
+                    <button id="menu-lower-right-{[{$index}]}" class="button-to-right mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <ul class="efor-menu efor-menu__small mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="menu-lower-right-{[{$index}]}">
+                        <li class="mdl-menu__item" ng-click="openDelete(user)">
+                            <i class="material-icons">delete</i>
+                        {[{'user_delete_title' | translate}]}
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

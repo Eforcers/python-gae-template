@@ -1,0 +1,88 @@
+$noti_rad = $noti_rad is defined ? $noti_rad :  2px
+$noti_background = $noti_background is defined ? $noti_background :  rgba(38,50,56,0.85)
+$noti_background_hover = $noti_background_hover is defined ? $noti_background_hover :  rgba(38,50,56,1)
+$noti_text_size = $noti_text_size is defined ? $noti_text_size :  14px
+$noti_info = $noti_info is defined ? $noti_info :  #87c7ff
+$noti_warning = $noti_warning is defined ? $noti_warning :  #ff7623
+$noti_danger = $noti_danger is defined ? $noti_danger :  #ff6d6a
+$noti_success = $noti_success is defined ? $noti_success :  #8bc34a
+
+.ui-notification
+    border-radius $noti_rad
+    position fixed
+    z-index 9999
+    box-shadow 5px 5px 10px rgba(0, 0, 0, 0.3)
+    cursor pointer
+    width 300px
+    color #fff
+    background $noti_background
+    transition all ease 0.5s
+
+    &.killed
+        opacity 0
+        transition opacity ease 1s
+
+    &:before
+        content '\00d7'
+        display block
+        background rgba(#fff, 0.05) 
+        opacity 0.5
+        size 20px
+        line-height @height
+        text-align center
+        float right
+        color #fff
+        transition opacity ease-in-out 250ms
+        border-radius 0 0 0 4px
+        font-size 14px
+
+    & > h3
+        display block
+        margin 10px 10px 0 10px
+        padding 0 0 5px 0
+        text-align left
+        font-size 20px
+        font-weight bold
+        border-bottom 1px solid gray
+        line-height 1.2em
+        color #f1f1f1
+        font-weight normal
+
+    a
+        text-decoration underline
+        font-weight normal
+        COLOR #fff
+        &:hover
+            text-decoration underline
+
+    > .message
+        margin 10px 10px 10px 10px
+
+    &.warning
+        &
+        .message
+            color $noti_warning
+
+    &.error
+        &
+        .message
+            color $noti_danger
+
+    &.success
+        &
+        .message
+            color $noti_success
+
+    &.info
+        &
+        .message
+            color $noti_info
+    
+    &:hover
+        background $noti_background_hover
+        opacity 1
+
+        &:before
+            opacity 1
+            box-shadow rgba(#000, 0.25) 0 0 4px 0
+            background rgba(#fff, 0.25) 

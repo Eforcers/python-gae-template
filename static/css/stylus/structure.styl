@@ -1,0 +1,182 @@
+html, body
+    height 100%
+    padding 0
+    margin 0
+
+html.efor-class, body
+    &:not(.tinyMCE_iframe_body)
+        font-family 'Roboto', 'Helvetica', sans-serif
+        background $bgColor
+        color $textColor
+
+// Personalize view signature
+#additional-text .mce-container-body.mce-stack-layout .mce-toolbar-grp .mce-container-body .mce-btn-group:last-child
+    .mce-widget.mce-last.mce-btn-has-text
+        background rgba($blue-500, 0.25)
+
+        span
+            color #fff !important
+
+// Components
+.mdl-layout__content
+    scrollbar($grey-100, true, 4px, false)
+
+.efor-drawer.is-visible ~ .mdl-layout__obfuscator
+    visibility visible
+    background rgba($blue-grey-700,.9)
+
+.mdl-layout
+    .efor-header.mdl-layout__header
+        box-shadow rgba(0,0,0,.40) 0 0 10px
+
+    .efor-navigation-header
+        a.mdl-navigation__link
+            font-weight normal
+            color $textColor
+            padding-left $paddingBox
+            padding-right $paddingBox
+
+        a, & ~ button
+            cursor default !important // cursor
+
+        .efor-customer // img and icon
+            size 32px
+            margin-right .25em !important
+            vertical-align middle
+
+    // NAVIGATOR BUTTON COLOR IN SMALL DEVICES
+    .mdl-layout__drawer-button
+        color $blue-grey-500
+
+    //NAVIGATOR PANE
+    .efor-navigation.mdl-navigation
+        a.mdl-navigation__link
+            font-size $text_p
+            padding $paddingBox
+            cursor pointer
+            color $blue-grey
+
+            &:hover
+                background rgba($blue-grey, 0.05)
+
+            &.is-active
+                cursor default
+                background-color $blue-grey-50
+
+        .material-icons
+            margin-right .5em
+
+    //not small screen
+    &:not(.is-small-screen)
+        //HEADER
+        .efor-header.mdl-layout__header
+            margin-left 0
+            width auto
+
+            .efor-layout__header-row.mdl-layout__header-row
+                padding-left $paddingBox *2
+
+            img.efor-customer
+                margin-right auto !important
+
+        .mdl-layout__drawer-button
+            display none
+
+        //NAVIGATOR PANE
+        .efor-drawer.mdl-layout__drawer
+            top 64px
+            height auto
+            bottom 0
+            background transparent
+            box-shadow none
+            border-color transparent
+            z-index 2
+            scrollbar($grey-100, true, 10px, false)
+
+        .efor-navigation.mdl-navigation
+            a.mdl-navigation__link
+                margin auto ($paddingBox * 2)
+
+    //small screen
+    &.is-small-screen
+        .efor-header.mdl-layout__header
+            box-shadow rgba(0,0,0,.40) 0 0 10px
+
+            .efor-layout__header-row.mdl-layout__header-row
+                padding-left $paddingBox *6
+
+//GENERAL CONTENT
+.efor-navigation__content
+    > *
+        vertical-align middle
+
+    .mdl-navigation__link
+    .mdl-button
+        color $blue-grey-500
+        min-width 0
+        line-height 30px
+        width 32px
+        padding 0
+        margin-left 0.5em
+        height 32px
+        opacity .75
+
+        &.mdl-button--raised
+            box-shadow none
+
+        &.mdl-button--colored
+            color white
+
+        &:hover
+            opacity 1
+
+div[loading-widget]
+
+    .tag-block-screen
+        size 250px
+        background rgba(255,255,255, .85)
+        transition ease-in-out 500ms all
+        margin 6% auto 0
+        bottom auto
+        border-radius 1000px
+        max-width 100%
+        box-shadow rgba($blue-grey-500, 0.2) 0 4px 4px 0 inset
+
+        @media(max-width $screen-md)
+            size 200px
+            top 0
+
+            @media(max-height 361px)
+                size 160px
+
+        .loadign-img
+        .loadign-bar
+            position absolute
+            top 0
+            bottom 0
+            left 0
+            right 0
+            width 66%
+            height auto
+            margin auto
+
+        .loading-bar
+            animation rotate_f 2s linear infinite
+
+    &.block
+        .tag-loading
+            display none
+
+    .message
+        background transparent
+        box-shadow none
+        animation progressOpacity 2s linear infinite
+        margin-top 10px
+            
+// Footer
+.efor-layout__footer
+    width 82%
+
+    @media(max-width $screen-sc)
+        width auto
+

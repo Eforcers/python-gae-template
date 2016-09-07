@@ -9,21 +9,50 @@ scaffolding for other python frameworks and use cases.
 
 ## Run Locally
 1. Install the [App Engine Python SDK](https://developers.google.com/appengine/downloads).
-See the README file for directions. You'll need python 2.7 and [pip 1.4 or later](http://www.pip-installer.org/en/latest/installing.html) installed too.
+See the README file for directions. You'll need python 2.7 (appengine can crash in windows with python 2.7+, please install phyton 2.7.9) and [pip 1.4 or later](http://www.pip-installer.org/en/latest/installing.html) installed too.
 
 2. Clone this repo with
 
    ```
-   git clone https://github.com/GoogleCloudPlatform/appengine-python-flask-skeleton.git
+   git clone git@git.assembla.com:eforcers.esmg.git
    ```
 3. Install dependencies in the project's lib directory.
    Note: App Engine can only import libraries from inside your project directory.
 
    ```
-   cd appengine-python-flask-skeleton
+   cd eforcers.esmg
    pip install -r requirements.txt -t lib
    ```
-4. Run this project locally from the command line:
+   Is necesary to add the next code fragment in /lib/pipeline/util.py
+
+   over definition of
+
+        version = os.environ["CURRENT_VERSION_ID"].split(".")[0]
+        module = os.environ["CURRENT_MODULE_ID"]
+
+   in method _get_task_target():
+
+   the code is:
+
+   if os.environ['SERVER_SOFTWARE'].startswith('Dev'):
+    return module
+
+
+4. Install bower dependencies in static/components.
+   Note: before install node and bower.
+
+   ```
+   cd eforcers.esmg
+   bower install
+   ```
+6. IMPORTANT: in lib/piplines/util.py:66, after of ( module = os.environ["CURRENT_MODULE_ID"]) paste:
+
+   ```
+   if os.environ['SERVER_SOFTWARE'].startswith('Dev'):
+       return module
+   ```
+   
+7. Run this project locally from the command line:
 
    ```
    dev_appserver.py .

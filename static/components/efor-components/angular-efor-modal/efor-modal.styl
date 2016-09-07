@@ -1,0 +1,970 @@
+$screen-sm = $screen-sm is defined ? $screen-sm : 480px
+$screen-md = $screen-md is defined ? $screen-md : 840px
+$screen-sc = $screen-sc is defined ? $screen-sc : 1024px
+$screen-xlg = $screen-xlg is defined ? $screen-xlg : 1600px
+$wrapper = $wrapper is defined ? $wrapper : 1024px
+
+$muted = $muted is defined ? $muted : #666666
+$success = $success is defined ? $success : #388e3c
+$info = $cyan is defined ? $info : #0097a7
+$warning = $orange is defined ? $warning : #ef6c00
+$danger = $red is defined ? $danger : #e53935
+
+$blue = $blue is defined ? $blue : #2196f3
+$blue-grey-500 = $blue-grey-500 is defined ? $blue-grey-500 : #607d8b
+$blue-grey-900 = $blue-grey-900 is defined ? $blue-grey-900 : #263238
+$box-shadow3 = $box-shadow3 is defined ? $box-shadow3 : 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24)
+$gray = $gray is defined ? $gray : #666666
+$grey-100 = $grey-100 is defined ? $grey-100 : #f5f5f5
+$grey-200 = $grey-200 is defined ? $grey-200 : #eeeeee
+$grey-900 = $grey-900 is defined ? $grey-900 : #212121
+
+$modal_bg = $modal_bg is defined ? $modal_bg : rgba(69,90,100,0.9)
+$modal_open_transition = $modal_open_transition is defined ? $modal_open_transition : ease-in-out 0.25s all
+$white-box-shadow = $white-box-shadow is defined ? $white-box-shadow : 0 4px 8px rgba(0,0,0,.32),0 8px 40px rgba(0,0,0,.4)
+
+$text_h3 = $text_h3 is defined ? $text_h3 : 24px
+$text_h4 = $text_h4 is defined ? $text_h4 : 18px
+$paddingBox = $paddingBox is defined ? $paddingBox : 10px
+$text_p = $text_p is defined ? $text_p : 14px
+$text_ps = $text_ps is defined ? $text_ps : 12px
+$textGray = $textGray is defined ? $textGray : #666666
+
+.efor-modal
+    position fixed
+    overflow hidden
+    overflow-y auto
+    left 0
+    top 100%
+    right 0
+    bottom 0
+    z-index -1
+    color #fff
+    background $modal_bg
+    transition $modal_open_transition
+    opacity 0
+    height 0
+
+    > *
+        transition ease-out 1s all
+        opacity 0
+        
+    .mdl-radio
+        font-size $text_p
+
+    .toast
+        position absolute
+        left 0
+        right 0
+        font-size $text_ps
+
+        & + .efor-modal-wrapper
+            margin-top 35px
+
+    .width-md > div
+        display block
+        width 100%
+
+    .efor-modal-wrapper
+        .config-tabs
+        .config-pane
+            scrollbar($grey-100, true, 5px, false)
+
+        .config-box
+            margin-top 3%
+            margin-bottom 0%
+
+        @media (min-height 590px) and (min-width 601px)
+            top -30px
+
+        .message-box
+            color #fff
+            box-shadow none
+            background transparent
+            mdlButton-secondary $primary #fff #fff
+            max-width 600px
+            margin-top 5%
+
+            .mdl-button
+                background-color rgba(255,255,255,0.1)
+                color #fff
+
+                &.mdl-button--primary
+                    background-color rgba(33,150,243,0.25)
+
+        .message
+            border 1px dotted rgb(255, 255, 255)
+            padding 10px
+            font-weight normal
+            font-size $text_p
+            background rgba(0, 0, 0, .1)
+
+            b
+                font-weight bold
+                font-size $text_h5
+                color $yellow-600
+    .text-water
+        opacity 0.5
+        font-style italic
+
+    .button-actions
+        padding 0
+
+        .done_all{}
+
+        .mdl-button
+            height 30px
+            line-height 30px
+            margin 5px 0
+            border 1px solid #f5f5f5
+            border-radius 2px
+            box-shadow rgba(0,0,0,0.2) 2px 2px 3px
+
+        .status-icon
+            float none
+            margin-top 0
+            margin-left 0
+
+
+    &.is-open
+        display block
+        opacity 1
+        height 100%
+        top 0
+        z-index 100
+
+        > *
+            top 0
+            opacity 1
+
+    &.is-close{}
+
+    &.ani-slide
+        position absolute
+        height 0
+        width 100%
+
+        &.is-open
+            height 100%
+            top 0
+            opacity 1
+
+            > *
+                opacity 1
+
+        &.is-close
+            top 100%
+            opacity 0
+
+            > *
+                opacity 0
+
+    &.ani-fade
+        top 0
+        height 100%
+
+        &.is-open
+            top 0
+            opacity 1
+
+            > *
+                opacity 1
+
+        &.is-close
+            opacity 0
+
+            > *
+                opacity 0
+
+    div[ng-include]
+        height 100%
+        display flex
+        align-items center
+
+    .efor-modal-btn-quit
+        position absolute
+        right $paddingBox
+        top $paddingBox
+        color white
+        box-shadow none
+        background none
+        z-index 1
+
+    &.no-quit-button .efor-modal-btn-quit
+        display none !important
+
+    .efor-modal-wrapper
+        position absolute
+        top 0
+        bottom 0
+        left 0
+        right 0
+        margin auto
+        max-height 500px
+
+        .w-message
+            max-width 420px
+
+        h1
+            font-size $text_h3
+            margin-bottom 5px
+
+            @media(max-width $screen-sm)
+                margin-top 15px
+
+        @media(min-height $screen-md)
+            margin-top 5%
+
+        @media(min-height $screen-sm)
+            margin-top 2%
+
+    .efor-buttons
+        width 100%
+
+        @media(max-width $screen-sm)
+            text-align center
+
+        .mdl-button
+            text-transform none
+
+            @media(max-width $screen-sm)
+                width 100%
+                margin-bottom $paddingBox
+
+        .mdl-button--raised
+            box-shadow none
+            background-color $blue
+            position relative
+
+        .efor-btn-secundary
+            color #fff
+            background-color rgba(#fff,.1)
+
+        .efor-btn-primary
+            background-color rgba($blue,.25)
+            padding-left 10px
+            padding-right 10px
+
+        .material-icons
+            margin-left .25em
+
+    &.danger
+        background rgba(darken($danger,50%),.9)
+
+        .efor-btn-primary
+            background-color $danger
+
+    &.info
+        background rgba($info,.9)
+
+        .efor-btn-primary
+            background-color $info
+
+    &.success
+        background rgba($success,.9)
+
+        .efor-btn-primary
+            background-color $success
+
+    &.warning
+        background rgba($warning,.9)
+
+        .efor-btn-primary
+            background-color $warning
+
+    &.muted
+        background rgba($muted,.9)
+
+        .efor-btn-primary
+            background-color $muted
+    p
+        line-height 1.2em
+
+//sections
+.efor-modal .efor-slider
+    .efor-section
+        position absolute
+        transition ease-in-out 0.25s all
+        opacity 1
+        left 0
+        right 0
+        transform translateX(0)
+
+        @media(max-width $screen-md)
+            padding $paddingBox $paddingBox*2
+
+        @media(max-width $screen-sm)
+            padding-top 1px
+
+        &.ng-hide
+            opacity 0
+            transform translateX(-50px)
+
+            &.back
+                transform translateX(50px)
+
+        //&.ng-animate{}
+        &.ng-hide-remove
+            transform translateX(0px)
+
+            &.back{}
+
+    /.cont-liest-details
+        width 100%
+
+    .mdl-grid
+        &.width-md
+            max-width 400px
+            margin auto
+            padding 0
+        &.width-lg
+            max-width 600px !important
+            margin auto
+            padding 0
+
+    //mod colors
+    .mdl-textfield
+        .is-invalid.is-upgraded
+            // pristine indique if is initial value not mod
+                        
+        input.mdl-textfield__input
+        textarea.mdl-textfield__input
+        select.mdl-textfield__input
+            &
+            &.ng-pristine
+                border-bottom 1px rgba(#fff,1) solid
+                
+
+        input.mdl-textfield__input
+            &
+            &.ng-pristine
+
+                & + .mdl-textfield__label
+                    color rgba(#fff,.75)
+                    
+                    &:after
+                        background-color #fff
+                        
+        &
+        &.is-focused
+        &.is-dirty
+            .mdl-textfield__label
+                color rgba(#fff,.75)
+                border-Color #fff
+                font-weight normal
+
+                &:after
+                    background-color $blue
+                    height 1px
+
+        &.is-focused
+        &.is-dirty
+            .mdl-textfield__label
+                font-weight bold
+
+        .mdl-radio //radius content
+            margin-right $paddingBox
+
+        &.esgm-radiocheck .mdl-textfield__label
+            top 0 !important
+
+        .mdl-radio__ripple-container .mdl-ripple
+        .mdl-radio__inner-circle
+            background $blue
+
+        .mdl-radio__outer-circle
+        .mdl-radio.is-checked .mdl-radio__outer-circle
+            border-color #fff
+            
+
+
+    :not(.mdl-cell) > .mdl-textfield
+        width 100%
+
+    .mdl-cell > .mdl-textfield
+        margin-left -8px
+
+    .efor-color-input
+        margin-bottom -($paddingBox *2)
+
+        input
+        &:not(.is-focused) .mdl-textfield__label
+            text-indent 26px //.efor-color-preview outer width
+            cursor pointer
+
+        .colorpicker
+            &.colorpicker-position-top
+                margin-top 50px
+
+                &:after
+                    beforeAfter block absolute 10px 10px
+                    arrow 10px 10px down #fff
+                    top 100%
+                    left 5px
+
+    .efor-color-preview
+        width 16px
+        height 16px
+        border-radius 50%
+        position absolute
+        left 0
+        top 24px
+        background $gray
+        border 2px solid #fff
+        z-index -1
+
+        &:after
+            content ''
+            display block
+            position absolute
+            right -2px
+            bottom -2px
+            arrow 10px 10px downRight #fff
+
+    .signature-preview
+        padding 0
+
+    option
+        color $blue-grey-500
+    hr
+        border-color #fff
+        background-color #fff
+        color #fff
+        width 100%
+        height 0
+        display block
+        clear both
+        opacity 0.25
+        margin $paddingBox auto
+
+    h1
+        text-align center
+        margin-bottom 0
+        font-size $text_h3
+
+    .efor-desc
+        opacity .75
+        text-align center
+        display block
+        width 100%
+        font-size $text_p
+        margin auto
+        margin-bottom $paddingBox
+        line-height 1.2em
+
+    textarea
+        font-size $text_ps
+
+    .mdl-grid
+        width 100%
+        padding 0//if not problems
+
+.efor-modal .message-box
+    background #fff
+    left 0
+    right 0
+    max-width 420px
+    max-height 250px
+    margin 7% auto auto
+    color $grey-900
+    position relative
+    box-shadow 0 4px 8px rgba(0,0,0,.32),0 8px 40px rgba(0,0,0,.4)
+    position absolute
+    padding-bottom 60px
+
+    @media(max-width: $screen-md)
+        max-width 90%
+
+    .mdl-grid
+        width 100%
+        padding $paddingBox*2
+
+    .mdl-checkbox__label
+        font-size $text_p
+
+    .content-section
+        height 100%
+        display flex
+        flex-direction column
+
+    .info-header
+    .info-footer
+        margin 0
+        padding 20px
+
+    .info-header
+
+        @media (max-width: $screen-md)
+            border-bottom none
+
+        .title-info
+            padding 1px
+            margin 0
+            font-size $text_h4
+            text-align center
+            overflow hidden
+            line-height 1.2em
+
+            .u
+                display inline-block
+                font-style italic
+                &:before
+                &:after
+                    content '"'
+                    display inline-block
+
+    .info-footer
+        text-align center
+        padding $paddingBox
+        position absolute
+        bottom 0
+        width calc(100% - 20px)
+
+    .info-body
+        margin auto
+        overflow auto
+        overflow-x hidden
+        display flex
+        flex-grow 1
+        width 100%
+        max-height calc(100% - 135px)
+
+        > .mdl-grid
+            height auto
+            padding 5px $paddingBox*2
+            @media (max-width: $screen-md)
+                flex-direction column
+                display block
+
+.white-box
+.config-box
+    margin auto
+    margin-top 3%
+    margin-bottom 0%
+    
+    .efor-modal-btn-quit
+        color gray
+
+    &.box-mini
+        max-width 400px
+        
+        .info-body
+            .mdl-textfield
+            .cont-radios
+            .mdl-switch
+            .mdl-checkbox
+                width 100%
+                margin-left 0
+                margin-right 0
+
+.config-box
+    background #fff
+    top 0
+    bottom 0
+    left 0
+    right 0
+    max-width 600px
+    max-height 550px
+    min-height 220px 
+    color $grey-900
+    position relative
+    box-shadow 0 4px 8px rgba(0,0,0,.32),0 8px 40px rgba(0,0,0,.4)
+    position absolute
+
+    .mdl-checkbox__label
+        font-size $text_p
+
+    @media(max-width: $screen-md)
+        max-width 90%
+
+    .content-section
+        height 100%
+        display flex
+        flex-direction column
+
+    .info-header
+    .info-footer
+        margin 0
+        padding 20px
+
+    .info-header
+        border-bottom 1px solid $grey-200
+
+        @media (max-width: $screen-md)
+            border-bottom none
+
+        .title-info
+            padding 1px
+            margin 0
+            font-size $text_h4
+            overflow hidden
+            white-space nowrap
+            text-overflow ellipsis
+
+            .u
+                text-style italic
+                display inline-block
+
+    .info-footer
+        text-align right
+        border-top 1px solid $grey-200
+        padding-top $paddingBox
+        padding-bottom $paddingBox
+        position absolute
+        bottom 0
+        width calc(100% - 40px)
+
+    .info-body
+        margin auto
+        overflow auto
+        overflow-x hidden
+        display flex
+        flex-grow 1
+        width 100%
+        margin-bottom 60px
+        max-height calc(100% - 135px)
+
+        > .mdl-grid
+            height auto
+            box-sizing border-box
+            width 100%
+            @media (max-width: $screen-md)
+                flex-direction column 
+                display block
+
+    .config-tabs
+        padding-top $paddingBox*1.5
+        margin 0
+        border-right 1px solid $grey-200
+        overflow auto
+        align-items flex-start
+
+        @media (max-width: $screen-md)
+            display flex
+            border-right 0
+            border-bottom 1px solid $grey-200
+            width 100%
+            flex-grow 0
+            max-height none
+            padding-top 0
+
+            a
+                min-width 30px
+                flex-shirnk 0
+
+                &.is-active
+                    border-bottom 2px solid $blue
+
+        a
+            display block
+            cursor pointer
+            border-radius 0
+            text-align left
+            white-space nowrap
+            overflow hidden
+            text-overflow ellipsis
+            font-weight normal
+            margin-bottom 1px
+            transition ease-in-out 250ms all
+
+            &:hover
+                background $grey-100
+
+            &.is-active
+                background $grey-200
+                font-weight bold
+
+    .config-pane
+        display flex
+        padding-top $paddingBox*1.5
+        padding-right $paddingBox
+        padding-left $paddingBox*2
+        margin 0
+        height auto
+        overflow auto
+        align-items flex-start
+        flex-direction column
+        width 69%
+        max-height 100%
+        overflow auto
+        
+        fieldset
+            display block
+            width 100%
+            border none
+            box-sizing border-box
+            padding-left 0
+            padding-right 0
+
+        .text-limit
+            max-width 250px
+            overflow hidden
+            white-space nowrap
+            text-overflow ellipsis
+                
+        @media (max-width: $screen-md)
+            flex-grow 1       
+            width 100%
+
+            fieldset > .mdl-grid
+                padding-left 0
+                padding-right 0
+
+
+       .efor-title-search
+           margin-bottom $paddingBox
+
+        .mdl-textfield
+            width 100%
+
+    .table-list
+        th:first-child
+        td:first-child
+            padding-left .25em
+
+
+    .button-actions //butons for sync and do any actions
+        display block
+        text-align left
+        width 100%
+        font-weight normal
+        padding 0 8px
+
+        &:hover
+            .status-icon
+                color $blue
+
+
+        .status-text
+            color $textGray
+            font-size $text_ps
+            font-style italic
+
+        .material-icons
+            float right
+            margin-top 6px
+
+        &.done_all //mantain name equal to mdl icon
+            .status-icon
+                color $success
+
+        &.sync //mantain name equal to mdl icon
+            cursor default
+
+            .status-icon
+                color $info
+                animation rotate_f 5s linear infinite
+
+            &:hover
+                background transparent
+
+    fieldset.fieldset
+        border none
+        padding 1px 0 5px
+        margin 0
+        width 100%
+
+        &.relevant
+            border-bottom 1px solid $grey-200
+
+    .tr_config
+        display flex
+        justify-content space-between
+
+        &:first-child
+            margin-top $paddingBox*2
+
+    .td_description
+        width 80%
+        margin-left 0
+
+    .td_action
+        text-align right
+
+        .mdl-switch
+            margin-top 8px
+            padding-right 12px
+
+    .mdl-checkbox
+    .mdl-switch
+        margin-bottom 10px
+        height auto
+
+.white-box
+    background #fff
+    max-width ($wrapper - 200px)
+    padding $paddingBox
+    color $grey-900
+    position relative
+    box-shadow $white-box-shadow
+
+    input[readonly]
+        color $grey
+
+    @media(max-width: $screen-md)
+        max-width 90%
+
+    .info-header
+    .info-footer
+        margin -($paddingBox)
+        padding 20px
+
+    .info-header
+        color #000
+
+        .title-info
+            padding 1px
+            margin 0
+            font-size $text_h4
+            line-height 1.2em !important
+            overflow hidden
+            white-space nowrap
+            text-overflow ellipsis
+
+    .info-footer
+        position relative
+        text-align right
+        z-index 1
+        margin-top 0
+
+    .info-body
+        padding $paddingBox
+        padding-top 0
+        padding-bottom 0
+        overflow auto
+        overflow-x hidden
+        max-height 400px
+        margin-left -$paddingBox
+        margin-right -$paddingBox
+
+        @media(max-height: $screen-xlg)
+            max-height 1400px
+
+        @media(max-height: $screen-sc)
+            max-height 800px
+
+        @media(max-height: $screen-md)
+            max-height 420px
+
+        @media(max-height: $screen-sm)
+            max-height 200px
+
+    fieldset.fieldset
+        box-sizing border-box
+        background $grey-100
+        margin auto -20px
+        padding 20px
+        border-color #fff
+
+        &:first-child
+            padding-top 0
+
+        & + .fieldset
+            margin-top $paddingBox
+
+        &.relevant
+            padding-bottom $paddingBox
+            background #fff
+
+    &.box-shadow
+        .mdl-textfield
+        .cont-radios
+        .mdl-switch
+        .mdl-checkbox
+            box-shadow rgba(0,0,0,0.15) 1px 1px 4px 0
+
+            &:hover
+            &.is-focused
+                box-shadow rgba(0,0,0,0.15) 1px 1px 4px 0, $box-shadow2
+
+        .cont-radios .mdl-checkbox
+            &
+            &.is-focused
+            &:hover
+                box-shadow rgba(0,0,0,0.15) 1px 1px 4px 0, $box-shadow2
+
+    &:not(.box-mini)
+        .mdl-textfield
+        .cont-radios
+        .mdl-switch
+        .mdl-checkbox
+            max-width 100%
+            display inline-block
+            margin 5px
+            width calc( 33% - 10px )
+            vertical-align top
+            border 10px solid #fff
+            box-sizing border-box
+            transition ease-in-out 250ms all
+
+
+            &.type-file .mdl-textfield__label
+                font-size $text_ps
+                top 4px
+                visibility visible
+
+            @media(max-width: $screen-md)
+                width 44%
+
+            @media(max-width: $screen-sm)
+                width calc(100% - 10px)
+
+            /.cont-radios .mdl-checkbox
+                margin 0
+
+        .mdl-textfield
+            .mdl-button
+                width 100%
+                display block
+
+        .mdl-checkbox
+        .mdl-switch
+            .mdl-switch__label
+                display block
+                font-size $text_ps
+                left 45px
+                top -15px
+
+            .mdl-switch__track
+            .mdl-switch__thumb
+            .mdl-switch__ripple-container
+                margin-top 5px
+
+            .mdl-checkbox__label
+                display block
+                font-size $text_ps
+                top -22px
+                left 22px
+
+        .cont-radios
+            padding 6px 0
+
+            .label
+                display block
+                font-size $text_ps
+
+                & + .mdl-radio
+                    margin-left 0
+
+            .mdl-radio
+                margin-left 10px
+                vertical-align middle
+
+        .uploadingFile
+            background rgba($blue-grey-900,.5)
+            margin auto
+            color #fff
+
+        .subtitle
+            font-size $text_h5
+            margin auto
+
+@keyframes rotate_f
+    0%
+        transform rotate(0deg)
+    
+    50%
+        transform rotate(180deg)
+    
+    100%
+        transform rotate(364deg)

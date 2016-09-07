@@ -1,0 +1,66 @@
+<div class="efor-modal-wrapper" ng-controller="configureController">
+    <div class="config-box">
+        <div class="content-section">
+            <div class="info-header">
+                <h3 class="title-info mdl-typography--headline"> <i class="material-icons">settings</i> {[{ 'settings_title' | translate }]}</h3>
+            </div>
+            <div class="info-body" ng-init="tab_visible=1">
+                <div class="mdl-grid">
+
+                    <div class="config-tabs mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">
+                        <a class="mdl-button" ng-click="tab_visible=1" ng-class="{'is-active':tab_visible==1}">{[{ 'settings_sync_tab' | translate }]}</a>
+                        <a class="mdl-button" ng-click="tab_visible=2" ng-class="{'is-active':tab_visible==2}">{[{ 'settings_language_tab' | translate }]}</a>
+                        <a class="mdl-button" ng-click="tab_visible=3" ng-class="{'is-active':tab_visible==3}">{[{ 'settings_licenses_tab' | translate }]}</a>
+                    </div>
+
+                    <div class="config-pane mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet" ng-show="tab_visible==1">
+                        <fieldset class="fieldset">
+                            <div class="mdl-grid">
+
+                                <div class="button-actions" ng-class="configure.sync_users.status">
+                                    <button class="mdl-button mdl-button mdl-js-button">
+                                        {[{ 'settings_sync_google' | translate }]}
+                                        <i class="material-icons status-icon">{[{ configure.sync_users.status }]}</i>
+                                    </button>
+                                    <span class="status-text" ng-if="configure.sync_users.date">({[{configure.sync_users.date}]})</span>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                    <div class="config-pane mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet" ng-show="tab_visible==2">
+                        <fieldset class="fieldset">
+                            <div class="mdl-cell--4-col">
+                                <label class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" for="languageOptions">
+                                    <select class="mdl-textfield__input" name="languageOptions" id="languageOptions" ng-model="configure.language" ng-options="option.lang for option in languageList track by option.id" ng-change="selectLanguage(configure.language)"></select>
+                                    <span class="mdl-textfield__label">{[{ 'settings_language_label' | translate }]} </span>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="config-pane mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet" ng-show="tab_visible==3">
+                        <fieldset class="fieldset">
+                            <ul class="licenses-list">
+                                <li>
+                                    <b>Library Name:</b> 
+                                    The text best librry for Internet - http://ckeditor.com
+                                    Copyright (c) 2003-2016, All rights reserved.
+                                    <br>
+                                    Mozilla Public License Version 1.1 or later (the "MPL")
+                                    <br>
+                                    <a href="http://www.mozilla.org/MPL/MPL-1.1.html">http://www.mozilla.org/MPL/MPL-1.1.html</a>
+                                </li>
+                            </ul>
+                        </fieldset>
+                    </div>
+
+                </div>
+            </div>
+            <div class="info-footer">
+                <button type="button" class="mdl-button mdl-js-button" ng-click="efmodal.close()">{[{ 'settings_save' | translate }]}</button>
+            </div>
+        </div>
+    </div>
+</div>

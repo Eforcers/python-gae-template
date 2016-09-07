@@ -1,0 +1,951 @@
+//mods and complements
+$primary = $primary is defined ? $primary : #3f51b5
+$screen-sm = $screen-sm is definded ? $screen-sm : 480px 
+$blue-grey = $blue-grey is defined ? $blue-grey : #76868d
+$red = $red is defined ? $red :rgb(255,64,129) 
+$blue-grey-50 = $blue-grey-50 is defined ? $blue-grey-50 : rgba(96,125,139,0.5)
+$paddingBox = $paddingBox is defined ? $paddingBox : 10px
+/*MODS*/
+// fixed vertical position icons in line txt
+.mdl-menu
+.mdl-navigation__link
+    .material-icons
+        vertical-align middle
+
+.mdl-button
+    text-transform none
+
+.material-icons
+    vertical-align middle
+
+// Fix blur on tooltip
+.mdl-tooltip
+    will-change inherit
+
+//validations angular
+input.ng-valid.ng-touched{}
+
+input.ng-invalid.ng-touched
+    & + .mdl-textfield__label:after
+        width 100%
+        background-color #f44336
+        visibility visible
+        left 0
+        
+
+// Disabled for tap
+.mdl-tooltip
+    @media(max-width $screen-md)
+        display none !important
+
+.block
+    display block
+    width 100%
+    
+.mdl-button
+    text-transform none
+
+.mini-input.mdl-textfield
+    padding-bottom 10px
+
+    .mdl-textfield__label:after
+        bottom 10px
+
+.mdl-textfield.always-view
+    &.mdl-textfield--floating-label .mdl-textfield__label
+        font-size 12px
+        top 4px
+        visibility visible
+
+input.mdl-textfield__input[type="file"]
+    font-size 12px
+
+/*COMPLEMENTS*/
+//fonts
+.font-w-bold
+    font-weight bold
+
+.font-w-normal
+    font-weight normal
+
+.font-w-light
+    font-weight light
+
+.text-a-left
+    &
+    td&
+    th&
+        text-align left
+.text-a-center
+    &
+    td&
+    th&
+        text-align center
+.text-a-right
+    &
+    td&
+    th&
+        text-align right
+.text-a-justify
+    &
+    td&
+    th&
+        text-align justify
+
+.text-muted
+    color $gray
+
+.text-primary
+    color $primary
+
+.text-success
+    color $success
+
+.text-info
+    color $info
+
+.text-warning
+    color $warning
+
+.text-danger
+    color $danger
+
+.efor-layout__header-row
+    .efor-logo
+        width 100%
+        height auto
+        display inline-block
+        margin 3px auto auto
+        position relative
+        z-index 5
+        max-height 60px
+
+.efor-layout__content{}
+.efor-content-title-bar
+    color $textColor
+    margin-bottom $paddingBox
+    display block
+    display flex
+
+    h1
+        margin auto
+        font-size $text_p
+        
+.table-overflow
+    display block
+    
+    > table
+        width 100%
+
+        th
+            white-space normal
+            line-height 1.2em
+    
+    &.overflow
+        overflow-x auto
+        padding-bottom 50px
+
+    @media(max-width $screen-sm)
+        padding-bottom 10px
+
+        > table > thead
+            display none
+
+        > table
+        > table > tbody
+        > table > tbody > tr
+        > table > tbody > tr > td
+            text-align left
+            display block
+            width auto
+
+        > table > tbody > tr
+            padding 20px 20px 10px 20px
+            border-bottom 1px solid #f1f1f1
+
+            > td
+            > td:first-of-type
+                padding 0 !important
+                margin 0
+                white-space normal
+                border none
+                min-height 0
+                height auto
+
+                .text-overflow
+                    display inline
+                    max-width 100%
+                    margin-left 0.33em
+                
+            > td:before
+                content attr(data-title)':'
+                display inline-block
+                font-weight bold
+                text-indent -0.25em
+
+// MENU popup
+.efor-menu
+    .mdl-menu__item
+    .mdl-button
+    .mdl-button--icon
+    .mdl-menu__item-ripple-container
+        height auto
+        min-height 0
+        border-radius 0
+        display block
+        line-height 32px
+        
+    .mdl-button--icon
+        .material-icons
+            margin-right .25em 
+            
+    &.efor-menu__small
+        .mdl-menu__item
+            height 32px
+            line-height 32px
+
+
+.mdl-button.button-to-right
+    float right
+
+// TABLES
+tr, th, td
+    &[ng-click]
+        cursor pointer
+
+.table-list
+    width 100%
+    border-left none
+    border-right none
+    border-top none
+
+    thead
+        tr
+            background transparent
+        th
+            transition ease-in-out 250ms all
+            padding 0 0 0 $paddingBox
+            height auto
+            font-size $text_ps
+            font-weight normal
+            cursor default
+
+                &:before
+                    beforeAfter inline-block relative 3px 3px
+                    arrow 6px 6px down $grey-700
+                    margin-right 3px
+                    vertical-align middle
+                    top -1px
+                    opacity 0
+                    transform rotate(0)
+                    transition ease-in-out 250ms all
+
+                &:hover
+                    background $grey-200
+
+                    &:before
+                        opacity 0.5
+
+            &.order
+                font-weight bold
+                color $grey-700
+
+                &:before
+                    opacity 1
+
+            &.reverse
+                &:before
+                    transform rotate(180deg)
+
+            &.active
+                font-weight bold
+
+    tbody
+        tr
+            height auto
+
+            td
+                height auto
+                padding 4px 0 4px $paddingBox
+                border-top 1px solid $grey-200
+                border-bottom 1px solid $grey-200
+
+                .mdl-switch
+                    display inline
+
+                &:last-child
+                    text-align right
+
+    /.text-overflow
+        display block
+        max-width 320px
+        overflow hidden
+        text-overflow ellipsis
+        white-space nowrap
+
+        &.owner
+            max-width 150px
+
+    .mdl-button--icon
+        size 24px
+        min-width 24px
+        color $grey-600
+
+.tbody-description
+    > tr
+        height auto !important
+
+        > th, > td
+            border none
+            padding-top 6px !important
+            padding-bottom 6px !important
+            min-height 0
+            height auto
+
+    /.tr-description
+        display none
+
+        > td, > th
+            white-space pre-line
+            text-align left
+            padding-top 0
+            padding-bottom 0
+            font-size $text_ps
+
+            &::first-line
+            &::first-letter
+                font-size $text_p
+                font-style italic
+
+        &:hover
+            background transparent !important
+
+    &.description-open
+        background rgba(80,80,80,0.05)
+
+        tr
+            > th, > td
+                font-weight bold
+
+        .tr-description
+            display table-row
+
+            > td, > th
+                font-weight normal
+                padding-bottom 12px
+                border-bottom 1px #ccc solid
+
+// BUTTONS MDL COLORS
+
+// Default
+mdlButton-default($bg=#ccc, $col=#333, $col2=#333 , args...)
+    &.mdl-button--raised
+    &.mdl-button--fab
+    &.mdl-button
+        color $col args
+        background $bg args
+        
+        &:not(.mdl-button.mdl-button--accent)
+            &:hover
+                background lighten($bg,20%) args
+                color $col args
+                
+                &[disabled]
+                    &, &:hover
+                        color $col2 args
+                        background $bg args
+                        opacity 0.5
+    
+    &.mdl-button:not(.mdl-button--accent)
+        color $col args
+
+        &:hover
+            background lighten($bg,20%) args
+            color $col2 args
+        
+        &[disabled]
+            &, &:hover
+                color $col args
+                background $bg args
+                opacity 0.5
+//mdlButton-default #000 #fff #000
+
+// Primary
+mdlButton-primary($bg=blue, $col=#fff, $col2=blue , args...)
+    &.mdl-button--fab.mdl-button--colored
+    &.mdl-button--accent.mdl-button--accent.mdl-button--raised
+    &.mdl-button--accent.mdl-button--accent.mdl-button--fab
+        background $bg args
+        color $col args
+
+        &:hover
+            background lighten($bg,20%) args
+            color $col args
+
+        &, &.mdl-button--accent.mdl-button--accent
+            color $col2 args
+
+            &:hover
+                color $col args
+                
+            &[disabled]
+                &, &:hover
+                    color $col2 args
+                    background $bg args
+                    opacity 0.5
+    
+    &.mdl-button--accent.mdl-button--accent
+    &.mdl-button--primary
+        color $bg args
+        
+        &[disabled]
+            &, &:hover
+                color $bg args
+                opacity 0.5
+//mdlButton-primary #000 #fff #000
+
+// Secundary
+mdlButton-secondary($bg=purple, $col=#fff, $col2=purple , args...)
+    &.mdl-button--raised.mdl-button--colored
+        background $bg args
+        color $col args
+
+        &
+        &.mdl-button.mdl-button--colored
+            color $col2 args
+
+            &:hover
+            &:focus
+                color $col
+                background lighten($bg,20%) args
+            
+            &[disabled]
+                &, &:hover
+                    background $bg args
+                    opacity 0.5
+                    
+    &.mdl-button--primary.mdl-button--primary
+    &.mdl-button--colored:not(.mdl-button--fab.mdl-button--colored)
+        color $bg args
+//button\ mdlButton-secondary #000 #fff #000
+
+// Disable
+mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
+    &.mdl-button--fab[disabled][disabled]
+    &.mdl-button--fab.mdl-button--disabled.mdl-button--disabled
+    &.mdl-button--raised[disabled][disabled]
+    &.mdl-button--raised.mdl-button--disabled.mdl-button--disabled
+        color $col2 args
+
+        &:hover, &:focus
+            background $bg args !important
+            color $col args !important
+            
+    &.mdl-button[disabled][disabled]
+    &.mdl-button.mdl-button--disabled.mdl-button--disabled
+        color $col2 args
+//mdlButton-disabled #000 #fff #000
+
+// FORMS validations + angular
+// Initial form "invalid" but not empty by angular
+.is-invalid.is-upgraded
+    // pristine indique if is initial value not mod
+    input.mdl-textfield__input.ng-pristine 
+        border-color rgba(0,0,0,.12)
+        
+        & + .mdl-textfield__label
+            color $primary
+            
+            &:after
+                background-color $primary
+            
+//load widget
+*[loading-widget]
+    position fixed
+    left 0
+    right 0
+    top 0
+    width 100%
+    height 0
+    box-sizing border-box
+    z-index 1000
+    text-align center
+    transition ease-in-out 1s opacity
+
+    &[style*="display: none"]
+        display block !important
+        color red
+
+
+    &[style="display: block;"]
+        z-index 9999
+        color blue
+
+        .tag-loading
+            display block
+            opacity 1
+            top 0px
+
+        &.pass
+            .tag-loading
+                opacity 0
+                display none
+
+    .tag-loading
+        top -50px
+        opacity 0
+        display block
+        transition ease-in-out 1.25s all
+
+    .tag-loading
+    .tag-block-screen
+        margin 10px auto
+        position absolute
+        background #FFF0B5
+        color #333
+        text-align center
+        max-width 200px
+        left 0
+        right 0
+        border-radius 4px
+        padding 2px 6px
+
+    .tag-block-screen
+        display none
+
+    &:before
+        content ''
+        height 100%
+        display none
+        background rgba(#fff, .75)
+        position fixed
+        top 0
+        left 0
+        right 0
+        bottom 0
+        width 100%
+        height 100%
+        z-index 0
+        transition ease-in-out 1s all
+
+    &.block
+        display none
+
+    &.block
+    &.block-remove
+        &:before
+            display block
+
+        .tag-block-screen
+            transition ease-in-out 1s opacity
+            display block
+
+    &.block-remove
+        &:before
+        .tag-block-screen
+            opacity 0
+
+.efor-layout__footer
+    bottom -1px
+    padding 20px 0
+    left 0
+    right 0
+    width auto
+    z-index 10
+    user-select none
+    position static
+    height auto
+
+    .wrapper
+        //width 90%
+        position relative
+
+    .efor-button--fab
+        display block
+        position absolute
+        bottom 10px *2
+        right 10px *3
+        transition ease-in-out all 250ms
+        background #fff
+        border-radius 1000px
+        size 50px
+        vertical-align middle
+        line-height 50px
+        box-shadow rgba(0,0,0,0.25) 0 0 3px 0
+        text-align center
+        display none
+
+        &:hover
+            bottom ($paddingBox + 15)
+            box-shadow rgba(0,0,0,0.20) 0 2px 4px 0, rgba(0,0,0,0.20) 0 8px 8px 0
+
+        &:active
+            box-shadow rgba(0,0,0,0.10) 0 2px 2px 0
+
+        .efor-logo_ef
+            width 66%
+            height auto
+            margin -5%
+            margin-top -10%
+            vertical-align middle
+
+    .efor-footer-credits
+        display block
+        position relative
+        text-decoration none
+        position static
+        width 100px
+        margin auto
+
+        img.efor-footer
+            float right
+            position absolute
+            right 0
+            bottom 0
+            width 170px
+
+        .powerby
+            display block
+            text-align center
+            color #000
+            opacity 0.5
+            width 100px
+            margin auto
+
+            img
+                max-width 100%
+
+            span
+                font-size $text_ps
+
+            .efor-mono
+                width 100%
+                display block
+                margin auto
+                margin-top -8px
+
+        .efor-footer
+            display none
+
+.social-icons
+    text-align center
+    padding 0 0 10px
+
+    a
+        display inline-block
+        margin 4px
+
+    img
+        width 24px
+        height auto
+
+.ui-notification
+    @media(max-width $screen-sm)
+        right 0 !important
+        left 0 !important
+        margin auto !important
+        max-width 90%
+
+.no-list-message
+    display block
+    background rgba($blue-grey, 0.05)
+    padding $paddingBox
+    text-align left
+
+    &:before
+        content ''
+        display block
+
+    ul
+        padding-left $paddingBox*2
+
+        li
+            line-height 1.2em
+
+    .img_btncir
+        display inline-block
+
+.pagination
+    text-align left
+    padding 0 0 0 0px
+    width 100%
+    box-sizing border-box
+
+    .label
+        opacity .5
+
+    a
+        border-radius $rad
+        color $textColor
+
+        .dot
+            display none
+            font-size 14px
+            margin-top -2px
+            margin-right 4px
+
+//this helped to position menu list in title buttons
+.efor-cont-submenu
+    position fixed
+    right 40px
+    bottom 30px
+    size 60px
+    z-index 10
+
+    @media(max-width $screen-md)
+        right 20px
+
+    .mdl-button
+        background $corp1
+
+    .is-visible.mdl-menu__container + .mdl-tooltip.is-active
+        display none !important
+
+    #efor-add-signature
+        border-radius 1000px
+        size 60px
+        line-height @height
+        box-shadow rgba(0,0,0,0.25) 2px 2px 4px 0, rgba(0,0,0,0.5) 0px 0px 4px 0
+        z-index 100
+        opacity 1
+        padding 0
+        min-width 0
+
+    #efor-add-signature:hover ~ .efor-menu
+    .efor-menu:hover
+        opacity 1
+        bottom 100%
+
+        a
+            opacity 1
+            animation showMenuButtons ease-in-out 500ms
+
+    .efor-menu
+        opacity 0
+        background rgba(red ,0)
+        transition ease-in-out all 250ms
+        position absolute
+        left 0
+        right 0
+        bottom -75%
+        display block
+        height auto
+        position absolute
+        text-align center
+        margin auto
+
+        a 
+            transition ease-in-out all 250ms
+            opacity 0
+            size 40px
+            overflow hidden
+            cursor pointer
+            line-height @height
+            display block
+            border none
+            margin 12px auto
+            min-height 0
+            min-width 0
+            max-height none
+            max-width none
+            padding 1px
+            color #fff
+            border-radius 100%
+            box-shadow $box-shadow3
+            background $textColor
+
+    .label
+        opacity .5
+
+    a
+        border-radius $rad
+        color $textColor
+
+        .dot
+            display none
+            font-size 14px
+            margin-top -2px
+            margin-right 4px
+
+// list licenses 
+.licenses-list
+    font-size $text_ps
+    line-height 1.2em
+    padding 0 0 0 5px
+    margin 0
+
+    li
+        display block
+        margin-bottom 15px
+        color $textColor
+
+.license-expiration
+    padding 10px
+    margin 15px
+    line-height 1.2em
+    border-radius 2px
+    color $blue-grey-300
+
+    &.warning
+        color $warning
+
+    b, i
+        display inline-block
+        
+// HEADER LOGO
+.efor-layout-title.mdl-layout-title
+    margin-right $paddingBox *3
+    max-width 210px
+    width 100%
+
+    .is-small-screen &
+        margin-right 0
+        display none
+
+.efor-logo_min
+    height 28px
+    vertical-align text-top
+
+// user logo in movil
+.efor-logo_client
+    margin-top ($paddingBox * -1.5)
+    padding $paddingBox
+    background #fff
+    text-align left
+    color $blue-grey-700
+
+    @media max-width $screen-sm
+        margin-left 0
+
+    .efor-domain-text
+        font-weight bold
+
+    .efor-user-text //img and icon
+        font-size $text_ps
+        overflow hidden
+        text-overflow ellipsis
+        display block
+        white-space nowrap
+
+    img.logo
+        max-width 100%
+        height auto
+        vertical-align middle
+        display block
+        margin auto
+        
+.efor-customer
+    size 24px
+    margin-right .25em !important
+    vertical-align middle
+    font-size 24px
+    border-radius 50%
+    vertical-align middle
+
+    &.mdi
+        margin-left -4px
+
+//details in modal
+.ul-details
+    ulUnformat block
+    &
+        width auto
+        max-width 100%
+        flex-grow 1
+        margin 20px
+        box-sizing border-box
+
+    li
+        background rgba($blue-grey-50, 0.75)
+        padding 6px 10px
+        color $textColor
+        line-height 1.2em
+
+        i
+        b
+            display inline-block
+
+        .material-icons
+            font-size 18px
+            display inline-block
+
+        span
+            display inline-block
+            padding-left 0.25em
+
+        &.status_1 span
+        &.status_4 span
+            color $info
+
+        &.status_2 span
+            color #000
+            font-weight bold
+
+        &.status_5 span
+            color $success
+
+        &.status_3 span
+        &.status_6 span
+            color $red
+
+        button
+            height 18px
+
+        ul
+            background rgba(236,239,241,0.76);
+            button
+                float right
+                border-radius 20%
+
+            li p
+                line-height 1.4em
+                color darken($red, 30)
+
+    li:nth-child(odd)
+        background rgba($blue-grey-50, 0.2)
+
+    .error-report
+        display block
+        overflow auto
+        padding 0
+        margin-bottom 3px
+
+        .details
+            maring-top 10px !important
+
+            > li
+                padding-top 4px
+                padding-bottom 0
+
+        .preScroll
+            display block
+            overflow auto
+            overflow-y hidden
+            max-width 100%
+            white-space pre
+            
+//Mesage whe tehe lis is empty
+.non-proccess
+    display block
+    background rgba($blue-grey, 0.05)
+    padding $paddingBox
+    text-align left
+    width 100%
+    animation showNonProcessText 2s ease-in
+    
+    &:before
+        content ''
+        display block
+    
+    ul
+        padding-left $paddingBox*2
+        
+        li
+            line-height 1.2em
+            
+    // Show hide button example for add sgignature
+    .img_btnsqu
+        display inline-block
+    
+    .img_btncir
+        display none

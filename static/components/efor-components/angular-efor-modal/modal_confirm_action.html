@@ -1,0 +1,17 @@
+
+<div class="efor-modal-wrapper">
+    <div class="message-box">
+        <div class="info-header">
+            <h3 ng-if="modal_confirm.title || modal_confirm.subtitle" class="title-info mdl-typography--headline">{[{modal_confirm.title}]}
+                <div ng-if="modal_confirm.subtitle" class="text-a-center"><b>{[{modal_confirm.subtitle}]}</b></div>
+            </h3>
+        </div>
+        <div class="info-body">
+            <div ng-if="modal_confirm.text" class="mdl-grid">{[{modal_confirm.text}]}</div>
+        </div>
+        <div class="info-footer">
+            <button ng-if="modal_confirm.cancelAction" ng-click="modal_confirm.cancelAction()" class="mdl-button mdl-js-button">{[{modal_confirm.cancel_text}]}</button>
+            <button ng-if="modal_confirm.confirmAction" ng-click="modal_confirm.confirmAction()" class="mdl-button mdl-js-button mdl-button--primary">{[{modal_confirm.confirm_text}]}</button>
+        </div>
+    </div>
+</div>

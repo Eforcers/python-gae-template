@@ -1,0 +1,39 @@
+<div class="efor-modal-wrapper" ng-controller="configureController">
+    <div class="white-box box-mini">
+        <div class="efor-modal-btn-quit mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect" ng-click="efmodal.close()"><i class="material-icons">close</i></div>
+        <form class="content-section" name="userForm" ng-submit="scope.saveUser(userForm)">
+            <div class="info-header">
+                <h3 class="title-info mdl-typography--headline">{[{ 'admin_create' | translate }]}</h3>
+            </div>
+            <div class="info-body">
+                <div class="mdl-grid">
+                    <div class="mini-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text"
+                               id="name" ng-model="scope.userEdit.first_name" required/>
+                        <label class="mdl-textfield__label" for="name">{[{ 'create_name' | translate }]}</label>
+                    </div>
+
+                    <div class="mini-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text"
+                               id="last_name" ng-model="scope.userEdit.last_name" required/>
+                        <label class="mdl-textfield__label" for="last_name">{[{ 'create_last_name' | translate }]}</label>
+                    </div>
+
+                    <div class="mini-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="email"
+                               id="email" ng-model="scope.userEdit.email" required/>
+                        <label class="mdl-textfield__label" for="email">{[{ 'create_email' | translate }]}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="info-footer">
+                <button type="button" class="mdl-button mdl-js-button" ng-click="efmodal.close()">
+                    Cancelar
+                </button>
+                <button type="submit" id="saveBotton" class="mdl-button mdl-js-button mdl-button--colored" ng-disabled="!userForm.$valid || userForm.disableButton">
+                    Crear
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

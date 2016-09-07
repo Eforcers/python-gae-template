@@ -1,0 +1,32 @@
+{
+  "name": "ESMG",
+  "authors": [
+    "poxstone <poxstone@gmail.com>"
+  ],
+  "description": "Frontend EFOR",
+  "main": "",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "efor",
+    "modules",
+    "frontend"
+  ],
+  "license": "MIT",
+  "homepage": "eforcers.com", 
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "efor-components": "https://github.com/poxstone/efor-components.git",
+    "angular-ui-notification": "^0.1.0",
+    "angular-translate": "^2.11.0"
+  }
+}

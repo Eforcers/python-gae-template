@@ -1,0 +1,266 @@
+$url_tutor_imgs = $url_tutor_imgs is defined ? $url_tutor_imgs : '/static/components/efor-components/tutor-help/'
+
+// Tutorial
+.tuto-cont
+    position relative 
+    animation tutoHightLight 3s linear infinite
+    size 1px
+    z-index 1000
+    display none
+    line-height 1.1em
+    
+    /.tutorials-show&
+    /.tutorials-show &
+        display inline-block
+
+    &.tuto-gyro
+        animation tutoHightLight-gyro 2s ease-in-out infinite
+
+    &.tuto-slide-horizontal
+        &.right-top
+        &.top-right
+        &.bottom-right
+        &.right-bottom
+            animation tutoHightLight-slide-right 2s ease-in-out infinite
+
+        &.left-top
+        &.top-left
+        &.bottom-left
+        &.let-bottom
+            animation tutoHightLight-slide-left 2s ease-in-out infinite
+
+    &.tuto-slide-vertical
+        animation tutoHightLight-slide-UP 2s ease-in-out infinite
+
+    @media (max-width $screen-md)
+        display none !important
+
+    > *
+        position absolute
+
+    .tuto-text
+        display block
+        position absolute
+        min-width 115px
+        white-space normal
+        font-size $text_p
+
+    &.img-arrow
+    &.img-group
+        &:before
+            content ''
+            display block
+            position absolute
+            background  center center no-repeat
+            background-size 100% 100%
+
+    &.img-group
+        &:before
+            background-image url($url_tutor_imgs+'arrow_group.svg')
+            size 35px 300px
+        &.tuto-white:before
+            background-image url($url_tutor_imgs+'arrow_group_white.svg')
+        &.tuto-blue:before
+            background-image url($url_tutor_imgs+'arrow_group_blue.svg')
+
+    &.img-arrow
+        &:before
+            background-image url($url_tutor_imgs+'arrow_curve.svg')
+            size 50px 40px
+        &.tuto-white:before
+            background-image url($url_tutor_imgs+'arrow_curve_white.svg')
+        &.tuto-blue:before
+            background-image url($url_tutor_imgs+'arrow_curve_blue.svg')
+
+    &.tuto-white
+        color #fff
+
+    &.tuto-blue
+        color #00c0ff 
+
+    .tuto-group
+        aposition absolute
+
+    &.top-left
+    &.left-top
+    &.bottom-left
+    &.left-bottom
+        .tuto-text
+            text-align right
+
+    &.top-right
+    &.right-top
+    &.bottom-right
+    &.right-bottom
+        .tuto-text
+            text-align left
+
+    &.top-left
+    &.left-top
+        top 0 
+        right auto
+        bottom auto
+        left 0
+
+        .tuto-text
+            right 0
+            bottom 0
+
+        &.img-arrow
+            &:before
+                right 0
+                bottom 0
+
+            .tuto-text
+                margin-right 55px
+                margin-bottom 35px
+
+        &.img-group
+            &:before
+                right 0
+                bottom -150px
+
+            .tuto-text
+                margin-right 55px
+                margin-bottom -20px
+
+    &.top-right
+    &.right-top
+        top 0 
+        right 0
+        bottom auto
+        left auto
+
+        .tuto-text
+            left 0
+            bottom 0
+
+        &.img-arrow
+            &:before
+                left 0
+                bottom 0
+                transform scaleX(-1) 
+
+            .tuto-text
+                margin-left 55px
+                margin-bottom 35px
+
+        &.img-group
+            &:before
+                left 0
+                bottom -150px
+                transform scaleX(-1) 
+
+            .tuto-text
+                margin-left 55px
+                margin-bottom -20px
+
+
+    &.bottom-right
+    &.right-bottom
+        top auto
+        left auto
+        bottom 0
+        right 0
+
+        .tuto-text
+            left 0
+            top 0
+
+        &.img-arrow
+            &:before
+                left 0
+                top 0
+                transform scale(-1) 
+
+            .tuto-text
+                margin-left 55px
+                margin-top 25px
+ 
+        &.img-group
+            &:before
+                left 0
+                top -150px
+                transform scale(-1) 
+
+            .tuto-text
+                margin-left 55px
+                margin-top -20px
+  
+    &.bottom-left
+    &.left-bottom
+        top 100%
+        right 100%
+        bottom auto
+        left auto
+
+        .tuto-text
+            right 0
+            top 0
+
+        &.img-arrow
+            &:before
+                right 0
+                top 0
+                transform scaleY(-1) 
+
+            .tuto-text
+                margin-right 55px
+                margin-top 25px
+ 
+        &.img-group
+            &:before
+                right 0
+                top -150px
+                transform scaleY(-1) 
+
+            .tuto-text
+                margin-right 55px
+                margin-top -20px
+
+@keyframes tutoHightLight // for tutorial animations
+    0% 
+    	opacity 0.5
+    33% 
+    	opacity 1
+    66% 
+    	opacity 1
+    100% 
+    	opacity 0.5
+
+@keyframes tutoHightLight-gyro // for tutorial animations
+    0% 
+        transform rotate(-15deg)
+    50% 
+        transform rotate(0deg)
+    100% 
+        transform rotate(-15deg)
+
+@keyframes tutoHightLight-slide-left // for tutorial animations
+    0% 
+        transform translateX(-15px)
+    50% 
+        transform translateX(0px)
+    100% 
+        transform translateX(-15px)
+
+@keyframes tutoHightLight-slide-right // for tutorial animations
+    0% 
+        transform translateX(15px)
+    50% 
+        transform translateX(0px)
+    100% 
+        transform translateX(15px)
+
+@keyframes tutoHightLight-slide-UP // for tutorial animations
+    0% 
+        transform translateY(-15px)
+    50% 
+        transform translateY(0px)
+    100% 
+        transform translateY(-15px)
+
+
+
+
+
