@@ -32,7 +32,7 @@
 
         $scope.delete = function(user) {
             $efmodal.close();
-            notification.info(user.name);
+            notification.info(translate('cleanFormUser'));
         };
         
         $scope.saveUser = function(userForm) {
@@ -51,6 +51,7 @@
                     notification.info( translate('notify_creation') );
                     userForm.disableButton = true;
                     $efmodal.close();
+                    cleanFormUser();
 
                 });
             } else {

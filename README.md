@@ -14,13 +14,13 @@ See the README file for directions. You'll need python 2.7 (appengine can crash 
 2. Clone this repo with
 
    ```
-   git clone git@git.assembla.com:eforcers.esmg.git
+   git clone https://github.com/Eforcers/python-gae-template.git
    ```
 3. Install dependencies in the project's lib directory.
    Note: App Engine can only import libraries from inside your project directory.
 
    ```
-   cd eforcers.esmg
+   cd python-gae-template
    pip install -r requirements.txt -t lib
    ```
    Is necesary to add the next code fragment in /lib/pipeline/util.py
@@ -39,10 +39,9 @@ See the README file for directions. You'll need python 2.7 (appengine can crash 
 
 
 4. Install bower dependencies in static/components.
-   Note: before install node and bower.
+   Note: before install node and bower. in folder 
 
    ```
-   cd eforcers.esmg
    bower install
    ```
 6. IMPORTANT: in lib/piplines/util.py:66, after of ( module = os.environ["CURRENT_MODULE_ID"]) paste:
