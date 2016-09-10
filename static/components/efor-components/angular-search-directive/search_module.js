@@ -327,7 +327,8 @@
                         } else {
                             iter++;
                             if ((iter) < langAvalibles.length) {
-                                searchStringInLanguageKeys(attr, iter);
+                                // return text in recursive
+                                return searchStringInLanguageKeys(attr, iter);
                             } else {
                                 return attr;
                             }
