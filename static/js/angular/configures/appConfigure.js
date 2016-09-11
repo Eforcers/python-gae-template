@@ -38,7 +38,8 @@
         // Prepare reges for select and compare
         var regex = new RegExp(languageList.join('|'), 'i'); //es|en|fr
         // Trim languaje string 'es-ES' 'it-CH' to 'es', 'it'
-        var language = navigator.language.replace(/-.+$/i, '');
+        var language = navigator.language || navigator.userLanguage;
+        language = language.replace(/-.+$/i, '');
         // navigator language is in list
         language = language.match(regex); // return ['es'] r other
         // Select match language and Limit to 'es' or 'en
