@@ -9,16 +9,24 @@
         $logProvider.debugEnabled(false);
     };
 
+    // mdl angular
     window.runMDLObservator = function() {
-        var observer = new MutationObserver(function() {
-            componentHandler.upgradeDom();
-        });
+        try {
+            var observer = new MutationObserver(function() {
+                componentHandler.upgradeDom();
+            });
 
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-    }
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        } catch(e) {
+            console.warn('Browser not soport MutationObserver for mdl');
+
+            // support <= IE 10
+            window.reloadMDLDOM();
+        }
+    };
 
     window.notificationConfig = function(NotificationProvider) {
         NotificationProvider.setOptions({

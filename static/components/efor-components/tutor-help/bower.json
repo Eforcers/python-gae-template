@@ -1,5 +1,6 @@
 {
   "name": "efor-components",
+  "version": "0.0.4",
   "authors": [
     "poxstone <poxstone@gmail.com>"
   ],
@@ -19,14 +20,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "_release": "0b40111766",
-  "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "0b40111766598edaf3a2622f3b87651aa35628ee"
-  },
-  "_source": "https://github.com/poxstone/efor-components.git",
-  "_target": "*",
-  "_originalSource": "https://github.com/poxstone/efor-components.git"
+  ]
 }

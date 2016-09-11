@@ -37,7 +37,7 @@ window.language_content = {
 
     "es": {
         "menu_home" : "Home",
-        "menu_settings": "Congiguración general",
+        "menu_settings": "Configuración general",
 
         "base_loading_message": "Cargando...",
         "base_licence_expire": "Caducidad de la licencia",
