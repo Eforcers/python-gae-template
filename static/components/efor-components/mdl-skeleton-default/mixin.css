@@ -1,0 +1,64 @@
+/*
+div
+	vendor animation, foo 250ms ease-in-out*/
+/*
+a
+	display inline-block
+*/
+/*
+flex-direction(mode, args...)
+	for $sop in $soportAr
+		{$sop}direction mode args
+	direction mode args
+
+flex-direction(mode, args...)
+	for $sop in $soportAr
+		{$sop}direction mode args
+	-ms-flex-direction mode args
+	direction mode args
+
+align-items(mode, args...)
+	for $sop in $soportAr
+		{$sop}align-items mode args
+	-ms-flex-align mode args
+	align-items mode args
+
+justify-content(mode, args...)
+	for $sop in $soportAr
+		{$sop}justify-content mode args
+	-ms-flex-pack mode args
+	justify-content mode args
+	
+flex-grow(mode, args...)
+	for $sop in $soportAr
+		{$sop}flex-grow mode args
+	-ms-flex-positive mode args
+	flex-grow mode args
+	
+*/
+/*button
+	arrow 20px 20px down green*/
+/*input
+	+input-placeholder()
+		font-weigth normal*/
+/*
+span
+	beforeAfter block absolute 10px 11px
+*/
+/*
+body	
+	text-fill-color(text)
+*/
+/*
+a
+	defaultDisplay(inline-block)
+*/
+/*ul
+	ulUnformat(inline-block)
+*/
+/*html
+	scrollbar()
+*/
+/*body
+	no-select(none)
+*/

@@ -7,8 +7,14 @@ $blue-grey-50 = $blue-grey-50 is defined ? $blue-grey-50 : rgba(96,125,139,0.5)
 $paddingBox = $paddingBox is defined ? $paddingBox : 10px
 /*MODS*/
 // fixed vertical position icons in line txt
+.mdi
+    font-size 24px
+    line-height 1em
+    display inline-block
+
 .mdl-menu
 .mdl-navigation__link
+    .mdi
     .material-icons
         vertical-align middle
 
@@ -16,6 +22,7 @@ $paddingBox = $paddingBox is defined ? $paddingBox : 10px
     text-transform none
 
 .material-icons
+.mdi
     vertical-align middle
 
 // Fix blur on tooltip
@@ -50,6 +57,21 @@ input.ng-invalid.ng-touched
 
     .mdl-textfield__label:after
         bottom 10px
+
+.block-radios
+    label.mdl-radio
+        display block
+        padding-bottom 3px
+
+.no-label-input.mdl-textfield
+    padding-top 0
+    margin-top 0
+
+    .mdl-textfield__label
+        top 8px
+
+    &.mdl-textfield--floating-label.is-dirty .mdl-textfield__label
+        top -12px
 
 .mdl-textfield.always-view
     &.mdl-textfield--floating-label .mdl-textfield__label
@@ -110,6 +132,9 @@ input.mdl-textfield__input[type="file"]
 .text-danger
     color $danger
 
+.padding-left
+    padding-left $paddingBox
+        
 .efor-layout__header-row
     .efor-logo
         width 100%
@@ -183,6 +208,24 @@ input.mdl-textfield__input[type="file"]
                 font-weight bold
                 text-indent -0.25em
 
+table.overflow-tbody
+    > thead
+    > tbody
+        display block
+        width 100%
+
+        > tr
+            display flex
+            > td
+            > th
+                border-bottom 0
+                flex-grow 1
+
+    > tbody
+        max-height 135px
+        overflow-y auto
+        overflow-x hidden
+
 // MENU popup
 .efor-menu
     .mdl-menu__item
@@ -197,6 +240,7 @@ input.mdl-textfield__input[type="file"]
         
     .mdl-button--icon
         .material-icons
+        .mdi
             margin-right .25em 
             
     &.efor-menu__small
@@ -288,7 +332,8 @@ tr, th, td
 
     .mdl-button--icon
         size 24px
-        min-width 24px
+        min-width @width
+        min-height @height
         color $grey-600
 
 .tbody-description
@@ -505,7 +550,6 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
         color #333
         text-align center
         max-width 200px
-        width 100%
         left 0
         right 0
         border-radius 4px
@@ -687,6 +731,7 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
             margin-top -2px
             margin-right 4px
 
+
 //this helped to position menu list in title buttons
 .efor-cont-submenu
     position fixed
@@ -704,7 +749,7 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
     .is-visible.mdl-menu__container + .mdl-tooltip.is-active
         display none !important
 
-    #efor-add-signature
+    .efor-add-main
         border-radius 1000px
         size 60px
         line-height @height
@@ -714,7 +759,7 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
         padding 0
         min-width 0
 
-    #efor-add-signature:hover ~ .efor-menu
+    .efor-add-main:hover ~ .efor-menu
     .efor-menu:hover
         opacity 1
         bottom 100%
@@ -869,6 +914,7 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
             display inline-block
 
         .material-icons
+        .mdi
             font-size 18px
             display inline-block
 
@@ -931,10 +977,40 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
 .non-proccess
     display block
     background rgba($blue-grey, 0.05)
-    padding $paddingBox
+    padding $paddingBox*1.5 $paddingBox*1.5
     text-align left
-    width 100%
-    animation showNonProcessText 2s ease-in
+    clear both
+    width auto
+    line-height 1.1em
+
+    / .box-no-padding &
+        width auto
+        margin-left -20px
+        margin-right -20px
+        padding-left 25px
+        padding-right 20px
+
+
+    &.appears // update in an-ther other apps
+        animation showNonProcessText 2s ease-in
+
+    &.grid
+        display flex
+        justify-content space-between
+        align-items center
+
+        .text
+            background transparent
+            padding 0
+            border none
+            flex-grow 1
+            color $textGray
+            margin-right 5px
+
+    button
+    .mdl-button
+        white-space nowrap
+        text-overflow ellipsis
     
     &:before
         content ''
@@ -945,10 +1021,3 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
         
         li
             line-height 1.2em
-            
-    // Show hide button example for add sgignature
-    .img_btnsqu
-        display inline-block
-    
-    .img_btncir
-        display none

@@ -8,6 +8,7 @@ window.EndpointsService = function($log, $q, $rootScope, $http, $window
     service.ENDPOINTS_READY = "ENDPOINTS_READY";
     service.total_apis = 0;
     service.loaded_apis = 0;
+    service.TOKEN = "";
 
     /**
      * build service methods from discovery document
@@ -91,6 +92,7 @@ window.EndpointsService = function($log, $q, $rootScope, $http, $window
     }
 
     service.auth_callback_builder = function(client_id, scopes) {
+        // Save the accessToken for reutilizae in frontend
         return  function(authResult) {
             if (authResult.error) {
                 gapi.auth.authorize(

@@ -19,6 +19,7 @@ $text_p = $text_p is defined ? $text_p : 14px
     .is-small-screen &
         width auto
         width 100%
+        width calc(100% - 2px)
 
     .btn-close
     .ico-show
@@ -66,6 +67,7 @@ $text_p = $text_p is defined ? $text_p : 14px
         font-size $text_p
         height 100%
         width 100%
+        width calc(100% - 2px)
         border-radius $rad
         border 1px solid $borderColor
         opacity .7
@@ -199,6 +201,8 @@ $text_p = $text_p is defined ? $text_p : 14px
             transform rotate(-180deg);
 
     &.to-hide {}
+    &.hide-down-button .material-icons.ico-show
+        display none
 
     .cont-btns-inf
         padding 5px 10px

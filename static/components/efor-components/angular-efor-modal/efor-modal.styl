@@ -66,6 +66,13 @@ $textGray = $textGray is defined ? $textGray : #666666
         width 100%
 
     .efor-modal-wrapper
+        .efor-modal-btn-quit
+            size 32px
+            line-height @height
+
+            .material-icons
+                font-size 16px
+
         .config-tabs
         .config-pane
             scrollbar($grey-100, true, 5px, false)
@@ -461,7 +468,10 @@ $textGray = $textGray is defined ? $textGray : #666666
 
     .mdl-grid
         width 100%
-        padding 0//if not problems
+        padding 0 //if not problems
+
+.info-body
+    min-height 150px
 
 .efor-modal .message-box
     background #fff
@@ -559,6 +569,22 @@ $textGray = $textGray is defined ? $textGray : #666666
             .cont-radios
             .mdl-switch
             .mdl-checkbox
+                width 100%
+                margin-left 0
+                margin-right 0
+
+    &.box-middle
+        max-width 600px
+        
+        .info-body
+            .cont-radios
+            .mdl-switch
+            .mdl-checkbox
+                width auto
+                margin-left 0
+                margin-right 0
+
+            .mdl-textfield
                 width 100%
                 margin-left 0
                 margin-right 0
@@ -798,6 +824,23 @@ $textGray = $textGray is defined ? $textGray : #666666
         margin-bottom 10px
         height auto
 
+.info-header.icon
+    margin-bottom 0px !important
+    position relative
+    padding-left 50px !important
+
+    .title-info
+        display block
+
+    .breadcumbs
+        color $textGray
+
+    .mdi
+    .material-icons
+        position absolute
+        left 0
+        margin 10px 20px
+
 .white-box
     background #fff
     max-width ($wrapper - 200px)
@@ -892,6 +935,22 @@ $textGray = $textGray is defined ? $textGray : #666666
             &:hover
                 box-shadow rgba(0,0,0,0.15) 1px 1px 4px 0, $box-shadow2
 
+    // div in modal
+    .row-single
+        padding-bottom 15px
+        display block
+        //overflow hidden //disabled for full width inner items as tables
+        width auto
+
+        &:last-child
+            padding-bottom 0
+
+        .cont-radios
+        .mdl-switch
+        .mdl-checkbox
+            margin-top 0 !important
+            margin-left 6px !important
+
     &:not(.box-mini)
         .mdl-textfield
         .cont-radios
@@ -946,7 +1005,7 @@ $textGray = $textGray is defined ? $textGray : #666666
                 left 22px
 
         .cont-radios
-            padding 6px 0
+            //padding 6px 0 // disable because in white-box fail
 
             .label
                 display block

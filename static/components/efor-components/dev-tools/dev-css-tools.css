@@ -1,1 +1,16 @@
-.ngi-inspector{width:390px !important;}.ngi-inspector div *{font-size:11px !important}.ngi-inspector .ngi-model > label{line-height:1.75em !important;background-size:auto 12px !important}.ngi-inspector .ngi-caret{margin-top:-3px !important}.ngi-inspector .ngi-collapsed .ngi-caret{background-position-y:0 !important}
+.ngi-inspector {
+  width: 390px !important;
+}
+.ngi-inspector div * {
+  font-size: 11px !important;
+}
+.ngi-inspector .ngi-model > label {
+  line-height: 1.75em !important;
+  background-size: auto 12px !important;
+}
+.ngi-inspector .ngi-caret {
+  margin-top: -3px !important;
+}
+.ngi-inspector .ngi-collapsed .ngi-caret {
+  background-position-y: 0px !important;
+}
