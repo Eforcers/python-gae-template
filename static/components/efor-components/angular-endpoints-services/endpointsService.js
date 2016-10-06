@@ -117,7 +117,14 @@ window.EndpointsService = function($log, $q, $rootScope, $http, $window
     service.loadService = function(api, version, callback) {
         service.total_apis += 1;
         var apiRoot = $window.api_host + '/_ah/api';
-        apiRoot = location.protocol + "//" + apiRoot;
+        // NOTE: endpoints needs https protocol for any not local host, (production host not has https certificate)
+        if (apiRoot.indexOf("localhost") >= 0 || apiRoot.indexOf("127.0.0.1") >= 0) {
+            apiRoot = "http://" + apiRoot;
+
+        } else {
+            apiRoot = "https://" + apiRoot;
+
+        }
 
         gapi.client.load(api, version, function() {
             var apiUrl = '';

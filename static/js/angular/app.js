@@ -64,6 +64,8 @@
             }
         };
 
+        $rootScope.changeLanguage($rootScope.setLanguage);
+
     }]);
 
 })();

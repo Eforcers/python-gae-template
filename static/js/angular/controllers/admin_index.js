@@ -18,7 +18,6 @@
                 $scope.users = response.items;
                 $scope.loaded = true;
                 reloadMDLDOM($interval);
-
             });
         };
 

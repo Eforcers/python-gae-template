@@ -66,6 +66,34 @@ $textGray = $textGray is defined ? $textGray : #666666
         width 100%
 
     .efor-modal-wrapper
+        position absolute
+        top 0
+        bottom 0
+        left 0
+        right 0
+        margin auto
+        max-height 500px
+
+        // This class is created for center delete dialoges/modals and another without whitebox
+        &.vertical-center
+            margin-top 5%
+
+        @media(min-height $screen-md)
+            margin-top 5%
+
+        @media(min-height $screen-sm)
+            margin-top 2%
+
+        .w-message
+            max-width 420px
+
+        h1
+            font-size $text_h3
+            margin-bottom 5px
+
+            @media(max-width $screen-sm)
+                margin-top 15px
+
         .efor-modal-btn-quit
             size 32px
             line-height @height
@@ -200,31 +228,6 @@ $textGray = $textGray is defined ? $textGray : #666666
 
     &.no-quit-button .efor-modal-btn-quit
         display none !important
-
-    .efor-modal-wrapper
-        position absolute
-        top 0
-        bottom 0
-        left 0
-        right 0
-        margin auto
-        max-height 500px
-
-        .w-message
-            max-width 420px
-
-        h1
-            font-size $text_h3
-            margin-bottom 5px
-
-            @media(max-width $screen-sm)
-                margin-top 15px
-
-        @media(min-height $screen-md)
-            margin-top 5%
-
-        @media(min-height $screen-sm)
-            margin-top 2%
 
     .efor-buttons
         width 100%
@@ -421,7 +424,7 @@ $textGray = $textGray is defined ? $textGray : #666666
         left 0
         top 24px
         background $gray
-        border 2px solid #fff
+        border 2px solid transparent
         z-index -1
 
         &:after
@@ -544,6 +547,7 @@ $textGray = $textGray is defined ? $textGray : #666666
         flex-grow 1
         width 100%
         max-height calc(100% - 135px)
+        scrollbar($grey-100, true, 4px, false)
 
         > .mdl-grid
             height auto
@@ -560,6 +564,12 @@ $textGray = $textGray is defined ? $textGray : #666666
     
     .efor-modal-btn-quit
         color gray
+
+    .info-body
+        scrollbar($grey-100, true, 4px, false)
+        min-height 230px // for select html options nod hidden
+        @media (max-width: $screen-md)
+            min-height 0
 
     &.box-mini
         max-width 400px
@@ -603,6 +613,7 @@ $textGray = $textGray is defined ? $textGray : #666666
     color $grey-900
     box-shadow 0 4px 8px rgba(0,0,0,.32),0 8px 40px rgba(0,0,0,.4)
     position absolute
+    min-height 355px // the .info-body also has min heigth
 
     .mdl-checkbox__label
         font-size $text_p
@@ -961,7 +972,7 @@ $textGray = $textGray is defined ? $textGray : #666666
             margin 5px
             width calc( 33% - 10px )
             vertical-align top
-            border 10px solid #fff
+            border 10px solid transparent // transparent before was #fff
             box-sizing border-box
             transition ease-in-out 250ms all
 
@@ -999,10 +1010,7 @@ $textGray = $textGray is defined ? $textGray : #666666
                 margin-top 5px
 
             .mdl-checkbox__label
-                display block
-                font-size $text_ps
-                top -22px
-                left 22px
+                font-size $text_p
 
         .cont-radios
             //padding 6px 0 // disable because in white-box fail
