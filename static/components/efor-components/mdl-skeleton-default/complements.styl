@@ -5,6 +5,20 @@ $blue-grey = $blue-grey is defined ? $blue-grey : #76868d
 $red = $red is defined ? $red :rgb(255,64,129) 
 $blue-grey-50 = $blue-grey-50 is defined ? $blue-grey-50 : rgba(96,125,139,0.5)
 $paddingBox = $paddingBox is defined ? $paddingBox : 10px
+
+// Animation for prevent tags  undefined from angular
+body
+    visibility hidden
+    opacity 0
+    transition ease-in-out 1s all
+
+    &.ng-scope
+        opacity 1
+        visibility visible
+
+        .mdl-layout__container
+            animation showBody ease-in-out 1500ms
+
 /*MODS*/
 // fixed vertical position icons in line txt
 .mdi
