@@ -31,9 +31,10 @@ $text_p = $text_p is defined ? $text_p : 14px
     .ico-search
         padding 5px $paddingBox
         position absolute
-        z-index 5
-        left 0
-        top 0
+        z-index 50
+        left 0px
+        top 0px
+        size 18px 24px
 
     // Container for icons show results and clear input
     .cont-icos
@@ -67,11 +68,11 @@ $text_p = $text_p is defined ? $text_p : 14px
         font-size $text_p
         height 100%
         width 100%
-        width calc(100% - 2px)
+        width calc(100% - 38px)
         border-radius $rad
         border 1px solid $borderColor
         //opacity .7 // hide becouse is unnecessary
-        text-indent $paddingBox *4
+        padding-left 36px
         transition ease-in-out all 250ms
         +input-placeholder()
             font-weight normal
@@ -82,6 +83,7 @@ $text_p = $text_p is defined ? $text_p : 14px
             color $blue-grey-500
 
             & ~ .material-icons
+            & ~ .mdi
                 opacity 1
 
     .match-user
@@ -175,13 +177,16 @@ $text_p = $text_p is defined ? $text_p : 14px
                     opacity 1
 
                 .material-icons
+                .mdi
                     color #fff
                     opacity 1
 
             .material-icons
+            .mdi
                 position relative
                 vertical-align middle
                 font-size 1.4em
+                width 20px // For ie9
 
         .search-notmatchuser
             color rgba($muted, 0.5)
@@ -201,8 +206,10 @@ $text_p = $text_p is defined ? $text_p : 14px
             transform rotate(-180deg);
 
     &.to-hide {}
-    &.hide-down-button .material-icons.ico-show
-        display none
+    &.hide-down-button
+        .material-icons.ico-show
+        .mdi.ico-show
+            display none
 
     .cont-btns-inf
         padding 5px 10px

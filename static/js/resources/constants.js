@@ -21,5 +21,5 @@ window.findDomain = function() {
     return window.DOMAIN;
 }
 
-window.CLIENT_ID = "233923764866.apps.googleusercontent.com";
+window.CLIENT_ID = "351669459598-kv1ikqhk3bgtqgpt687rps0jplkv7rrb.apps.googleusercontent.com";
 window.SCOPES = "https://www.googleapis.com/auth/userinfo.email"

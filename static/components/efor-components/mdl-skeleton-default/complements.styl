@@ -12,19 +12,21 @@ body
     opacity 0
     transition ease-in-out 1s all
 
-    &.ng-scope
+    /.mdl-js &.ng-scope
         opacity 1
         visibility visible
 
         .mdl-layout__container
-            animation showBody ease-in-out 1500ms
+            animation showBody ease-in-out 1000ms
 
-/*MODS*/
+
+/*MDS*/
 // fixed vertical position icons in line txt
 .mdi
     font-size 24px
     line-height 1em
     display inline-block
+    margin auto
 
 .mdl-menu
 .mdl-navigation__link
@@ -35,9 +37,52 @@ body
 .mdl-button
     text-transform none
 
+// fix general problem with mdi icons
 .material-icons
 .mdi
     vertical-align middle
+
+.mdl-button
+    .mdi:before
+        position relative
+        top -2px
+
+// MSIE9 support for mdl menu buttons
+.MSIE90
+    .mdl-button
+        &:hover + .mdl-menu__container
+        &:hover ~ .mdl-menu__container
+            display block !important
+            opacity 1
+            background #fff
+            visibility visible
+            z-index 1000
+            box-shadow 1px 1px 6px 0 rgba(0,0,0,0.2)
+            right 0px
+            bottom 32px
+            min-width 124px
+            height auto
+            overflow visible
+
+        &:hover + .mdl-menu
+        &:hover ~ .mdl-menu
+            display block
+
+    .mdl-menu:hover
+    .mdl-menu__container:hover
+        display block !important
+
+    .mdl-menu
+        display none
+        background #fff
+        opacity 1
+        z-index 999
+        clip auto !important
+        border 1px solid #f1f1f1
+
+        .mdl-menu__item
+            opacity 1
+
 
 // Fix blur on tooltip
 .mdl-tooltip
@@ -92,6 +137,13 @@ input.ng-invalid.ng-touched
         font-size 12px
         top 4px
         visibility visible
+
+    /.always-view .mdl-textfield__input
+        transition ease-in-out 250ms all
+        &:focus
+            outline none !important
+            box-shadow rgba(#B3E5FC, 0.5) 0 0 3px 0, rgba(#B3E5FC, 0.2) 0 0 6px 0 inset
+
 
 input.mdl-textfield__input[type="file"]
     font-size 12px
@@ -159,7 +211,28 @@ input.mdl-textfield__input[type="file"]
         z-index 5
         max-height 60px
 
-.efor-layout__content{}
+    /.MSIE90 &
+        > .mdl-button
+            margin-top 16px
+            float right
+            text-align center
+
+            .mdi
+                margin auto
+
+.efor-layout__content
+    /.MSIE90 &
+        width 100%
+
+        > .mdl-grid
+            width 100%
+
+            > .mdl-cell--12-col
+                width 100%
+
+            > .mdl-cell--10-col
+                width 73%
+
 .efor-content-title-bar
     color $textColor
     margin-bottom $paddingBox
@@ -230,9 +303,16 @@ table.overflow-tbody
 
         > tr
             display flex
+            box-sizing border-box
+            justify-content justify
+            border-bottom 1px solid $gray3
+
+            &:first-child
+                border-bottom 1px solid $gray3
+
             > td
             > th
-                border-bottom 0
+                border none
                 flex-grow 1
 
     > tbody
@@ -615,6 +695,10 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
     position static
     height auto
 
+    /.MSIE90 &
+        // similar to main cell width
+        width 73%
+
     .wrapper
         //width 90%
         position relative
@@ -731,6 +815,8 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
     padding 0 0 0 0px
     width 100%
     box-sizing border-box
+    clear both
+    padding-top 20px
 
     .label
         opacity .5
@@ -917,6 +1003,12 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
         margin 20px
         box-sizing border-box
 
+    > li:last-child
+        padding-bottom 50px
+
+        > span
+            padding-left 0.25em
+
     li
         background rgba($blue-grey-50, 0.75)
         padding 6px 10px
@@ -927,14 +1019,13 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
         b
             display inline-block
 
+        .tit-col
+            min-width 130px
+
         .material-icons
         .mdi
             font-size 18px
             display inline-block
-
-        span
-            display inline-block
-            padding-left 0.25em
 
         &.status_1 span
         &.status_4 span
@@ -1012,6 +1103,10 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
         display flex
         justify-content space-between
         align-items center
+
+        /.MSIE100 &
+        /.MSIE90 &
+            display block // flexbox don't work well
 
         .text
             background transparent

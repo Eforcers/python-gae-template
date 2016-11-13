@@ -18,7 +18,6 @@
                 var attrClearFun = attrs.inpClearFun ? 'ng-click="' + attrs.inpClearFun + '; ' + attrs.inpQueryModel + '=\'\'"' : '';
                 var listRepeat = attrs.listRepeat || null;
                 var listSelectFun = attrs.listSelectFun ? scope[attrs.listSelectFun] : null;
-                var listMdlIcon = attrs.listMdlIcon ? '<i class="material-icons">' + attrs.listMdlIcon + '</i>' : '';
                 // attrMultipleFun is used for validate if is multiselected
                 var attrMultipleFun = attrs.listMultipleFun ?  'ng-click="' + attrs.listMultipleFun + '"' : '';
                 // Object to array repeat {} or []
@@ -29,18 +28,32 @@
                 // Elements create
                 var elemInpQuery = $('<input class="input_query" type="text"autocomplete="off" ' + attrPlaceholder + ' '
                                     + attrQueryModel + ' ' + attrReadOnly + ' ng-model-options="{ debounce: 500 }">');
-                var elemInpIcon = $('<a class="material-icons ico-search" ' + attrEnterFun + '>search</a>');
                 // Icons for tools in bar
                 var elemContIcos = $('<div class="cont-icos">');
-                var elemInpClear = $('<a class="material-icons btn-close" ng-if="' + attrs.inpQueryModel + '" ' + attrClearFun + '>close</a>');
-                var elemInpShowResults = $('<a class="material-icons ico-show" ng-show="' + repetInObject + '.length">keyboard_arrow_down</a>');
                 // Div list result
                 var elemContGenList = $('<div class="cont-gen-list" ng-show="' + repetInObject + '.length">');
                 var elemInpResultCont = $('<div class="desplegable-list">');
-                var elemInpResultList = $('<label class="li" ng-repeat="item in ' + repetInObject + repetFilter
-                                            + '" ng-click="' + attrs.listSelectFun + '" >'
-                                            + listMdlIcon + '<i class="material-icons" ng-if="item.icon">{[{item.icon}]}</i>\
-                                            {[{' + repetItem + '}]}</label>');
+                // icons type mdl or mdi
+                if ( attrs.listMdlIcon && attrs.listMdlIcon.match(/^mdi-/) ) {
+                    var listMdlIcon = attrs.listMdlIcon ? '<i class="mdi ' + attrs.listMdlIcon + '"></i>' : '';
+                    var elemInpShowResults = $('<a class="mdi ico-show mdi-chevron-down" ng-show="' + repetInObject + '.length"></a>');
+                    var elemInpClear = $('<a class="mdi mdi-close btn-close" ng-if="' + attrs.inpQueryModel + '" ' + attrClearFun + '></a>');
+                    var elemInpIcon = $('<a class="mdi mdi-magnify ico-search" ' + attrEnterFun + '></a>');
+                    var elemInpResultList = $('<label class="li" ng-repeat="item in ' + repetInObject + repetFilter
+                                                + '" ng-click="' + attrs.listSelectFun + '" >'
+                                                + listMdlIcon + '<i class="mdi " ng-if="item.icon" ng-class="item.icon"></i>\
+                                                {[{' + repetItem + '}]}</label>');
+                } else {
+                    var listMdlIcon = attrs.listMdlIcon ? '<i class="mdi material-icons">' + attrs.listMdlIcon + '</i>' : '';
+                    var elemInpShowResults = $('<a class="mdi material-icons ico-show" ng-show="' + repetInObject + '.length">keyboard_arrow_down</a>');
+                    var elemInpClear = $('<a class="mdi material-icons btn-close" ng-if="' + attrs.inpQueryModel + '" ' + attrClearFun + '>close</a>');
+                    var elemInpIcon = $('<a class="mdi material-icons ico-search" ' + attrEnterFun + '>search</a>');
+                    var elemInpResultList = $('<label class="li" ng-repeat="item in ' + repetInObject + repetFilter
+                                                + '" ng-click="' + attrs.listSelectFun + '" >'
+                                                + listMdlIcon + '<i class="mdi material-icons" ng-if="item.icon">{[{item.icon}]}</i>\
+                                                {[{' + repetItem + '}]}</label>');
+                }
+
                 var elementResultEmpty = $('<span class="search-notmatchuser" ng-show="!' + repetInObject + '">No hay coincidencias</span>');
                 var elemContBtnsInf = $('<div class="cont-btns-inf" ng-show="' + repetInObject + '.length" >');
                 var elementBtnResult = $('<button class="btn-multiple-action mdl-button mdl-button--primary mdl-button--raised" '
