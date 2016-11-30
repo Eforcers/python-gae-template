@@ -7,18 +7,17 @@ $blue-grey-50 = $blue-grey-50 is defined ? $blue-grey-50 : rgba(96,125,139,0.5)
 $paddingBox = $paddingBox is defined ? $paddingBox : 10px
 
 // Animation for prevent tags  undefined from angular
-body
+html[ng-app] body
     visibility hidden
     opacity 0
     transition ease-in-out 1s all
 
-    /.mdl-js &.ng-scope
+html[ng-app].mdl-js body.ng-scope
         opacity 1
         visibility visible
 
         .mdl-layout__container
             animation showBody ease-in-out 1000ms
-
 
 /*MDS*/
 // fixed vertical position icons in line txt
@@ -27,6 +26,35 @@ body
     line-height 1em
     display inline-block
     margin auto
+
+.mdi
+.material-colors
+    &.mdi-8
+        font-size 8px
+
+    &.mdi-10
+        font-size 10px
+
+    &.mdi-12
+        font-size 12px
+
+    &.mdi-14
+        font-size 14px
+
+    &.mdi-16
+        font-size 16px
+
+    &.mdi-18
+        font-size 18px
+
+    &.mdi-20
+        font-size 20px
+
+    &.mdi-22
+        font-size 22px
+
+    &.mdi-24
+        font-size 24px
 
 .mdl-menu
 .mdl-navigation__link
@@ -242,6 +270,14 @@ input.mdl-textfield__input[type="file"]
     h1
         margin auto
         font-size $text_p
+
+        a
+            color $textColor
+
+        .material-icons
+        .mdi
+            position relative
+            top -3px
         
 .table-overflow
     display block
@@ -270,6 +306,7 @@ input.mdl-textfield__input[type="file"]
             text-align left
             display block
             width auto
+            height auto
 
         > table > tbody > tr
             padding 20px 20px 10px 20px
@@ -289,7 +326,7 @@ input.mdl-textfield__input[type="file"]
                     max-width 100%
                     margin-left 0.33em
                 
-            > td:before
+            > td[data-title]:before
                 content attr(data-title)':'
                 display inline-block
                 font-weight bold
@@ -319,6 +356,15 @@ table.overflow-tbody
         max-height 135px
         overflow-y auto
         overflow-x hidden
+
+table.table-no-lines
+    > tbody
+    > thead
+    > tfoot
+        > tr
+            > th
+            > td
+                border none
 
 // MENU popup
 .efor-menu

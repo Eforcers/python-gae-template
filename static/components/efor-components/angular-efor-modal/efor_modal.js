@@ -67,7 +67,9 @@
             $efmodal.removeClass('is-open').addClass('is-close');
 
             // restore slider
-            $scopeModal.slider.sectionView = 0;
+            if ($scopeModal.slider) {
+                $scopeModal.slider.sectionView = 0;
+            }
             //clear scope copy modal
             delete $scopeModal.scope;
 
