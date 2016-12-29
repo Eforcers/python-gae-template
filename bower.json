@@ -14,7 +14,7 @@
     "frontend"
   ],
   "license": "MIT",
-  "homepage": "eforcers.com", 
+  "homepage": "eforcers.com",
   "private": true,
   "ignore": [
     "**/.*",
@@ -25,8 +25,11 @@
     "tests"
   ],
   "dependencies": {
+    "angular-ui-notification": "https://github.com/prondzyn/angular-ui-notification.git#master",
     "efor-components": "https://github.com/poxstone/efor-components.git",
-    "angular-ui-notification": "^0.1.0",
-    "angular-translate": "^2.11.0"
+    "angular-translate": "^2.13.1"
+  },
+  "//": {
+    "angular-ui-notification": "^0.1.0"
   }
 }

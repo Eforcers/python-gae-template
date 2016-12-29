@@ -68,6 +68,6 @@ handlers:
   static_files: myApp/static/img/favicon.ico
   upload: myApp/static/img/favicon.ico
 
-
 - url: .*  # This regex directs all routes to main.app
   script: main.app
+

@@ -56,6 +56,24 @@ html[ng-app].mdl-js body.ng-scope
     &.mdi-24
         font-size 24px
 
+    &.mdi-26
+        font-size 26px
+
+    &.mdi-28
+        font-size 28px
+
+    &.mdi-30
+        font-size 30px
+
+    &.mdi-32
+        font-size 32px
+
+    &.mdi-34
+        font-size 34px
+
+    &.mdi-36
+        font-size 36px
+
 .mdl-menu
 .mdl-navigation__link
     .mdi
@@ -115,6 +133,15 @@ html[ng-app].mdl-js body.ng-scope
 // Fix blur on tooltip
 .mdl-tooltip
     will-change inherit
+
+// fix swich
+td, th
+    .mdl-switch
+        width 36px
+
+fieldset[disabled] .mdl-switch.is-checked .mdl-switch__thumb,
+.mdl-switch.is-disabled.is-checked .mdl-switch__thumb
+    background-color saturation($primary, 33%)
 
 //validations angular
 input.ng-valid.ng-touched{}
@@ -270,6 +297,7 @@ input.mdl-textfield__input[type="file"]
     h1
         margin auto
         font-size $text_p
+        font-weight normal
 
         a
             color $textColor
@@ -365,7 +393,7 @@ table.table-no-lines
             > th
             > td
                 border none
-
+    
 // MENU popup
 .efor-menu
     .mdl-menu__item

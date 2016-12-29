@@ -162,82 +162,84 @@
                 });
 
                 // Any Keypress
-                if (inpEnterFun) {
-                    elemInpQuery.on('keydown keypress', function(event) {
-                        // Key code is ENTER key
-                        switch (event.which) {
-                            case 13: // Enter
-                                var elementSelected = elemInpResultCont.children('.hover');
-                                // event on in put or list element
-                                if (elementSelected.length && !attrMultipleFun && element.is('.show-list')) {
-                                    event.preventDefault();
-                                    elementSelected.click();
-                                    elemInpQuery.blur();
+                elemInpQuery.on('keydown keypress', function(event) {
+                    // Key code is ENTER key
+                    switch (event.which) {
+                        case 13: // Enter
+                            var elementSelected = elemInpResultCont.children('.hover');
+                            // event on in put or list element
+                            if (elementSelected.length && !attrMultipleFun && element.is('.show-list')) {
+                                event.preventDefault();
+                                elementSelected.click();
+                                elemInpQuery.blur();
 
-                                } else if (attrMultipleFun && element.is('.show-list')) {
-                                    // Press multiple action button
-                                    event.preventDefault();
-                                    elementBtnResult.click();
-                                    // elemInpQuery.blur();
+                            } else if (attrMultipleFun && element.is('.show-list')) {
+                                // Press multiple action button
+                                event.preventDefault();
+                                elementBtnResult.click();
+                                // elemInpQuery.blur();
 
-                                } else {
+                            } else {
+                                if (inpEnterFun) {
                                     inpEnterFun();
-
+                                } else if (attrEnterFun) {
+                                    attrEnterFun();
                                 }
 
-                                break;
+                            }
 
-                            case 27: // escape
-                                    elemInpQuery.blur();
-                                    element.removeClass('show-list').addClass('hide-list');
+                            break;
 
-                                break;
+                        case 27: // escape
+                                elemInpQuery.blur();
+                                element.removeClass('show-list').addClass('hide-list');
 
-                            case 32: // space
-                                var elementSelected = elemInpResultCont.children('.hover');
-                                // Event on spacebar in select list item
-                                if (elementSelected.length && attrMultipleFun &&  element.is('.show-list')) {
-                                    event.preventDefault();
-                                    // the event on check checkbox item
-                                    elementSelected.find('input').click();
+                            break;
 
-                                } else {
-                                    element.removeClass('hide-list').addClass('show-list');
+                        case 32: // space
+                            var elementSelected = elemInpResultCont.children('.hover');
+                            // Event on spacebar in select list item
+                            if (elementSelected.length && attrMultipleFun &&  element.is('.show-list')) {
+                                event.preventDefault();
+                                // the event on check checkbox item
+                                elementSelected.find('input').click();
 
-                                }
-
-                                break;
-
-                            case 37: // Left
-                                break;
-
-                            case 38: // Up
-                                if (element.is('.show-list')) {
-                                    event.preventDefault();
-                                    moveSelectKey(elemInpResultCont, 'up');
-                                }
-                                break;
-
-                            case 39: // Right
-                                break;
-
-                            case 40: // Down
+                            } else {
                                 element.removeClass('hide-list').addClass('show-list');
-                                if (element.is('.show-list')) {
-                                    event.preventDefault();
-                                    moveSelectKey(elemInpResultCont, 'down');
 
-                                }
-                                break;
+                            }
 
-                            default:
-                                // When hide list after click
-                                element.removeClass('hide-list').addClass('show-list');
-                                break;
+                            break;
 
-                        }
-                    });
-                }
+                        case 37: // Left
+                            break;
+
+                        case 38: // Up
+                            if (element.is('.show-list')) {
+                                event.preventDefault();
+                                moveSelectKey(elemInpResultCont, 'up');
+                            }
+                            break;
+
+                        case 39: // Right
+                            break;
+
+                        case 40: // Down
+                            element.removeClass('hide-list').addClass('show-list');
+                            if (element.is('.show-list')) {
+                                event.preventDefault();
+                                moveSelectKey(elemInpResultCont, 'down');
+
+                            }
+                            break;
+
+                        default:
+                            // When hide list after click
+                            element.removeClass('hide-list').addClass('show-list');
+                            break;
+
+                    }
+                });
 
                 // sure close element when click outer component
                 var body = $('body');
