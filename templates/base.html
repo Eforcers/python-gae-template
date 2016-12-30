@@ -56,9 +56,9 @@
     <script type="application/javascript">
         var host_name_array = window.location.host.split('.');
         // In staging instance appengine
-        if (window.location.host.indexOf('appspot') != -1 &&
-                host_name_array.length > 3) {
+        if (window.location.host.indexOf('appspot') != -1 && host_name_array.length > 3) {
             window.api_host = host_name_array[0] + '-dot-';
+
             for (index = 1; index < host_name_array.length; index++ ) {
                 window.api_host += host_name_array[index];
             }
@@ -74,6 +74,7 @@
 
         window.loading_apis = false;
         window.google_client_loaded = false;
+
         function api_init() {
             console.log('Initializing Endpoints Service');
             {% autoescape false %}

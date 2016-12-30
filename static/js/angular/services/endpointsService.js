@@ -7,10 +7,9 @@ gApp.service('EndpointsService', function ($q, $rootScope, $http, $window, reque
 
     /**
      * build service methods from discovery document
-     * @param api
-     * @param resource
-     * @param method
-     * @returns {Function}
+     * @param {String} api - name api
+     * @param {String} method - name method endpoint
+     * @returns {Function} callback - from controller
      */
     var builder = function (api, method) {
         return function (args, callback) {
@@ -23,16 +22,23 @@ gApp.service('EndpointsService', function ($q, $rootScope, $http, $window, reque
                 $rootScope.$apply(deferred.resolve(resp));
                 requestNotificationChannel.requestEnded();
             });
+
             return deferred.promise;
         };
-    }
+    };
     
+	/*
+	 * Get authorization api for user
+	 * @param {String} client_id - client from constant and generate in proyect auth
+	 * @param {String} scopes - url Scopes apis to authorizate
+	 * @param {Function} auth_callback - function from controller
+	 */
     service.authorize = function(client_id, scopes, auth_callback){
         gapi.auth.authorize(
             {client_id: client_id, scope: scopes, immediate: true},
             service.auth_callback_builder(client_id, scopes, auth_callback)
         );
-    }
+    };
     
     service.auth_callback_builder = function(client_id, scopes, auth_callback){
     	return  function(authResult){
@@ -47,12 +53,13 @@ gApp.service('EndpointsService', function ($q, $rootScope, $http, $window, reque
     		
     		
     	}
-    }
+    };
 
     /**
      * brings the discovery document and adds methods in the service built from the information brought
-     * @param api
-     * @param version
+     * @param {String} api - name endpoint api
+     * @param {String} version - version endpoint api
+     * @param {function} callback - callback from controller
      */
     service.loadService = function (api, version, callback) {
         service.total_apis += 1;
@@ -108,5 +115,5 @@ gApp.service('EndpointsService', function ($q, $rootScope, $http, $window, reque
                 objectDatesToString(obj[key]);
             }
         }
-    }
+    };
 });

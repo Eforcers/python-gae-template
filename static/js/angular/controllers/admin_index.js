@@ -1,7 +1,7 @@
 (function() {
     "use strict";
-    gApp.controller('adminIndex', ['$scope', '$location', '$interval', 'EndpointsService', 'eforModal', 'Notification', '$filter',
-        function($scope, $location, $interval, endpointsService, $efmodal, notification, $filter) {
+    gApp.controller('adminIndex', ['$scope', '$location', '$window','$interval', 'EndpointsService', 'eforModal', 'Notification', '$filter',
+        function($scope, $location, $window, $interval, endpointsService, $efmodal, notification, $filter) {
 
         $scope.loaded = false;
         $scope.users = [];
@@ -10,7 +10,7 @@
         var translate = $filter('translate');
 
         $scope.$on(endpointsService.ENDPOINTS_READY, function() {
-            endpointsService.authorize(CLIENT_ID, SCOPES, $scope.listUsers);
+            endpointsService.authorize($window.CLIENT_ID, $window.SCOPES, $scope.listUsers);
         });
 
         $scope.listUsers = function() {
