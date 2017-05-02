@@ -1,4 +1,4 @@
-(function(){
+(function() {
     "use strict";
 
     var modalApp = angular.module('$eforModal',[]);
@@ -9,7 +9,7 @@
         ;
 
     // directive
-    function eforModalFactory($log, $window, $rootScope, $interval){
+    function eforModalFactory($log, $window, $rootScope, $interval) {
 
         var $efmodal = $('.efor-modal'); // for obtain $scope of modal from element modal
         var $scopeModal; // is enabled on first clic to open modal and
@@ -18,11 +18,11 @@
         var on_close_function = {}; // this function is prepared in open by option object
         var dir_confirm_template = confirmTemplate();
 
-        var isVisible = function( options ){
+        var isVisible = function( options ) {
             return ($efmodal.is(':visible') && $efmodal.is('.is-open'));
         };
 
-        function configureModal( options, callback ){
+        function configureModal( options, callback ) {
             // configuration
             on_close_function = options.onClose || null; // asign close function
             $scopeModal =  angular.element($efmodal).scope(); // obtin $scope of modal from element modal
@@ -40,18 +40,18 @@
             $efmodal.addClass('is-open');
 
             // reload MDL functions
-            if($window.reloadMDLDOM){
+            if($window.reloadMDLDOM) {
                 callback = callback || null;
                 $window.reloadMDLDOM($interval, callback);
             }
 
         };
 
-        function closeByKey(){
-            if(!window.closemodalkey){
+        function closeByKey() {
+            if(!window.closemodalkey) {
 
-                document.addEventListener('keydown', function(event){
-                        if(event.keyCode == 27){
+                document.addEventListener('keydown', function(event) {
+                        if(event.keyCode == 27) {
                             close();
                         }
                     }
@@ -60,7 +60,7 @@
             }
         };
 
-        function close( options, callback ){
+        function close( options, callback ) {
 
             // close modal
             $scopeModal.templateUrl = '';
@@ -74,24 +74,24 @@
             delete $scopeModal.scope;
 
             // apply callback open function
-            if( on_close_function ){
+            if( on_close_function ) {
                 on_close_function();
                 on_close_function = null;
             }
 
             // apply callbak function
-            if( arguments[2] ){
+            if( arguments[2] ) {
                 callback;
             }
 
             // delete confirm_modal variable
-            if( $scopeModal && $scopeModal.modal_confirm ){
+            if( $scopeModal && $scopeModal.modal_confirm ) {
                 delete $scopeModal.modal_confirm;
             }
 
         };
 
-        function open( options, callback ){
+        function open( options, callback ) {
 
             var options = options || {};
 
@@ -102,7 +102,7 @@
 
         };
 
-        function confirm(options){
+        function confirm(options) {
             // Preconfigure options
             var options = options || {};
             options.templateUrl = options.templateUrl || dir_confirm_template;
@@ -116,8 +116,8 @@
               text : options.text || '',
               confirm_text: options.confirm_text || 'Confirm',
               cancel_text: options.cancel_text || 'Cancel',
-              confirmAction: function(){
-                if( options.confirmAction ){
+              confirmAction: function() {
+                if( options.confirmAction ) {
                    options.confirmAction();
 
                 }
@@ -125,8 +125,8 @@
                 close();
 
               },
-              cancelAction: function(){
-                if( options.cancelAction ){
+              cancelAction: options.cancelAction && function() {
+                if( options.cancelAction ) {
                    options.cancelAction();
 
                 }
@@ -143,7 +143,7 @@
 
         };
 
-        function confirmTemplate(){
+        function confirmTemplate() {
             // search script url for replace with html template
             var script_sheet = document.querySelector('script[src*="efor_modal.js"]');
             script_sheet = script_sheet ? script_sheet.src.replace('efor_modal.js', 'modal_confirm_action.html') : null;
@@ -172,28 +172,28 @@
         $scope.slider = {
             sectionView : 0,
             back : false,
-            total : function(button){
+            total : function(button) {
 
                 var total = $(button).closest('.esmg-slider .esmg-section').length;
                 total = (total <= 0)? 0 : total;
                 return total;
 
             },
-            next: function(button){
+            next: function(button) {
 
                 var total = $scope.slider.total(button);
                 $scope.slider.sectionView = ( $scope.slider.sectionView <= total+1 )? $scope.slider.sectionView +1 : 0;
                 $scope.slider.back = false;
 
             },
-            previus: function(button){
+            previus: function(button) {
 
                 var total = $scope.slider.total(button);
                 $scope.slider.back = true;
                 $scope.slider.sectionView = ( $scope.slider.sectionView == 0 )? total : $scope.slider.sectionView -1;
 
             },
-            goto : function(slider){
+            goto : function(slider) {
 
                 $scope.slider.sectionView = slider;
 

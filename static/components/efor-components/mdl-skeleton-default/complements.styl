@@ -136,8 +136,20 @@ html[ng-app].mdl-js body.ng-scope
 
 // fix swich
 td, th
+    white-space normal
+    word-wrap break-word
+    word-break break-word
+    max-width 450px
+
     .mdl-switch
         width 36px
+
+    @media(max-width $screen-md)
+        width auto
+        
+
+td
+    vertical-align top
 
 fieldset[disabled] .mdl-switch.is-checked .mdl-switch__thumb,
 .mdl-switch.is-disabled.is-checked .mdl-switch__thumb
@@ -321,6 +333,10 @@ input.mdl-textfield__input[type="file"]
         overflow-x auto
         padding-bottom 50px
 
+        @media(max-width $screen-sm)
+            overflow visible
+            padding-bottom auto
+
     @media(max-width $screen-sm)
         padding-bottom 10px
 
@@ -420,6 +436,12 @@ table.table-no-lines
 .mdl-button.button-to-right
     float right
 
+    td > &
+        margin-right 0
+        min-width 22px
+        width 22px
+        height 20px
+
 // TABLES
 tr, th, td
     &[ng-click]
@@ -490,13 +512,18 @@ tr, th, td
 
     /.text-overflow
         display block
-        max-width 320px
+        max-width 280px
         overflow hidden
         text-overflow ellipsis
         white-space nowrap
 
         &.owner
             max-width 150px
+
+        @media(max-width $screen-md)
+            word-wrap break-word
+            word-break break-word
+            white-space normal
 
     .mdl-button--icon
         size 24px
