@@ -19,6 +19,9 @@ html[ng-app].mdl-js body.ng-scope
         .mdl-layout__container
             animation showBody ease-in-out 1000ms
 
+input
+    +input-placeholder()
+        color #cacaca
 /*MDS*/
 // fixed vertical position icons in line txt
 .mdi
@@ -102,7 +105,7 @@ html[ng-app].mdl-js body.ng-scope
             opacity 1
             background #fff
             visibility visible
-            z-index 1000
+            z-index 1001
             box-shadow 1px 1px 6px 0 rgba(0,0,0,0.2)
             right 0px
             bottom 32px
@@ -137,8 +140,6 @@ html[ng-app].mdl-js body.ng-scope
 // fix swich
 td, th
     white-space normal
-    word-wrap break-word
-    word-break break-word
     max-width 450px
 
     .mdl-switch
@@ -150,6 +151,12 @@ td, th
 
 td
     vertical-align top
+    word-break break-word
+    word-wrap break-word
+
+    &.td-normal
+        word-break normal
+        word-wrap normal
 
 fieldset[disabled] .mdl-switch.is-checked .mdl-switch__thumb,
 .mdl-switch.is-disabled.is-checked .mdl-switch__thumb
@@ -708,7 +715,7 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
     width 100%
     height 0
     box-sizing border-box
-    z-index 1000
+    z-index 1001 // EAGA needed for superposition menu
     text-align center
     transition ease-in-out 1s opacity
 
