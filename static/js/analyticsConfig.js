@@ -4,7 +4,7 @@ try{
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-00000000-0', 'eforcers.com');  // Creates a tracker.
+    ga('create', 'UA-00000000-0', 'xertica.com');  // Creates a tracker.
     var page = window.location.pathname;
 
     var titleGA;

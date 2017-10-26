@@ -4,33 +4,33 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title ng-bind="mainTitle"></title>
-    <meta name="description" content="A EFOR front-end.">
+    <meta name="description" content="A XERT front-end.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="EFOR - TEMPLATE">
+    <meta name="apple-mobile-web-app-title" content="XERT - TEMPLATE">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="msapplication-TileImage" content="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/favicon.png">
+    <meta name="msapplication-TileImage" content="https://storage.googleapis.com/efor-static/XERT/LOGOS/X_16.png">
     <meta name="msapplication-TileColor" content="#004EBA">
 
-    <link rel="icon" sizes="192x192" href="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/favicon.png">
-    <link rel="shortcut icon" href="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/favicon.png">
+    <link rel="icon" sizes="192x192" href="https://storage.googleapis.com/efor-static/XERT/LOGOS/X_16.png">
+    <link rel="apple-touch-icon-precomposed" href="https://storage.googleapis.com/efor-static/XERT/LOGOS/X_16.png">
+    <link rel="shortcut icon" href="https://storage.googleapis.com/efor-static/XERT/LOGOS/X_16.png">
     <title>{{title}}</title>
         
     <!-- css -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="//cdn.materialdesignicons.com/1.9.32/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="//cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
 
     <!-- js libraries -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-cookies.min.js"></script>
 
     <!-- esmg js -->
     <script src="/static/js/resources/language.js"></script>
@@ -101,7 +101,7 @@
     <div id="globalLoadingWidget" loading-widget class="block" ng-class="loadingClass">
         <div class="tag-loading">{[{ 'base_loading_message' | translate }]}</div>
         <div class="tag-block-screen">
-            <img class="loadign-img" src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/ef.svg">
+            <img class="loadign-img" src="https://storage.googleapis.com/efor-static/XERT/LOGOS/X.svg">
             <img class="loading-bar" src="/static/img/loading.svg">
             <p class="message">{[{ 'base_loading_message' | translate }]}</p>
         </div>
@@ -110,7 +110,7 @@
         <header id="header" class="efor-header mdl-layout__header mdl-color--white mdl-color-text--blue-grey-500">
             <div class="efor-layout__header-row mdl-layout__header-row">
                 <span class="efor-layout-title mdl-layout-title">
-                    <img src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/eforcers.svg" class="efor-logo mdl-layout--large-screen-only">
+                    <img src="https://storage.googleapis.com/efor-static/XERT/LOGOS/XERTICA.svg" class="efor-logo mdl-layout--large-screen-only">
                 </span>
 
                 {% block searchbar %}{# main content area #}{% endblock %}
@@ -132,12 +132,13 @@
                        class="material-icons efor-customer">account_circle</i>
                     <img class="efor-customer" ng-if="mn.imguser" ng-src="{[{mn.imguser}]}">
                 </button>
+                <button ng-click="clickme()">hola</button>
             </div>
         </header>
         <div class="efor-drawer mdl-layout__drawer" ng-if="!noShowMenu">
             <nav class="efor-navigation mdl-navigation" ng-controller="menuController">
                 <div class="efor-logo_client mdl-layout--small-screen-only">
-                    <img src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/eforcers.svg" class="logo">
+                    <img src="https://storage.googleapis.com/efor-static/XERT/LOGOS/XERTICA.svg" class="logo">
                     <div class="efor-user-text">
                         <i ng-if="!mn.imguser" class="material-icons efor-customer">account_circle</i>
                         <img class="efor-customer" ng-if="mn.imguser" ng-src="{[{mn.imguser}]}">
@@ -164,14 +165,12 @@
                  {% block content %}{# main content area #}{% endblock %}
             <!-- conatin -->
             <footer id="footer" class="efor-layout__footer">
-                <a href="http://www.eforcers.com" target="_blank" class="efor-button--fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--white mdl-color-text--blue">
-                    <img src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/ef.svg" class="efor-logo_ef">
+                <a href="http://www.xertica.com" target="_blank" class="efor-button--fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--white mdl-color-text--blue">
+                    <img src="//storage.googleapis.com/efor-static/APPS-SUITE/EAGA/EAGA_isotipo.svg" class="efor-logo_ef">
                 </a>
-                <a href="http://www.eforcers.com" target="_blank" class="efor-footer-credits">
-                    <img src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/ef-footer.svg" class="efor-footer">
+                <a href="http://www.xertica.com" target="_blank" class="efor-footer-credits">
                     <span class="powerby">
-                        <span>Powered by</span>
-                        <img src="https://storage.googleapis.com/efor-static/EFOR-LOGOS/EFOR/eforcers-black_big.png" class="efor-mono">
+                        <span>Powered by</span> <img src="//storage.googleapis.com/efor-static/XERT/LOGOS/XERTICA.svg" class="efor-mono">
                     </span>
                 </a>
             </footer>

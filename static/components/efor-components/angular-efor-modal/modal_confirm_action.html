@@ -9,7 +9,7 @@
              <div ng-if="modal_confirm.text" class="mdl-grid">{[{modal_confirm.text}]}</div>
         </div>
         <div class="info-footer">
-            <button ng-if="modal_confirm.cancelAction" ng-click="modal_confirm.cancelAction()" class="mdl-button mdl-js-button">{[{modal_confirm.cancel_text}]}</button>
+            <button ng-if="modal_confirm.cancelAction != ' ' && modal_confirm.cancelAction" ng-click="modal_confirm.cancelAction()" class="mdl-button mdl-js-button">{[{modal_confirm.cancel_text}]}</button>
             <button ng-if="modal_confirm.confirmAction" ng-click="modal_confirm.confirmAction()" class="mdl-button mdl-js-button mdl-button--primary">{[{modal_confirm.confirm_text}]}</button>
         </div>
     </div>

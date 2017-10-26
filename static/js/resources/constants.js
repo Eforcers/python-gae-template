@@ -1,4 +1,5 @@
 'use strict';
+window.API_ROOT = 'https://PROJECT.appspot.com/_ah/api';
 // Global for replace in tinymce
 window.findDomain = function() {
     // Validate exists Domain

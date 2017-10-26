@@ -1,167 +1,117 @@
 $blue-grey = $blue-grey is defined ? $blue-grey : #607d8b
+$blue-grey-900 = $blue-grey-900 is defined ? $blue-grey-900 : #263238
+$blue = $blue is defined ? $blue : #2196F3
 $rad = $rad is defined ? $rad : 0px
 $screen-sm = $screen-sm is defined ? $screen-sm : 480px
 $text_ps = $text_ps is defined ? $text_ps : 12px
 $tiny_font_color = $tiny_font_color is defined ? $tiny_font_color : rgba(255,255,255,0.75)
 
-body.tinyMCE_iframe_body
-    padding 2px 5px
-    max-height calc(100% - 20px)
-    background #fff
-    font-size 14px
-    font-family sans
+div.cke
+    border-color rgba(white, 0.25)
 
-.mdl-textfield
-    > .mce-tinymce
-        margin-top -20px
-        //margin-bottom -20px
+    .cke_inner
+        background rgba($blue-grey-900, 0.25)
 
-.mce-tinymce.mce-container.mce-panel
-    background rgba(0,0,0,0.1)
-    border-radius $rad
-    border rgba(255,255,255,0.5)
-    
-    .mce-path-item
-    .mce-divider
-    i.mce-i-resize
-        color $tiny_font_color
-    
-        .mce-divider
-            opacity 0.5
-    
-    .mce-menubar.mce-toolbar 
-    .mce-toolbar-grp
-        .mce-container-body
-            @media(max-width $screen-sm)
-                overflow auto
-                display flex
-                padding-bottom 10px
-                scrollbar($blue-grey, true, 4px)
+    .cke_top
+        background transparent
+        border transparent
 
-    .mce-container-body
-        .mce-container.mce-panel
-        .mce-menubar
-        .mce-toolbar-grp
-        .mce-btn
-            background transparent
+    .cke_toolgroup
+    .cke_combo_button
+        border-color rgba(white, 0.25)
+        background transparent
+        box-shadow none
+
+        a.cke_button
+            &:hover
+                background rgba(white, 0.25)
+
+            &[title="About CKEditor"]
+              display none
+
+        &[title="Tags"]
+            background rgba($blue, 0.25)
+
+            a.cke_bottom:hover
+                background rgba($blue, 0.5)
+
+    .cke_combo_off a.cke_combo_button
+        &:hover
+        &:focus
+            background rgba(white, 0.25)
+
+    .cke_button_on
+        &
+        &:hover
+            background rgba(black, 0.25)
+            box-shadow none
+
+    .cke_combo_on 
+        a.cke_combo_button
+            &
+            &:hover
+            &:focus
+                background rgba(black, 0.25)
+                box-shadow none
+
+    .cke_bottom
+        background transparent
+        border none !important
+
+        .cke_path_item
+        .cke_path_empty
+            color #ccc
+            text-shadow none
+    
+        .cke_path_item
+            background rgba(black, 0.20)
+
+    .cke_button_disabled
+        &:hover
+        &:focus
+            background none !important
+            box-shadow none
             
-            .mce-btn
-            .mce-menubtn button
-                box-sizing border-box
-                background transparent
-        
-                .mce-ico
-                &, span
-                    color $tiny_font_color
-        
-                .mce-caret
-                    border-top-color $tiny_font_color
-        
-                .mce-preview
-                    background $tiny_font_color
-                    
-            .mce-btn
-            .mce-menubtn
-                &:hover
-                &:focus
-                    background rgba(255,255,255,0.1) !important
-                    border-color transparent
-        
-                &.mce-active
-                    background rgba(255,255,255,0.15) !important
-        
-            .mce-btn-group
-                border 1px solid rgba(217, 217, 217, 0.15)
-                padding-left 0px
-                background rgba(217, 217, 217, 0.1)
-                border-radius $rad
-        
-body > .mce-container.mce-panel.mce-floatpanel.mce-popover
-    width auto !important
-    height auto !important
-
-body > .mce-container.mce-panel
-    height auto !important
-    
-    table.mce-colorbutton-grid
-        td > div
-            size 12px
             
-        td.mce-grid-cell.mce-colorbtn-trans
-            position absolute
-            top -1px
-            left 100%
-        
-            > div
-                background #fff !important
-                height 20px
-                width 20px
-            
-        td.mce-custom-color-btn[colspan="8"]
-            > div.mce-btn
-                height auto
-        
-            button 
-                display block
-                border 1px solid lightgrey
-                background rgba(0,0,0,0.05)
-                width 100%
-                line-height 1.4em
-                border-radius 2px
 
-.mce-tinymce-inline .mce-container-body
-// table tooltips
-.mce-tinymce.mce-tinymce-inline.mce-container.mce-panel.mce-floatpanel
-    background #fff
-    box-shadow rgba(0,0,0,0.1) 0 2px 4px 0
-    
-//for modal url image charge and code
-@media(max-width $screen-sm)
-    .mce-tinymce.mce-tinymce-inline.mce-container.mce-panel.mce-floatpanel.mce-tinymce-inline-inside
-        padding-bottom 10px
-        box-shadow rgba(0,0,0,0.25) 0 4px 4px 0
-    
-        
-    .mce-container.mce-panel.mce-floatpanel.mce-window
-    .mce-tinymce.mce-tinymce-inline.mce-container.mce-panel.mce-floatpanel.mce-tinymce-inline-inside
-        left 0 !important
-        right 0 !important
-        margin auto !important
-        width auto !important
-        position absolute
-        background #fff
-        overflow auto
-        max-width 90%
-        max-height 95%
 
-        .mce-dragh
-            display none
-        
-        .mce-reset
-            .mce-container-body.mce-abs-layout
-                max-width 100%
-                overflow auto
-                overflow-y hidden
-                scrollbar(grey, false, 4px)
+a.cke_dialog_ui_button_ok
+    background $blue !important
+    border-color $blue !important
+    color white
+
+div.cke_dialog_title
+    background white
+    border none
+    text-shadow none
+    color #333
+
+div.cke_dialog_body
+    background white
+
+td.cke_dialog_footer
+    background transparent
+
+textarea.cke_source
+    background rgba($blue-grey-900, 0.85) !important
+    color white
+    display block
+    box-sizing border-box
+    border-left 0
+    border-right 0
+    scrollbar($blue-grey-500, true, 8px, false)
+    color $green-500
+
+select.cke_dialog_ui_input_select
+input.cke_dialog_ui_input_text
+input.cke_dialog_ui_input_password
+textarea.cke_dialog_ui_input_textarea
+    box-shadow none !important
+
+div.cke_dialog_background_cover
+    background $blue-grey-900 !important
+
+div.cke_combopanel
+div.cke_panel
+    box-shadow rgba(0,0,0,0.25) 2px 2px 12px 0px
             
-                textarea.mce-textbox.mce-multiline.mce-first.mce-last.mce-abs-layout-item
-                    font-size $text_ps
-                
-            .mce-container.mce-panel.mce-foot
-                max-width 100%
-        
-                .mce-container-body.mce-abs-layout
-                    max-width 100%
-        
-                    .mce-widget.mce-btn
-                        position static
-                        float left
-                        margin 10px
-                        
-                        & + .mce-btn
-                            margin-left 0
-// the slect menú for example tag esmg menu
-.mce-container.mce-panel.mce-floatpanel.mce-menu
-    max-height 275px
-        
-        

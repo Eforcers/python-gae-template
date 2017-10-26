@@ -54,6 +54,7 @@ $textGray = $textGray is defined ? $textGray : #666666
 
     .toast
         position absolute
+        top 0
         left 0
         right 0
         font-size $text_ps
@@ -135,6 +136,8 @@ $textGray = $textGray is defined ? $textGray : #666666
             font-weight normal
             font-size $text_p
             background rgba(0, 0, 0, .1)
+            width 100%
+            box-sizing border-box
 
             b
                 font-weight bold
@@ -306,6 +309,7 @@ $textGray = $textGray is defined ? $textGray : #666666
 
         @media(max-width $screen-md)
             padding $paddingBox $paddingBox*2
+            box-sizing border-box
 
         @media(max-width $screen-sm)
             padding-top 1px
@@ -333,12 +337,13 @@ $textGray = $textGray is defined ? $textGray : #666666
             padding 0
             
         &.width-lg
-            max-width 600px !important
+            max-width 700px !important
             margin auto
             padding 0
 
     //mod colors
     .mdl-textfield
+    .mdl-modal-input-color
         .is-invalid.is-upgraded
             // pristine indique if is initial value not mod
                         
@@ -390,14 +395,25 @@ $textGray = $textGray is defined ? $textGray : #666666
         .mdl-radio__outer-circle
         .mdl-radio.is-checked .mdl-radio__outer-circle
             border-color #fff
-            
 
+        .mdl-checkbox__box-outline 
+        .mdl-checkbox.is-checked .mdl-checkbox__box-outline
+            border-color white
+
+        .mdl-checkbox.is-checked .mdl-checkbox__box-outline
+            background white
+
+        .mdl-checkbox.is-checked .mdl-checkbox__tick-outline
+            background $blue url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8cGF0aAogICAgIGQ9Ik0gMC4wNDAzODA1OSwwLjYyNjc3NjcgMC4xNDY0NDY2MSwwLjUyMDcxMDY4IDAuNDI5Mjg5MzIsMC44MDM1NTMzOSAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IE0gMC4yMTcxNTcyOSwwLjgwMzU1MzM5IDAuODUzNTUzMzksMC4xNjcxNTcyOSAwLjk1OTYxOTQxLDAuMjczMjIzMyAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IgogICAgIGlkPSJyZWN0Mzc4MCIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K")
 
     :not(.mdl-cell) > .mdl-textfield
         width 100%
 
     .mdl-cell > .mdl-textfield
         margin-left -8px
+
+    .efor-color-radio-input
+        margin-top 20px
 
     .efor-color-input
         margin-bottom -($paddingBox *2)

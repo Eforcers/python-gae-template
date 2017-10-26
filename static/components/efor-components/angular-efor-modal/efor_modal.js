@@ -180,11 +180,21 @@
 
             },
             next: function(button) {
+                // Prevent next
+                if ( window.blockBtnNext ) {
+                    return false;
+                } else {
+                    window.blockBtnNext = true;
+                    // enable button 
+                    window.blockBtnNext = window.setTimeout(function() {
+                        window.blockBtnNext = false;
+                    }, 750);
+                }
 
                 var total = $scope.slider.total(button);
                 $scope.slider.sectionView = ( $scope.slider.sectionView <= total+1 )? $scope.slider.sectionView +1 : 0;
                 $scope.slider.back = false;
-
+                
             },
             previus: function(button) {
 

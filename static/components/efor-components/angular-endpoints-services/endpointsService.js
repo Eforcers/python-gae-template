@@ -81,7 +81,12 @@
 		}
 
 		service.authorize = function(client_id, scopes, auth_callback) {
-			// Store function in queue
+      if (gapi.auth.getToken() === null || gapi.auth.getToken() === undefined ) {
+        $rootScope.not_authorized = true;
+      } else {
+        $rootScope.not_authorized = false;
+      }
+      // Store function in queue
 			queueFun.push(auth_callback);
 			// send google auth
 			gapi.auth.authorize(
@@ -101,6 +106,7 @@
 						);
 				} else{
 					// run all functions queue
+          $rootScope.not_authorized = false;
 					return runQueueFun(authResult);
 
 				}
@@ -121,7 +127,11 @@
 			if (apiRoot.indexOf("localhost") >= 0 || apiRoot.indexOf("127.0.0.1") >= 0) {
 				apiRoot = "http://" + apiRoot;
 			} else {
-				apiRoot = "https://" + apiRoot;
+        if ( !(window.api_host && window.api_host.match(/appspot.com/i)) && window.API_ROOT ) {
+          apiRoot = window.API_ROOT; /*In constants.js*/
+        } else {
+          apiRoot = "https://" + apiRoot;
+        }
 			}
 
 			gapi.client.load(api, version, function() {
@@ -137,7 +147,9 @@
 
 						for (var method in data.methods) {
 							service[method] = builder(api, method);
-							$log.info("Method " + method + " created");
+              if ( location.host.match(/localhost/) ) {
+                $log.info("Method " + method + " created");
+              }
 
 						}
 						service.loaded_apis += 1;
@@ -167,7 +179,6 @@
 		};
 
 		if ($window.google_client_loaded && !$window.loading_apis) {
-			console.log('Api client loaded first, loading apis...');
 			for (var i in $window.apis) {
 				var api = $window.apis[i];
 				$window.api_load(api.name, api.version);
