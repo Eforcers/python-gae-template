@@ -32,7 +32,9 @@ window.language_content = {
 
         "user_delete_title": "Remove user",
         "user_delete_subtitle": "Do you want remove?",
-        "user_delete_message": "The user will be removed"
+        "user_delete_message": "The user will be removed",
+        "authorize_app": "Authorization is required"
+
     },
 
     "es": {
@@ -62,7 +64,8 @@ window.language_content = {
 
         "user_delete_title": "Eliminar usuario",
         "user_delete_subtitle": "¿Desea confirmar eliminar?",
-        "user_delete_message": "El usuario será eliminado"
+        "user_delete_message": "El usuario será eliminado",
+        "authorize_app": "Autorización requerida"
     }
 };
 

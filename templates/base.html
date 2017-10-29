@@ -132,7 +132,7 @@
                        class="material-icons efor-customer">account_circle</i>
                     <img class="efor-customer" ng-if="mn.imguser" ng-src="{[{mn.imguser}]}">
                 </button>
-                <button ng-click="clickme()">hola</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored hidden" ng-click="login()" >{[{ 'authorize_app' | translate  }]}</button>
             </div>
         </header>
         <div class="efor-drawer mdl-layout__drawer" ng-if="!noShowMenu">

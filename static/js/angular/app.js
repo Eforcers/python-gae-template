@@ -32,8 +32,15 @@
             endpointsService.authorize(CLIENT_ID, SCOPES, getSettings);
         });
 
+        $rootScope.login = function() {
+            endpointsService.authorize(CLIENT_ID, SCOPES, function(){
+              $scope.$apply();
+            }, false);
+        };
+
         function getSettings() {
             notification.info('Settings');
+            $scope.$apply();
         }
 
         // Change language

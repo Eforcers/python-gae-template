@@ -2,7 +2,7 @@
 	'use strict';
 
 	// Service
-	window.EndpointsService = function($log, $q, $rootScope, $http, $window , requestNotificationChannel) {
+	window.EndpointsService = function($log, $q, $rootScope, $http, $window, requestNotificationChannel) {
 
 		var service = this;
 		service.ENDPOINTS_READY = "ENDPOINTS_READY";
@@ -80,17 +80,33 @@
 			queueFun = [];
 		}
 
-		service.authorize = function(client_id, scopes, auth_callback) {
+    service.isLoged = function() {
+      var buttons = document.querySelectorAll("[ng-click^='login(']");
       if (gapi.auth.getToken() === null || gapi.auth.getToken() === undefined ) {
         $rootScope.not_authorized = true;
       } else {
         $rootScope.not_authorized = false;
       }
+
+      for ( var btni=0; btni < buttons.length; btni++ ) {
+        if ( $rootScope.not_authorized ) {
+          buttons[btni].classList.remove('hidden');
+        } else {
+          buttons[btni].classList.add('hidden');
+        }
+      }
+
+      return $rootScope.not_authorized;
+    };
+
+		service.authorize = function(client_id, scopes, auth_callback, mode) {
+      // mode in click
+      var mode = mode == undefined ? true : mode; 
       // Store function in queue
 			queueFun.push(auth_callback);
 			// send google auth
 			gapi.auth.authorize(
-				{client_id: client_id, scope: scopes, immediate: true},
+				{client_id: client_id, scope: scopes, immediate: mode},
 				service.auth_callback_builder(client_id, scopes)
 			);
 		}
@@ -99,6 +115,7 @@
 			// Save the accessToken for reutilizae in frontend
 			return  function(authResult) {
 				if (authResult.error) {
+          service.isLoged();
 					gapi.auth.authorize(
 							{client_id: client_id, scope: scopes, immediate: false},
 							runQueueFun // send with errors
@@ -107,12 +124,13 @@
 				} else{
 					// run all functions queue
           $rootScope.not_authorized = false;
+          service.isLoged();
 					return runQueueFun(authResult);
 
 				}
 
 			}
-		}
+		};
 
 		/**
 		 * brings the discovery document and adds methods in the service built from the information brought
@@ -169,23 +187,24 @@
 		$window.api_load = function(api, version) {
 			// Open angular broadcast _START_REQUEST_ (block screen to load endpoints)
 			requestNotificationChannel.requestStarted('block');
+      // to use auth
+      $window.apisToLoad = $window.apisToLoad >= 0 ? $window.apisToLoad : $window.apis.length || 0;
+      var callbackInint = function() {
+        if (--$window.apisToLoad == 0) {
+
+          gapi.client.load('oauth2', 'v2', function() { });
+        }
+      }
 
 			service.loadService(api, version, function() {
 				if (service.loaded_apis == service.total_apis) {
 					$rootScope.$broadcast(service.ENDPOINTS_READY);
 					requestNotificationChannel.requestEnded();
 				}
+        // add oauth 2
+        callbackInint();
 			});
 		};
-
-		if ($window.google_client_loaded && !$window.loading_apis) {
-			for (var i in $window.apis) {
-				var api = $window.apis[i];
-				$window.api_load(api.name, api.version);
-			}
-
-			$window.loading_apis = true;
-		}
 
 		function objectDatesToString(obj) {
 			for (var key in obj) {
@@ -202,6 +221,6 @@
 				}
 			}
 		}
-	}
 
+	}
 })();

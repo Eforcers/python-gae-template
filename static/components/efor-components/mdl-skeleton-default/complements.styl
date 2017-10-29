@@ -13,11 +13,23 @@ html[ng-app] body
     transition ease-in-out 1s all
 
 html[ng-app].mdl-js body.ng-scope
-        opacity 1
-        visibility visible
+    opacity 1
+    visibility visible
 
-        .mdl-layout__container
-            animation showBody ease-in-out 1000ms
+    .mdl-layout__container
+        animation showBody ease-in-out 1000ms
+
+[ng-click="login()"]
+    opacity 1
+    transition ease-in-out 300ms all
+    max-width 320px
+
+    &:hover
+        transform translateY(-3px)
+
+    &.hidden
+        max-width 0px
+        opacity 0
 
 input
     +input-placeholder()
