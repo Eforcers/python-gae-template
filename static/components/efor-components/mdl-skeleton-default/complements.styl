@@ -3,6 +3,7 @@ $primary = $primary is defined ? $primary : #3f51b5
 $screen-sm = $screen-sm is definded ? $screen-sm : 480px 
 $blue-grey = $blue-grey is defined ? $blue-grey : #76868d
 $red = $red is defined ? $red :rgb(255,64,129) 
+$rad = $rad is defined ? $rad :4px
 $blue-grey-50 = $blue-grey-50 is defined ? $blue-grey-50 : rgba(96,125,139,0.5)
 $paddingBox = $paddingBox is defined ? $paddingBox : 10px
 
@@ -36,6 +37,7 @@ input
         color #cacaca
 /*MDS*/
 // fixed vertical position icons in line txt
+.xdi
 .mdi
     font-size 24px
     line-height 1em
@@ -43,6 +45,7 @@ input
     margin auto
 
 .mdi
+.xdi
 .material-colors
     &.mdi-8
         font-size 8px
@@ -89,11 +92,80 @@ input
     &.mdi-36
         font-size 36px
 
+.efor-navigation
+    *[main-menu]
+        a.mdl-navigation__link
+            &.is-disabled
+                opacity 0.5
+
+        a.mdl-navigation__link.has-child
+            position relative
+            border-bottom 1px solid rgba($blue-grey, 0.25)
+
+            &:after
+                position absolute
+                display inline-block
+                size 1em
+                right 0.25em
+                top 10px
+                content "\25BC"
+
+            &.is-closed
+                &:after
+                    content "\25B2"
+
+            &.is-closed ~ .content-links
+                padding-bottom 0
+                
+                .mdl-navigation__link
+                    height 0
+                    opacity 0
+                    padding-top 0
+                    padding-bottom 0
+                    line-height 0
+                    overflow hidden
+
+        &, .content-links
+            display block
+            padding 0
+            margin 0
+
+            .mdl-navigation__link
+                line-height 1.2em
+                transition ease-in-out 300ms all
+
+        &
+            padding-bottom 20px
+
+        .level-0 > .content-links a.mdl-navigation__link
+            text-indent 0.25em
+            padding-top 6px
+            padding-bottom 6px
+
+        .level-1 > a.mdl-navigation__link
+            text-indent 0.25em
+
+        .level-2 > a.mdl-navigation__link
+            text-indent 0.5em
+            
+        .level-3 > a.mdl-navigation__link
+            text-indent 0.75em
+            
+        .level-4 > a.mdl-navigation__link
+            text-indent 1em
+            
+        .content-links.level-1:last-child
+            padding-bottom 10px
+
 .mdl-menu
 .mdl-navigation__link
+    .xdi
     .mdi
     .material-icons
         vertical-align middle
+
+    .mdi
+        margin-right 0.25em
 
 .mdl-button
     text-transform none
@@ -101,9 +173,11 @@ input
 // fix general problem with mdi icons
 .material-icons
 .mdi
+.xdi
     vertical-align middle
 
 .mdl-button
+    .xdi:before
     .mdi:before
         position relative
         top -2px
@@ -291,6 +365,10 @@ input.mdl-textfield__input[type="file"]
 .padding-left
     padding-left $paddingBox
         
+.cont-base-white
+    background white
+    border-radius $rad
+
 .efor-layout__header-row
     .efor-logo
         width 100%
@@ -307,10 +385,20 @@ input.mdl-textfield__input[type="file"]
             float right
             text-align center
 
+            .xdi
             .mdi
                 margin auto
 
 .efor-layout__content
+
+    .cont-views
+        padding 10px
+
+    @media(max-width $screen-sc)
+        .cont-views > .mdl-cell
+            max-width none
+            width auto
+
     /.MSIE90 &
         width 100%
 
@@ -338,6 +426,7 @@ input.mdl-textfield__input[type="file"]
             color $textColor
 
         .material-icons
+        .xdi
         .mdi
             position relative
             top -3px
@@ -447,6 +536,7 @@ table.table-no-lines
         
     .mdl-button--icon
         .material-icons
+        .xdi
         .mdi
             margin-right .25em 
             
@@ -1115,6 +1205,7 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
     vertical-align middle
 
     &.mdi
+    &.xdi
         margin-left -4px
 
 //details in modal
@@ -1148,6 +1239,7 @@ mdlButton-disabled($bg=gray, $col=#fff, $col2=gray , args...)
 
         .material-icons
         .mdi
+        .xdi
             font-size 18px
             display inline-block
 

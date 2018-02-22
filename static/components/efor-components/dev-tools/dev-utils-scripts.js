@@ -49,7 +49,7 @@
         window.resizeNgInstector = function(){
 
             // run
-            var inter = setInterval( function(){
+            var inter = setInterval( function() {
                 var content = document.querySelector('body > .mdl-layout__container');
                 var inspector = document.querySelector('body > .ngi-inspector');
 

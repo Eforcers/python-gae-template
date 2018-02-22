@@ -47,12 +47,11 @@
 
         };
 
-        function closeByKey() {
+        function closeByKey(options) {
             if(!window.closemodalkey) {
-
                 document.addEventListener('keydown', function(event) {
                         if(event.keyCode == 27) {
-                            close();
+                            close(options);
                         }
                     }
                 );
@@ -98,7 +97,7 @@
             configureModal( options, callback );
 
             //add close modal event key for "esc"
-            closeByKey();
+            closeByKey(options);
 
         };
 

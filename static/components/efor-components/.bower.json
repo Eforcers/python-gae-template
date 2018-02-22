@@ -20,11 +20,11 @@
     "test",
     "tests"
   ],
-  "_release": "bb20b56efa",
+  "_release": "5232a9af10",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "bb20b56efa34827802a480748c589224891947a8"
+    "commit": "5232a9af109c9f388b743eb905506fde20aba683"
   },
   "_source": "https://github.com/poxstone/efor-components.git",
   "_target": "*",
